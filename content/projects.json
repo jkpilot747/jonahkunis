@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "chamisal-vineyards-2026",
+    "title": "Chamisal Vineyards",
+    "year": 2026,
+    "category": "commercial",
+    "client": "Chamisal Vineyards",
+    "role": "Photography, direction",
+    "description": "Product and lifestyle photography for a small-batch Central Coast winery.",
+    "cover": { "src": "01.jpg", "focal": "50% 30%" },
+    "images": [
+      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    ]
+  },
+  {
+    "slug": "north-fork-trail-2025",
+    "title": "North Fork Trail",
+    "year": 2025,
+    "category": "personal",
+    "client": "Self-directed",
+    "role": "Photography",
+    "description": "A personal landscape series shot along the North Fork trail system.",
+    "cover": { "src": "01.jpg" },
+    "images": [
+      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    ]
+  },
+  {
+    "slug": "still-life-no-2-2024",
+    "title": "Still Life, No. 2",
+    "year": 2024,
+    "category": "personal",
+    "client": "Self-directed",
+    "role": "Photography",
+    "description": "A study of light and object, shot over one afternoon.",
+    "cover": { "src": "01.jpg" },
+    "images": [
+      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    ]
+  },
+  {
+    "slug": "terra-studio-2026",
+    "title": "Terra Studio",
+    "year": 2026,
+    "category": "projects",
+    "client": "Terra Studio",
+    "role": "Art direction, product photography",
+    "description": "Art direction and product photography for a home goods brand relaunch.",
+    "cover": { "src": "01.jpg" },
+    "images": [
+      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    ]
+  },
+  {
+    "slug": "late-harvest-2025",
+    "title": "Late Harvest",
+    "year": 2025,
+    "category": "commercial",
+    "client": "Sonoma Cellars",
+    "role": "Photography",
+    "description": "A second season of work for a Sonoma winery's harvest release.",
+    "cover": { "src": "01.jpg" },
+    "images": [
+      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    ]
+  },
+  {
+    "slug": "union-pacific-2024",
+    "title": "Union Pacific",
+    "year": 2024,
+    "category": "projects",
+    "client": "Self-directed",
+    "role": "Concept, direction, photography",
+    "description": "A self-directed identity concept exploring a warmer, more human visual language.",
+    "cover": { "src": "01.jpg" },
+    "images": [
+      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    ]
+  }
+]

@@ -1,15 +1,21 @@
-const FILTERS = ["ALL", "PROJECTS", "COMMERCIAL", "PERSONAL"];
+"use client";
 
-const PROJECTS = [
-  "Chamisal Vineyards",
-  "North Fork Trail",
-  "Still Life, No. 2",
-  "Terra Studio",
-  "Late Harvest",
-  "Union Pacific",
-];
+import { useState } from "react";
+import projects from "@/content/projects.json";
+
+const FILTERS = ["ALL", "PROJECTS", "COMMERCIAL", "PERSONAL"] as const;
+type Filter = (typeof FILTERS)[number];
 
 export default function Home() {
+  const [activeFilter, setActiveFilter] = useState<Filter>("ALL");
+
+  const visibleProjects =
+    activeFilter === "ALL"
+      ? projects
+      : projects.filter(
+          (project) => project.category === activeFilter.toLowerCase(),
+        );
+
   return (
     <div className="min-h-screen">
       <aside className="fixed left-5 top-5 bottom-5 flex w-[640px] flex-col rounded-[10px] bg-panel p-5">
@@ -23,24 +29,26 @@ export default function Home() {
         <div className="mt-5 border-t border-hairline" />
 
         <div className="mt-5 flex gap-3">
-          {FILTERS.map((filter, i) => (
-            <span
+          {FILTERS.map((filter) => (
+            <button
               key={filter}
+              type="button"
+              onClick={() => setActiveFilter(filter)}
               className={`font-mono text-filter uppercase tracking-filter ${
-                i === 0 ? "text-ink" : "text-muted"
+                filter === activeFilter ? "text-ink" : "text-muted"
               }`}
             >
               {filter}
-            </span>
+            </button>
           ))}
         </div>
 
         <div className="mt-5 border-t border-hairline" />
 
-        <ul className="mt-5 min-h-0 flex-1 overflow-y-auto">
-          {PROJECTS.map((project) => (
-            <li key={project} className="text-index tracking-index">
-              {project}
+        <ul className="index-list mt-5 min-h-0 flex-1 overflow-y-auto">
+          {visibleProjects.map((project) => (
+            <li key={project.slug} className="text-index tracking-index">
+              {project.title}
             </li>
           ))}
         </ul>
@@ -54,8 +62,11 @@ export default function Home() {
       </aside>
 
       <main className="ml-[680px] grid grid-cols-2 gap-4 pt-2 pr-2 pb-2 min-[1800px]:grid-cols-3">
-        {PROJECTS.map((project) => (
-          <div key={project} className="aspect-[3/2] rounded-[6px] bg-[#c9c9c4]" />
+        {visibleProjects.map((project) => (
+          <div
+            key={project.slug}
+            className="aspect-[3/2] rounded-[6px] bg-[#c9c9c4]"
+          />
         ))}
       </main>
     </div>

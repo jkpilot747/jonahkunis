@@ -44,3 +44,18 @@ body {
   color: var(--ink);
   font-family: var(--font-sans);
 }
+
+/* Index hover — see docs/design-brief.md, Interaction. Hovering a project
+   name drops every other name to 40% opacity; the hovered item stays full. */
+.index-list li {
+  opacity: 1;
+  transition: opacity 150ms;
+}
+
+.index-list:hover li {
+  opacity: 0.4;
+}
+
+.index-list:hover li:hover {
+  opacity: 1;
+}
