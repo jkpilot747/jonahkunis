@@ -1,80 +1,227 @@
 [
   {
-    "slug": "chamisal-vineyards-2026",
-    "title": "Chamisal Vineyards",
-    "year": 2026,
-    "category": "commercial",
-    "client": "Chamisal Vineyards",
-    "role": "Photography, direction",
-    "description": "Product and lifestyle photography for a small-batch Central Coast winery.",
-    "cover": { "src": "01.jpg", "focal": "50% 30%" },
-    "images": [
-      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
-    ]
-  },
-  {
-    "slug": "north-fork-trail-2025",
-    "title": "North Fork Trail",
+    "slug": "equal-eats-2025",
+    "title": "Equal Eats",
     "year": 2025,
-    "category": "personal",
-    "client": "Self-directed",
-    "role": "Photography",
-    "description": "A personal landscape series shot along the North Fork trail system.",
-    "cover": { "src": "01.jpg" },
-    "images": [
-      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
-    ]
+    "category": "projects",
+    "client": "Equal Eats",
+    "role": "",
+    "description": "Shot and produced a 46-product photography project for Equal Eats solo, end to end. Scoped the shoot, built the schedule, planned locations, and executed both product and lifestyle setups. Delivered assets for e-commerce, marketing, and social.",
+    "cover": null,
+    "images": []
   },
   {
-    "slug": "still-life-no-2-2024",
-    "title": "Still Life, No. 2",
-    "year": 2024,
-    "category": "personal",
-    "client": "Self-directed",
-    "role": "Photography",
-    "description": "A study of light and object, shot over one afternoon.",
-    "cover": { "src": "01.jpg" },
-    "images": [
-      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
-    ]
-  },
-  {
-    "slug": "terra-studio-2026",
-    "title": "Terra Studio",
+    "slug": "smarter-window-2026",
+    "title": "Smarter Window",
     "year": 2026,
     "category": "projects",
-    "client": "Terra Studio",
-    "role": "Art direction, product photography",
-    "description": "Art direction and product photography for a home goods brand relaunch.",
-    "cover": { "src": "01.jpg" },
-    "images": [
-      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
-    ]
+    "client": "Smarter Window",
+    "role": "",
+    "description": "Working directly with the founder of an early-stage startup building smart-home hardware for casement windows. Content planning, photo and video production, and go-to-market strategy, from scoping through execution.",
+    "cover": null,
+    "images": []
   },
   {
-    "slug": "late-harvest-2025",
-    "title": "Late Harvest",
-    "year": 2025,
-    "category": "commercial",
-    "client": "Sonoma Cellars",
-    "role": "Photography",
-    "description": "A second season of work for a Sonoma winery's harvest release.",
-    "cover": { "src": "01.jpg" },
-    "images": [
-      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
-    ]
+    "slug": "bay-home-consignment-2022",
+    "title": "Bay Home Consignment",
+    "year": 2022,
+    "category": "projects",
+    "client": "Bay Home Consignment",
+    "role": "",
+    "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Built an Excel tracker that automates eBay fee calculations and consignor payouts.",
+    "cover": null,
+    "images": []
   },
   {
-    "slug": "union-pacific-2024",
-    "title": "Union Pacific",
+    "slug": "pro-power-washes-2024",
+    "title": "Pro Power Washes",
     "year": 2024,
     "category": "projects",
-    "client": "Self-directed",
-    "role": "Concept, direction, photography",
-    "description": "A self-directed identity concept exploring a warmer, more human visual language.",
-    "cover": { "src": "01.jpg" },
+    "client": "Pro Power Washes",
+    "role": "",
+    "description": "Built and ran a pressure washing service specializing in concrete, tile, wood, and stone restoration. Handled all advertising, client acquisition, and on-site work. Reached five-figure profit within three months of launch.",
+    "cover": null,
+    "images": []
+  },
+  {
+    "slug": "real-estate-architecture",
+    "title": "Real Estate & Architecture",
+    "year": null,
+    "category": "commercial",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": null,
+    "images": []
+  },
+  {
+    "slug": "events-fundraisers",
+    "title": "Events & Fundraisers",
+    "year": null,
+    "category": "commercial",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": null,
+    "images": []
+  },
+  {
+    "slug": "product-brand",
+    "title": "Product & Brand",
+    "year": null,
+    "category": "commercial",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": null,
+    "images": []
+  },
+  {
+    "slug": "portraits-grad",
+    "title": "Portraits & Grad",
+    "year": null,
+    "category": "commercial",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": null,
+    "images": []
+  },
+  {
+    "slug": "aerial",
+    "title": "Aerial",
+    "year": null,
+    "category": "personal",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": {
+      "src": "DJI_0109-Pano-Edit.jpg"
+    },
     "images": [
-      { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+      {
+        "src": "DJI_0109-Pano-Edit.jpg",
+        "w": 2201,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAaABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAlEAABBAEDBAIDAAAAAAAAAAABAAIDERIEITEFQVFxEyJhgeH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAMAwEAAhEDEQA/AGOfC+U2/Jo4Juj+1zIIScW2B4QOnPYcWyMNVfer/CobooMi10hDweHtr0r1UZhBGLeLb7CE46GUbsLKPdpQjVbMXnSx7USMaxN8UlSwah0wx1DRGN6qyVOHuHSwQ4g4+VNE4n4rJP1HdClmox0rWlm5JoDyULOo7CMDj+IWD//Z",
+        "caption": ""
+      },
+      {
+        "src": "DJI_0265-HDR.jpg",
+        "w": 2400,
+        "h": 1255,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAb/xAAeEAACAgIDAQEAAAAAAAAAAAABAgARAzESIUEiYf/EABYBAQEBAAAAAAAAAAAAAAAAAAABA//EABcRAQEBAQAAAAAAAAAAAAAAAAABEQL/2gAMAwEAAhEDEQA/AObxIGNjU0qCq/LEC9AyAx8DQb2o6lrYXrvUzvNNKcXPMo/e4SuNCcyU1XXkJcH/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "DJI_0283-HDR.jpg",
+        "w": 1632,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAjABgDASIAAhEBAxEB/8QAGAABAQADAAAAAAAAAAAAAAAAAAQBAgP/xAAkEAABBAEDAwUAAAAAAAAAAAABAAIDESESE0EEMXEjUWGBof/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAZEQEBAAMBAAAAAAAAAAAAAAABAAIRITH/2gAMAwEAAhEDEQA/AIZKYzV9AfKjMMokJETe91rVHVU5kTQcOd+KI3pusLE2HK8k3dxcguq48IkJ2w9vscIqkXbqw1rYSLprqUZJDNPCumDXs03nuLUxdJrraivxhT1J5HbMTNzccCALxaLZnpsrkmzSJsHkJKwRkHlEVEm14KIiIv/Z",
+        "caption": ""
+      },
+      {
+        "src": "DJI_0319-HDR-Pano.jpg",
+        "w": 1876,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAfABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwYC/8QAKxAAAgECBAQEBwAAAAAAAAAAAQIAAxEFEjFBBBMhMhQiYXEVQlFSsdHh/8QAGAEBAAMBAAAAAAAAAAAAAAAAAQACAwT/xAAYEQEBAQEBAAAAAAAAAAAAAAABABICEf/aAAwDAQACEQMRAD8AjhMXpMcnFrymt3XuDHWxDD0QnxCG2y3JMzwpcxAUIuNmlTHIfOhQ+3Qym2XktB8b4BflrN7U/wCwmeLBu3T0N4SaY8Juk1tJea6t5MvNP2/T9RNA9XuOVTsN+tvyYzTsijILDWZJdA3NTDldboVV9fQQjKvCGuicct//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "DJI_0322-HDR.jpg",
+        "w": 2400,
+        "h": 1757,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAiEAEAAgIBAwUBAAAAAAAAAAABABECAxIhMXEEEyIyQYH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAFBIRH/2gAMAwEAAhEDEQA/AORrxVKF6y/ttpWXLvXH8k6nLD6qeJquXJeTczwrYYZYoF4v9Imuy8z5N1EhlLpPpwRsvzIyXnEQrHEX3dNQneIiKDrP/9k=",
+        "caption": ""
+      },
+      {
+        "src": "DJI_0372-HDR-Pano.jpg",
+        "w": 2247,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAaABgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAQFAgEG/8QAIxAAAQMCBQUAAAAAAAAAAAAAAQACEQMhBBJBUXETIjOxwf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAA//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDzNG7piSDMJmrWyvcGS0E3BSVM98AxOqYeycK2rfqyZO4WcqLPdLiShZG6Ep1tnDlVq2QYVzGi+X5KkM8gVE68n0kp8QNLIWShQf/Z",
+        "caption": ""
+      },
+      {
+        "src": "DJI_0835-HDR-Pano-Edit-Edit.jpg",
+        "w": 1831,
+        "h": 2048,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAbABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUCAwYE/8QAJRAAAgEDAwMFAQAAAAAAAAAAAQIAAxESBAUxITJBIlFhcYGR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAcEQACAQUBAAAAAAAAAAAAAAAAAQIREhMxUUH/2gAMAwEAAhEDEQA/ANINOvxKK+p0mlbGtWpg+1rmIqJZjYE/2XVTTNJkxBPk8GN1S2Si03oZvum3U/UKwuRwqEwmQaq2JuzhgbWDeYSOR8LWjcsoCotgD+XgpGPTiczdpPmXL2j6ilwMV6LdwornmALnmEnuIBRTbrlCFiR//9k=",
+        "caption": ""
+      },
+      {
+        "src": "cosprings-01.jpg",
+        "w": 2400,
+        "h": 1920,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAATABgDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBAH/xAAhEAACAgICAgMBAAAAAAAAAAABAgADERIhQQQxYWLh8P/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8Aoo0Y6nLH59TQ1exXVuPr3IePSWFY1xz/AGZtNIY7OBgegOpQsdnjMqltiM9ROWBnRhepTGQCBx+RAYje7JSpUkEOJabGJA2OD7iJoLbSSnPYiIgn/9k=",
+        "caption": ""
+      },
+      {
+        "src": "greenhouses-1.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwb/xAAmEAACAQQBAwMFAAAAAAAAAAABAgMABBESQQUTUSEiMRQygcHR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwAB/8QAGxEAAwEAAwEAAAAAAAAAAAAAAAECERITMUH/2gAMAwEAAhEDEQA/AM7ixgs1DRDcYOQwHkD906vR7V1DkSEkeB/K0lkjljIRNVKN8rz6VQhYdoYkY+nK0FXUiqUzkZ7GFepNAA2ijOOaKcu5Vi6xNI/2BTsT4orX2PMMXBej9wOzGcybARnB25phLuJQFPeyB4NSb64s7ySNbZ2Gg92y45qor2pw310gB+BiquL9Jb8IHWMzXcpQ5Gu34ore8KpcyyoXl29o4JopppYFS1n/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "greenhouses-3.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCBAUD/8QAKBAAAgEDAQcEAwAAAAAAAAAAAQIDAAQRIQUSEzEyUZEUIkFhQoHh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwIB/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAESAhH/2gAMAwEAAhEDEQA/ANiLbdi/Jm8VaTadqw0LeKS7eOSYjDE9sDNXBFKCQQQewGoom9ItJDaL6A8ifFFKqyGPqJOP1RRvWy5ySi4ccY4jKmOSp1ZrpFfMiGRo2aHPWcb2Pv5qFsttbpxpH3ifyY6n+1nXO1Sly/pk3ATk9m+xTz0OuG8TaXUJf2sAM66EUUtXkyGZTayMuR7l+BRUwzaR/9k=",
+        "caption": ""
+      },
+      {
+        "src": "greenhouses-4.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCAwUE/8QAJRAAAgEDBAEEAwAAAAAAAAAAAQIDABEhBAUSE0EiUWFxMXKB/8QAFwEBAAMAAAAAAAAAAAAAAAAAAgEDBP/EABgRAQADAQAAAAAAAAAAAAAAAAEAAhED/9oADAMBAAIRAxEAPwDdTetuIv3jHxV53PRheRkwfNjSnFH1Qh9QBGCLBbAm3v8AdXGKVNCHjkbC8+tvwP74xQWxJAYwPvG3qbGbP6milSYO0AkYSIXyCrXF6KZsKkjHI2tnVSxcO3gePqmPDWXiQtrWtS/sXo1PIjCrYVtHX8XC8GOfas/bW2Ev5YV1nBpHEM8mmlW6XuL5tRVO8Fe7tiY8myfiimVbGjC2KuJP/9k=",
+        "caption": ""
+      },
+      {
+        "src": "newshots4-5-26-3.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIEAQMF/8QAJRAAAgICAQQCAgMAAAAAAAAAAQIDEQASIRMxUWEiQTJxQoGh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/APKjii1HUcSan5A2AuAA6vKFQFo/CwB5y6NYt9VI2BEaWo4Hctf3+sTo2TN1JNb/ADPer71/tZlIaGpF2D4/E+vRwyyQoztFNsmxIcgUOOQ37wxqZGDMajYFlI1tSA3HbE0VJhGzyLYoprRvMWRDGQZSqnnsNT47c3inWWYXJuK4O9X/AHhE7RqFt3IIT5Oauj9D35wyWWVeXVQB9L/Ee/ZwxD//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "oahu2024-09.jpg",
+        "w": 2400,
+        "h": 1348,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYCAwX/xAAgEAACAgIBBQEAAAAAAAAAAAABAgARAwQhEiMxQXGB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAYEQADAQEAAAAAAAAAAAAAAAAAARFhcf/aAAwDAQACEQMRAD8A0wNFlUq6rQF8+5co1AR3E/TFI7LlKvhRILu5eoSl0m4OWU6poKyLQ8XCKmXdyEj5CEY0/9k=",
+        "caption": ""
+      },
+      {
+        "src": "oahu2024-13.jpg",
+        "w": 2299,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAZABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUCAwQG/8QAJRAAAQMDAwMFAAAAAAAAAAAAAQACBAMRIRQxURIiQRMycYLx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABkRAQEBAQEBAAAAAAAAAAAAAAEAAhESIf/aAAwDAQACEQMRAD8AbMEPy4u+GqZ0gI7ahHAYUmjyqhNmNuVONIkGvUqPw/29N8AD9T1rzTkGZPqxGtJ9Cu76HCFUZnaUI6xwuejyGsGSrtcG3LdyLE8pS3dW+E37ZBy2ma4jdCw8oTqL/9k=",
+        "caption": ""
+      },
+      {
+        "src": "oahu2024-8.jpg",
+        "w": 1656,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAjABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAIFAQME/8QAJBAAAgECAwkAAAAAAAAAAAAAAAECE0EDEZEEEiExMlFSYaH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgQB/8QAGhEBAQEAAwEAAAAAAAAAAAAAAAESAgQTFP/aAAwDAQACEQMRAD8A8c9m4nXQdka7wX2IpPxH9YkvX5Mp4EroGpQb5QAe0b8/JpqHv4Kd81oUkCbMX6qd159WiBQDMbqiDAGI4YAFO//Z",
+        "caption": ""
+      },
+      {
+        "src": "sf-2.jpg",
+        "w": 2038,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAcABgDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUBBv/EACQQAAIBBAICAQUAAAAAAAAAAAECEQADEiEEMRNBgQUUIkJR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREx/9oADAMBAAIRAxEAPwC/n8xLtlPHIOXv3Tt7kWfsQMxkVHxXmUYPaYScl/IRuoHmEsVM/wAj11Tqat7mrbYlUBUA7ns0Vjny37U27bN3sCimxSurlxrgkrLjQ6jdTH0+/H6Hcxlulixucgu4BJ3VptoHDYiYmiyXqLv5FLKANEjR1NFMYqd4j4FFIx//2Q==",
+        "caption": ""
+      }
     ]
+  },
+  {
+    "slug": "landscape-travel",
+    "title": "Landscape & Travel",
+    "year": null,
+    "category": "personal",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": null,
+    "images": []
   }
 ]

@@ -142,7 +142,7 @@ with the grid.
   5. Hairline divider
   6. Project index: one project name per line
   7. Hairline divider, pinned to the bottom of the panel
-  8. `Info` and `CV` links, sitting on the panel's bottom edge
+  8. `Info` link, sitting on the panel's bottom edge
 - The project index (step 6) is the only flexible region — it grows to fill
   whatever space is left between the filter row and the footer, and scrolls
   internally if the list is too long for that space. Everything else in the
@@ -182,13 +182,19 @@ Homepage and project pages use different grid rules.
   other. Nothing on the homepage grid breaks row alignment, because nothing
   is allowed to.
 
-**Project pages (`/work/[slug]`).** Single column, so there is only ever one
-tile per row — a multi-column span could misalign a row; a single column
-cannot. Every image keeps its natural aspect ratio — no cropping, no
-`object-fit`. An image flagged `wide: true` in the manifest renders at the
-full width of the column; this is schema only for now; its visual effect
-gets defined when the project page is actually built (build order step 4).
-Radius 6px on every image.
+**Project pages (`/work/[slug]`).** Three columns, same 16px gutter and 6px
+radius as the homepage grid, dropping to two columns on narrow viewports.
+Thumbnails are a uniform 3:2 crop, `object-fit: cover` — same "no spans, no
+exceptions" rule as the homepage. "No cropping" now applies to the lightbox,
+not the thumbnails: clicking a thumbnail opens the image at its natural
+aspect ratio, fit to the viewport, never upscaled past its real pixel size.
+Close with Escape or the close control; move between images by clicking the
+left/right half of the lightbox or the arrow keys.
+
+There is no `wide` field. It existed only because the single-column layout
+made a full-width image harmless; now that thumbnails are a uniform grid,
+the same "no spans, no exceptions" reasoning that killed the homepage's
+`feature` flag applies here too.
 
 Images load with their blur placeholder from the manifest. No spinners, no
 skeleton loaders, no fade-in animation.
@@ -197,8 +203,8 @@ skeleton loaders, no fade-in animation.
 
 - Fixed, bottom-right, 20px from both edges.
 - Vertical pill: `--panel` background, radius 10px, 44px wide, 10px padding.
-- Instagram, YouTube, SoundCloud, Email. Hand-written inline SVG, single path
-  each, `--muted` at rest and `--ink` on hover.
+- Instagram, LinkedIn, Email. Hand-written inline SVG, single path each,
+  `--muted` at rest and `--ink` on hover.
 
 ---
 
@@ -226,9 +232,11 @@ Three. Resist adding more.
 - `/` — panel plus grid, all projects, filterable.
 - `/work/[slug]` — a single project. Same panel on the left. Right side becomes a
   single-column stack of that project's images with a short description block at
-  the top in Archivo 15px.
-- `/info` — bio, CV, contact. Same panel. Right side is a single text column,
-  max 65 characters wide, left-aligned against the grid's left edge.
+  the top, Archivo body scale.
+- `/info` — bio, contact, gear, license, recognition, selected experience. Same
+  panel. Right side is a single text column, max 65 characters wide,
+  left-aligned against the grid's left edge. See `docs/content-plan.md` for the
+  exact copy and structure.
 
 ---
 
@@ -248,7 +256,7 @@ everything the script cannot know.
   "description": "One or two sentences. Optional.",
   "cover": { "src": "01.jpg", "focal": "50% 30%" },
   "images": [
-    { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "wide": false }
+    { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "" }
   ]
 }
 ```
@@ -256,10 +264,9 @@ everything the script cannot know.
 `category` is one of `projects`, `commercial`, `personal`. The filter row reads
 from this field, so it must be exactly one of those three strings.
 
-`cover.focal` is optional; omit it to default to `center`. `images[].wide` is
-optional, defaults to `false`, and only means anything on project pages — see
-the project-page grid rule above. There is no `feature` field: the homepage
-grid has no spans and no exceptions.
+`cover.focal` is optional; omit it to default to `center`. There is no `feature`
+field and no `images[].wide` field: both grids are uniform, no spans, no
+exceptions.
 
 Images are never referenced by hardcoded path in a component. Every image on the
 site comes from this file.

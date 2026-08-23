@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
+@docs/content-plan.md
+
 ## Commands
 
 - `npm run dev` — start the dev server (Turbopack, default at http://localhost:3000)
