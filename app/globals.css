@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color — light only. Photographs supply all the color on this site. */
+  --ground: #efefed;
+  --panel: #ffffff;
+  --ink: #111111;
+  --muted: #8a8a85;
+  --hairline: #e1e1dd;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-ground: var(--ground);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-geist-mono);
+
+  /* Type scale — see docs/design-brief.md. Sizes pair with their line-height. */
+  --text-wordmark: 42px;
+  --text-wordmark--line-height: 1.25;
+  --text-title: 32px;
+  --text-title--line-height: 1.25;
+  --text-index: 18px;
+  --text-index--line-height: 1.5;
+  --text-body: 19px;
+  --text-body--line-height: 1.6;
+  --text-metadata: 14px;
+  --text-filter: 13px;
+
+  --tracking-wordmark: -0.03em;
+  --tracking-title: -0.02em;
+  --tracking-index: -0.005em;
+  --tracking-body: 0em;
+  --tracking-metadata: 0.01em;
+  --tracking-filter: 0.12em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
 }
