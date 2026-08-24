@@ -6,6 +6,7 @@ export interface ProjectImage {
   h: number;
   blur: string;
   caption: string;
+  group?: string;
 }
 
 export interface Project {
@@ -18,6 +19,12 @@ export interface Project {
   description: string;
   cover: { src: string; focal?: string } | null;
   images: ProjectImage[];
+  // Maps an images[].group key to the short text shown as that group's
+  // section break on the project page. A plain string renders as text; an
+  // object renders `text` as a link to `href` (e.g. the client's site).
+  // Only needed for entries whose images span multiple distinct shoots
+  // (e.g. Events & Fundraisers).
+  groups?: Record<string, string | { text: string; href: string }>;
 }
 
 // content/projects.json currently has every images[] empty, which collapses

@@ -92,28 +92,53 @@ under Selected experience, linking out to the Instagram profile
 Ground and aerial. Your Part 107 license is the differentiator and belongs in
 this entry's description, not buried on the Info page.
 
-Clients to name: Red Oak Realty, and others as appropriate.
+Final description (in `content/projects.json`): *Real estate and architectural
+photography, shot from the ground and the air. FAA Part 107 licensed, so
+listings get aerial coverage most photographers can't offer.* No named clients
+in the copy — kept it to the Part 107 line only.
 
 ### 6. Events & Fundraisers
 `category: commercial`
 
-Nonprofit galas, fundraisers, walks, corporate events. Clients to name: Hillel,
-plus the Sacramento gala and MG Walk NorCal.
+Nonprofit galas, fundraisers, walks, corporate events, and private
+celebrations.
+
+Final description (in `content/projects.json`): *Event coverage for nonprofit
+galas, fundraisers, walks, and private celebrations, including Hillel, the MG
+Walk NorCal, a gala fundraiser for Shalom School, NCJW (National Council of
+Jewish Women), and bat mitzvahs for private clients.*
 
 Event work is the hardest to make look good in a grid, since it is often many
 similar frames. Cut ruthlessly. Ten strong frames beat forty adequate ones.
+
+This entry spans multiple unrelated shoots (a gala is not a bat mitzvah), so
+its grid should break into labeled sections per event rather than read as one
+undifferentiated pile of photos. See "Grouped entries" in
+`docs/design-brief.md`'s Content model section — tag each image's `group` and
+add a short description per group to `content/projects.json` once the photos
+are in `raw/events-fundraisers/`.
 
 ### 7. Product & Brand
 `category: commercial`
 
 Distinct from the Equal Eats project entry, which tells a story. This one is
-purely a range demonstration across clients. Clients to name: GRID Alternatives,
-Hydeout Farm.
+purely a range demonstration across clients.
+
+Final description (in `content/projects.json`): *Product and brand
+photography across a range of clients, including GRID Alternatives and
+private vineyard clients.* GRID Alternatives lives here, not under a separate
+entry. The other named client stays anonymous as "private vineyard clients"
+rather than naming the vineyard.
 
 ### 8. Portraits & Grad
 `category: commercial`
 
 Your actual revenue engine, and the one entry that carries a commercial ask.
+
+Final description (in `content/projects.json`): *Portrait and senior/grad
+photography sessions, shot in natural light on location or at home.* The
+booking section below (packages, testimonials, FAQ) is still unbuilt — this
+is just the entry's intro copy.
 
 **This page ends with booking.** After the image stack: packages and pricing, the
 two client testimonials, a short FAQ, and the Google Form link. Nothing about
@@ -149,6 +174,10 @@ its own entry. Where most of the recognition lives: SFGate Photo of the Day
 Everything handheld. The largest single grid on the site, so this is where
 editing discipline matters most. Twelve years of shooting means the temptation is
 to include eighty frames. Twenty-five is a portfolio; eighty is an archive.
+
+Final description (in `content/projects.json`): *Landscape and travel
+photography from twelve years of shooting, all handheld, across the West and
+beyond.*
 
 Music production and drums stay off the site. They dilute a page that is already
 arguing two things at once.
@@ -199,36 +228,44 @@ Grad).
 ## Where I left off
 
 **Done.** Tokens, shell (panel + grid), index/filter wiring, the `/work/[slug]`
-project page with a real lightbox, and `/info` are all built and working.
-`scripts/images.mjs` is written, tested, and wired up as `npm run images`. Nine
-entries from this plan are in `content/projects.json` with real `title` /
-`category` / `slug` (Pro Power Washes was cut as a Projects entry — see above —
-and instead appears as a linked line on `/info` under Selected experience,
-pointing at @propowerwashes on Instagram); the three remaining Projects entries
-also carry real `client` / `year` / description copy pulled from the drafts
-above. Aerial has real photos — 16 processed into `public/work/aerial/` — and
-is the only entry currently visible on the site, since entries with no images
-are hidden from the index and grid by design, not by accident.
+project page with a real lightbox, `/info`, and the social dock are all built
+and working. `scripts/images.mjs` is written, tested, and wired up as
+`npm run images`. All nine entries from this plan are in `content/projects.json`
+with real `title` / `category` / `slug` and a real `description` (Pro Power
+Washes was cut as a Projects entry — see above — and instead appears as a
+linked line on `/info` under Selected experience, pointing at
+@propowerwashes on Instagram). The three Projects entries also carry real
+`client` / `year`; the four Commercial entries and Landscape & Travel don't —
+per this plan's own organization (Commercial is per-category, not
+per-engagement), a single client/year doesn't fit those, so client names live
+in the description prose instead and `client`/`year` stay empty. Equal Eats,
+Smarter Window, Bay Home Consignment, and Aerial have real photos processed
+into `public/work/` and are the only entries currently visible on the site,
+since entries with no images are hidden from the index and grid by design,
+not by accident. The social dock reads its three icons from
+`public/icons/{instagram,linkedin,email}.svg` (swap the files to change the
+icons — no code changes needed) and opens all three links in a new tab. The
+project page also supports grouped sub-sections now (`images[].group` +
+top-level `groups` map, see "Grouped entries" in `docs/design-brief.md`) for
+entries like Events & Fundraisers that span multiple unrelated shoots —
+raw folders exist for it but photos and group assignments aren't in yet.
 
 **Half-finished.**
-- Eight of nine entries have no `raw/<slug>/` folder yet, so they stay
-  invisible on the live site until photos are added and `npm run images` runs
-  again.
-- The four Commercial entries and Landscape & Travel only have `slug` / `title`
-  / `category` — no `year`, `client`, or `description`, since this plan only
-  gives planning notes for those, not finished copy the way the Projects
-  section does.
+- The four Commercial entries and Landscape & Travel have no `raw/<slug>/`
+  folder yet, so they stay invisible on the live site until photos are added
+  and `npm run images` runs again.
 - The panel is 640px wide with a bumped type scale in the actual code, agreed
   on by eye in the browser over several iterations, but `docs/design-brief.md`
   still documents the original 300px width and the original, smaller type
   scale. Nobody's gone back to reconcile the numbers.
-- The social dock (Instagram, LinkedIn, Email) is fully specified in the design
-  brief but was never built — no component exists for it anywhere yet.
+- Portraits & Grad's booking section (packages, pricing, two testimonials,
+  FAQ, Google Form link) still needs building — the entry currently only has
+  its intro description.
 
 **Next three things.**
-1. Populate `raw/<slug>/` for the three Projects entries first — Equal Eats,
-   Smarter Window, Bay Home Consignment — since they already have real copy
-   and photos are the only thing blocking them. Run `npm run images` after.
-2. Write the missing `year` / `client` / `description` for the four Commercial
-   entries and Landscape & Travel.
-3. Build the social dock component.
+1. Populate `raw/<slug>/` for the four Commercial entries and Landscape &
+   Travel, the same way it was done for the three Projects entries. Run
+   `npm run images` after each batch.
+2. Build Portraits & Grad's booking section.
+3. Reconcile `docs/design-brief.md`'s panel width/type-scale numbers with
+   what's actually in the code.

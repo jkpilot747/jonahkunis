@@ -264,6 +264,34 @@ everything the script cannot know.
 `category` is one of `projects`, `commercial`, `personal`. The filter row reads
 from this field, so it must be exactly one of those three strings.
 
+**Grouped entries.** A Commercial entry that spans multiple distinct shoots
+(Events & Fundraisers is the motivating case — one entry, several unrelated
+events) can tag each image with a `group` key and add a top-level `groups`
+map from that key to a short label. A plain string renders as text; an
+`{ text, href }` object renders as a link (e.g. out to the client's site):
+
+```json
+{
+  "images": [
+    { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "group": "shalom-gala" },
+    { "src": "02.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "", "group": "ncjw" }
+  ],
+  "groups": {
+    "shalom-gala": { "text": "Shalom School gala, Sacramento", "href": "https://shalomschool.org" },
+    "ncjw": "NCJW fundraiser"
+  }
+}
+```
+
+The project page renders the label above the run of images that share a
+group — no divider, just a short bold line before that section's grid
+starts. So images sharing a group must be **contiguous** in the array —
+`npm run images` sorts by filename, so name files so each shoot's photos
+cluster together alphabetically (e.g. a per-shoot filename prefix). `group`
+is entirely optional and preserved across `npm run images` reruns the same
+way `caption` is; entries that don't set it render exactly as before this
+feature existed — one continuous grid, no section breaks.
+
 `cover.focal` is optional; omit it to default to `center`. There is no `feature`
 field and no `images[].wide` field: both grids are uniform, no spans, no
 exceptions.

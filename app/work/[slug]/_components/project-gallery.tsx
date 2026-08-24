@@ -2,18 +2,35 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import type { ProjectImage } from "@/lib/projects";
+import type { Project, ProjectImage } from "@/lib/projects";
 
 export function ProjectGallery({
   images,
+  groups,
   projectSlug,
   projectTitle,
 }: {
   images: ProjectImage[];
+  groups?: Project["groups"];
   projectSlug: string;
   projectTitle: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  // Split the flat image list into contiguous runs by group so a labeled
+  // section break can render between shoots. Images without a group (the
+  // common case) collapse into a single unlabeled run — same layout as
+  // before this feature existed.
+  const runs: { group: string; items: { image: ProjectImage; index: number }[] }[] = [];
+  images.forEach((image, index) => {
+    const group = image.group ?? "";
+    const lastRun = runs[runs.length - 1];
+    if (lastRun && lastRun.group === group) {
+      lastRun.items.push({ image, index });
+    } else {
+      runs.push({ group, items: [{ image, index }] });
+    }
+  });
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -41,26 +58,52 @@ export function ProjectGallery({
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 min-[1600px]:grid-cols-3">
-        {images.map((image, i) => (
-          <button
-            key={image.src}
-            type="button"
-            onClick={() => setOpenIndex(i)}
-            className="relative aspect-[3/2] overflow-hidden rounded-[6px]"
-          >
-            <Image
-              src={`/work/${projectSlug}/${image.src}`}
-              alt={image.caption || projectTitle}
-              fill
-              placeholder="blur"
-              blurDataURL={image.blur}
-              sizes="(min-width: 1600px) 33vw, 50vw"
-              style={{ objectFit: "cover" }}
-            />
-          </button>
-        ))}
-      </div>
+      {runs.map((run, runIndex) => {
+        const groupInfo = run.group ? groups?.[run.group] : undefined;
+        const label =
+          typeof groupInfo === "string" ? groupInfo : groupInfo?.text;
+        const href = typeof groupInfo === "object" ? groupInfo.href : undefined;
+
+        return (
+        <div key={run.group || runIndex} className={runIndex > 0 ? "mt-8" : undefined}>
+          {label &&
+            (href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-3 block text-index font-bold tracking-index text-ink hover:underline"
+              >
+                {label}
+              </a>
+            ) : (
+              <p className="mb-3 text-index font-bold tracking-index text-ink">
+                {label}
+              </p>
+            ))}
+          <div className="grid grid-cols-2 gap-4 min-[1600px]:grid-cols-3">
+            {run.items.map(({ image, index }) => (
+              <button
+                key={image.src}
+                type="button"
+                onClick={() => setOpenIndex(index)}
+                className="relative aspect-[3/2] overflow-hidden rounded-[6px]"
+              >
+                <Image
+                  src={`/work/${projectSlug}/${image.src}`}
+                  alt={image.caption || projectTitle}
+                  fill
+                  placeholder="blur"
+                  blurDataURL={image.blur}
+                  sizes="(min-width: 1600px) 33vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+        );
+      })}
 
       {openIndex !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 transition-opacity duration-150">

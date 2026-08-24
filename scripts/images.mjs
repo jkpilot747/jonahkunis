@@ -139,6 +139,7 @@ async function main() {
           h: height,
           blur: blurDataURL,
           caption: existing?.caption ?? "",
+          ...(existing?.group ? { group: existing.group } : {}),
         });
 
         console.log(`  ${project.slug}/${outName} — ${width}x${height}`);
