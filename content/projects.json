@@ -7,8 +7,46 @@
     "client": "Equal Eats",
     "role": "",
     "description": "Shot and produced a 46-product photography project for Equal Eats solo, end to end. Scoped the shoot, built the schedule, planned locations, and executed both product and lifestyle setups. Delivered assets for e-commerce, marketing, and social.",
-    "cover": null,
-    "images": []
+    "cover": {
+      "src": "equaleatsfinals-009.jpg"
+    },
+    "images": [
+      {
+        "src": "equaleatsfinals-009.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDAgQG/8QAIBABAAIBBAIDAAAAAAAAAAAAAQACEQQSITEDFDJjkf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDrFK1bWSodq4CVOt0pnOo8eDhd3H7LLBejV6THJKfV+22cbfiYxA2HnqJFQrQqdBiIEEyiIEMRED//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "equaleatsfinals-095.jpg",
+        "w": 2400,
+        "h": 1596,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGBP/EACMQAAEDBAAHAQAAAAAAAAAAAAECAwQAERIhExQiMTJBgXH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAwDAQACEQMRAD8ARIhR1ttrcfUokeCRv8phyLKmUtiOsotsgbH2sENV5bNxrMVSJeaWk8QXHu2jQE7Tb7LEfNbDy0uA4hsi9/tFN5ZhyHjHbRjgQvqO8iO96KtCcW//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "equaleatsfinals-099.jpg",
+        "w": 2400,
+        "h": 1775,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIEBQMG/8QAIxAAAgMAAgEDBQAAAAAAAAAAAQIAAxEEEiEFQVEUMTJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBAP/EABcRAQEBAQAAAAAAAAAAAAAAAAABEUH/2gAMAwEAAhEDEQA/ALy9QCT4Ai211q0stIYYgJ1ifnB7SjzC1/DuSonuV0Yc8zBt+uA2+qx88AsNyVY9UOVcq9Qjuf2hiZHpfJs4/G21VUFvw98+ciHTy3jsv3kmAwjIiKhECAudQB/IiJGr/9k=",
+        "caption": ""
+      },
+      {
+        "src": "equaleatsfinals-100.jpg",
+        "w": 1825,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAABAADAgX/xAAnEAABBAEDBAAHAAAAAAAAAAABAAIDEQQSIUEFEyIxMlFhcXKR4f/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERElH/2gAMAwEAAhEDEQA/AGwDxSAAB6WEDIpL7kjmNHDTVrLMMhLW4sbmwsuvLc/vdOmTSyKUgCXImaY2BwPJcKr7lSNPM9ZTZQxoDJsTYFHi152R1QuNd0/izx/qU4NkjdG9uoEUQgxdLhjNyOMny4CU45wc5xytMTdJIOp3vb6qSdLGE18J4Upq5kf/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "equaleatsfinals-103.jpg",
+        "w": 2400,
+        "h": 1479,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYDBAX/xAAhEAABBAIBBQEAAAAAAAAAAAABAAIDEQQSIQUTMUFRYf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABYRAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEQMRAD8AU43XJHvy0evxMGN0ju44yNmFlEjQ3Zq0vQuqZp+LRilaITT3gXZA4BK1Kk1GQaCgShTzU6RnHkoRtLL/2Q==",
+        "caption": ""
+      }
+    ]
   },
   {
     "slug": "smarter-window-2026",
@@ -18,8 +56,81 @@
     "client": "Smarter Window",
     "role": "",
     "description": "Working directly with the founder of an early-stage startup building smart-home hardware for casement windows. Content planning, photo and video production, and go-to-market strategy, from scoping through execution.",
-    "cover": null,
-    "images": []
+    "cover": {
+      "src": "smarterwindowproduct-04.jpg"
+    },
+    "images": [
+      {
+        "src": "smarterwindowproduct-04.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUGBP/EACYQAAICAAQEBwAAAAAAAAAAAAECAAMEBREhEjE0cRMUFiIzkrH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAwL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIxERJR/9oADAMBAAIRAxEAPwCj55tCXPCF34jHqCuhAXurI5cpMx+X40YN2c1uo0JVBud5G8C3T4LPrMJL6Hlpmiz7GW25V7m1V3XaJwW5XjXwNRssqVCAVBXcbRB8TKwnw0l/RW9pFsiJGtKRhTxnRU9h+RETd6EYf//Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-05.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAAAAUCAwQG/8QAJhAAAQQCAAMJAAAAAAAAAAAAAQACAwQRIQUxsQYSFCI0QXGRof/EABcBAAMBAAAAAAAAAAAAAAAAAAACAwH/xAAZEQADAQEBAAAAAAAAAAAAAAAAAQIxEVH/2gAMAwEAAhEDEQA/AKQuPfo6A5FcdntLLA4xNaCWjmPxaL1G82lIXujezAy1g2dqM6tI4bqv+ilSXoOWmUhxGxxCOaK7J3KriAHk483tz6IsZ+F3n0IjJJE2MgFoLdjWkS1xPSk4enm9HJ8KNIiKTKQddsnwcYycYHRERPemRh//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-06.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUEBgP/xAAjEAACAgIBAwUBAAAAAAAAAAABAgADBCEFETRxIjFEUZKx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMB/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAECMSEDUf/aAAwDAQACEQMRAD8ApDMdtHQHsZ6Ly7VoCWQgfcj5+BnLhWFzW6a6qg2dyMcWw/Ff8mGUvpjlrDoudzLbuK9TdVdxqJgt4vNfBqNllSoQCoZdjUQvj0rC4dLd2lniSXiJFlIN2Z2VXgfyIiP00yMP/9k=",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-07.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EACQQAAIBAwMDBQAAAAAAAAAAAAECAwAEIQUREgYTUSIxM2Fy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/EABwRAAICAgMAAAAAAAAAAAAAAAABAjIDIRESQv/aAAwDAQACEQMRAD8ArW9dyAcAexqR+rLiCRo1hRuBK+o+KxJaahBA0pMDhByKgZP1XTQxteagO7bMiytnOwFLHgHVovfVr/W4XtXCcSwIcYCnwaVxXOg3VqofuRLnDZ3pWlplIrR6vYG3bfOKntYowFYRpy88RvSlSjZB8s11b4F/VKUpslhsdT//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-08.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJRAAAQQBAwIHAAAAAAAAAAAAAQACAxEEBRIhE1EiIzEzYXKh/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQIAA//EAB0RAAIBBAMAAAAAAAAAAAAAAAABMgIDESESMUL/2gAMAwEAAhEDEQA/ALBmySUDxR4Kpj1WWNgJLSBxZ9F1L8LPhhdKei8MG4tDeT8LDCzZpstscuA0RvNcitqhYNwaK9czZp9Lpzra544RT5+lZvS82WDbfHho/iIeuzpStHogLx3X2WGNFGA12xt96RFFMkPlnGp+w37IiJuyG3E//9k=",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-09.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJBAAAgIBBAEEAwAAAAAAAAAAAQIAAxEEBRIhIhMxM0FxobH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgMB/8QAHREAAgEEAwAAAAAAAAAAAAAAAAExAgMhMhESQf/aAAwDAQACEQMRAD8AsGtdyAegD0ZWm621oCeJA+z7Tq69u1wYFmo4ZGcL9TWuplvYWDTOjYCpnBX9dya4Do16Z77rbr9q8myrOOok2v2nW+li22jjnrxx/Ig8SUpWD0dfxGc1opQNxHLPvjuIi0yjHBNufwr+YiIXdh7ep//Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-10.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAgUG/8QAJhAAAQQCAAQHAQAAAAAAAAAAAQACAxEEBRIxM0ETISMyUnGRkv/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/xAAeEQABAwQDAAAAAAAAAAAAAAAAAQIDESExMhJBYf/aAAwDAQACEQMRAD8AubmPeQD5Aciq2bSSOO3cJA7ldS3WZ9e/H/lajV5hirhhLvlYr8pTTwPCnZx32dLPqacRTnjkikz9TneF6ssAF9m0iy2yO1LHpI+ktGdMIiMeRHEWy6LftERJLsVj1P/Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-11.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJRAAAQIEBAcAAAAAAAAAAAAAAQACAwQFERIxM3EVIzJBUVKB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDAf/EAB4RAAEDBAMAAAAAAAAAAAAAAAABAgMRITEyEkFR/9oADAMBAAIRAxEAPwC5s695AOTciq2VV8NgLsJA7ldS2mz9uqXtsuOF1QmzTK4fOFTRPA407Na7PRY9Js4iznjL6ijn6VOiFzIkAC/rZELbJRqWPSQ9IrRmmERbHkRxFU9Fu6IiSXYrHqf/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-12.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAQIDBv/EACcQAAEDAwMBCQAAAAAAAAAAAAEAAgMEBTEREiEGFBUiMjNBUYGR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAMC/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAExUQIREkH/2gAMAwEAAhEDEQA/AJra17yAcNPBUrvWaOHVrA92APlVTbbX6ean/Fzmt90a0Edn27gNQ3HOVNKhzr0kdR1ssluMbiCDIMfaLFRRumpdlyMRJPhljPOqJElEqLqP0itZ+aNyImBlnn6s5HsiIsF0f//Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-13.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EACQQAAEDAwMEAwAAAAAAAAAAAAEAAhEDBAUSMTMTITJRcXLh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDAf/EAB0RAAEEAgMAAAAAAAAAAAAAAAABAgMhMTIREkH/2gAMAwEAAhEDEQA/ALW3r3kA7NPYqtmWfSYNekgdpK6luNv48rePhYOOyZdpabaNvH8U0Sw6cenLnb6rcYqHRDnjZFJfYq96Q6tSgGz6hELWSjUo9JT4it2cYRFseRHEeS4W/ZERJLsVj1P/2Q==",
+        "caption": ""
+      }
+    ]
   },
   {
     "slug": "bay-home-consignment-2022",
@@ -29,19 +140,53 @@
     "client": "Bay Home Consignment",
     "role": "",
     "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Built an Excel tracker that automates eBay fee calculations and consignor payouts.",
-    "cover": null,
-    "images": []
-  },
-  {
-    "slug": "pro-power-washes-2024",
-    "title": "Pro Power Washes",
-    "year": 2024,
-    "category": "projects",
-    "client": "Pro Power Washes",
-    "role": "",
-    "description": "Built and ran a pressure washing service specializing in concrete, tile, wood, and stone restoration. Handled all advertising, client acquisition, and on-site work. Reached five-figure profit within three months of launch.",
-    "cover": null,
-    "images": []
+    "cover": {
+      "src": "bayhome-4.jpg"
+    },
+    "images": [
+      {
+        "src": "bayhome-4.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUEAwb/xAAlEAABBAAFBAMBAAAAAAAAAAABAAIDEQQFEiIxIUFRgTVDcrH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABkRAQEAAwEAAAAAAAAAAAAAAAABESFBMf/aAAwDAQACEQMRAD8A881jjQDQSB2HC6sh1toxmx0JB6j0qEmbSOwukwhzjZ1tbQA8LUM0idh2mHChkxaH8UKtBXKdh8FO4bGyhwdVO4PpFWgzSJxOqOQyg6jfYeOnKJanAzakRfHM/IWcE1ML+of0IiE6pfI0YTeYtW7d3REToP/Z",
+        "caption": ""
+      },
+      {
+        "src": "bayhome-9.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQBBf/EACcQAAIBBAECBQUAAAAAAAAAAAECAwAEERIhBXETFEFRYSIxMjRy/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AE9naW1w0YjY7r+JbgY96SdLg800EmgYIXGEbGO9S9TvVa5Ro3WRUUgkHHrnjtUcl9JKPFHiytsR9sfOeKC+S1sVtlkAB2UbZGde3zSuaXH1NONd8MoC8ClBGqqVyVGffFUF2VQFYgY9DSlBk/6kX9GlKUH/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "bayhomefrontroom.jpg",
+        "w": 2400,
+        "h": 1600,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EACYQAAICAQIEBwEAAAAAAAAAAAECAxEABAUSISIxExRRYXGR0eH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAYEQEBAQEBAAAAAAAAAAAAAAABABECIf/aAAwDAQACEQMRAD8Ax0Wuhh0QkkVmFAHh5V7/AMzs2zdkJeORXYAjqDUAME2Zq6dQh8L474ivlgGSMcJruhoj9wLnlocjNJqtI85DIxQqKBa6P3lgm2xPNqy08tBGtVAu/Tnlh1ogX//Z",
+        "caption": ""
+      },
+      {
+        "src": "bayhomeupstairs.jpg",
+        "w": 2400,
+        "h": 1600,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQP/xAAiEAACAQQCAQUAAAAAAAAAAAABAgMABBESBRMhIjFBgcH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/xAAYEQEBAAMAAAAAAAAAAAAAAAABAAIREv/aAAwDAQACEQMRAD8A4WdqIIB3OkbecbMQapCyZz1tdIG0yV2OKjDke5BC8e0RXOwGCCBWy3Ctgq5jKrjC+oH6NFZGM3c8RIsojGsjMpYBfnFFIJyLRkhJDFKPZvOCPyis2Vy3/9k=",
+        "caption": ""
+      },
+      {
+        "src": "teakdesk.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUBAwL/xAAiEAABBAEEAwEBAAAAAAAAAAABAAIDEQQSITFBBRNRImH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgMB/8QAGxEBAQEAAgMAAAAAAAAAAAAAAQARAhITITH/2gAMAwEAAhEDEQA/AK7cYHgLHQAddrt7GsNWbHxcnZcAsOkAPdlb6jGNhFcdIkeVBIdMcgca4REfKb5PEe2Yy1+XEAG63r4vA8LCzezrPO45VuZjJNLXjVTg4X9CwsYD/VLoatTycsApuHhel73ixvpAI62RUtgOaRMAGEqvJ1v/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "wassily.jpg",
+        "w": 1698,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAiABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQEC/8QAIxAAAQQBAwUBAQAAAAAAAAAAAQACAxEEBRIUITEyUWFBcf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/ANfjNtcGKO6tDaQf4q2TqmFjSmKedsb6BogoPPGBCKTHy4Mpjn48jZGg1Y9ogoTHktaHOkjo3bTSzZ9LyrlfjTja8+BJHT1Ztbfbr+qN+8kBtfSUog0tpxcYRyR7HDy2mwfqKRwIB6kopRYK47uiIqGTzREQf//Z",
+        "caption": ""
+      }
+    ]
   },
   {
     "slug": "real-estate-architecture",

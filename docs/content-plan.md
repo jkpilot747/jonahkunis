@@ -75,17 +75,12 @@ Needs: a grid of product shots that reads as a consistent system, not a
 collection of one-offs. That consistency is the actual selling point. One frame
 of the tracker if you are comfortable showing it.
 
-### 4. Pro Power Washes
-`category: projects` · Jun 2024–Sep 2025
+### Pro Power Washes — not a Projects entry
 
-Optional, but recruiters respond to it. You built a business, ran its marketing,
-and hit five figures in three months. Before-and-after frames are visually strong.
-
-Draft: *Built and ran a pressure washing service specializing in concrete, tile,
-wood, and stone restoration. Handled all advertising, client acquisition, and
-on-site work. Reached five-figure profit within three months of launch.*
-
-Needs: 4–6 before/after pairs. Presented side by side, these carry themselves.
+Decided against a full Projects entry: it was marketing Jonah did for his own
+business, not a photography project. It appears only as a line on `/info`
+under Selected experience, linking out to the Instagram profile
+(@propowerwashes) instead of a `/work/[slug]` page.
 
 ---
 
@@ -192,7 +187,12 @@ and the commercial entries demonstrate the same thing by existing.
   into the Equal Eats project until there is more.
 
 Confirmed and closed: booking lives on the Portraits & Grad page only; personal
-work is substantial and splits into Aerial and Landscape & Travel.
+work is substantial and splits into Aerial and Landscape & Travel; Pro Power
+Washes is not a Projects entry (see above); Product & Brand stays in Commercial
+as planned. The paid-work scope going forward is three Projects entries (Equal
+Eats, Smarter Window, Bay Home Consignment) plus four Commercial entries (Real
+Estate & Architecture, Events & Fundraisers, Product & Brand, Portraits &
+Grad).
 
 ---
 
@@ -200,17 +200,20 @@ work is substantial and splits into Aerial and Landscape & Travel.
 
 **Done.** Tokens, shell (panel + grid), index/filter wiring, the `/work/[slug]`
 project page with a real lightbox, and `/info` are all built and working.
-`scripts/images.mjs` is written, tested, and wired up as `npm run images`. All
-ten entries from this plan are in `content/projects.json` with real `title` /
-`category` / `slug`; the four Projects entries also carry real `client` / `year`
-/ description copy pulled from the drafts above. Aerial has real photos — 16
-processed into `public/work/aerial/` — and is the only entry currently visible
-on the site, since entries with no images are hidden from the index and grid
-by design, not by accident.
+`scripts/images.mjs` is written, tested, and wired up as `npm run images`. Nine
+entries from this plan are in `content/projects.json` with real `title` /
+`category` / `slug` (Pro Power Washes was cut as a Projects entry — see above —
+and instead appears as a linked line on `/info` under Selected experience,
+pointing at @propowerwashes on Instagram); the three remaining Projects entries
+also carry real `client` / `year` / description copy pulled from the drafts
+above. Aerial has real photos — 16 processed into `public/work/aerial/` — and
+is the only entry currently visible on the site, since entries with no images
+are hidden from the index and grid by design, not by accident.
 
 **Half-finished.**
-- Nine of ten entries have no `raw/<slug>/` folder yet, so they stay invisible
-  on the live site until photos are added and `npm run images` runs again.
+- Eight of nine entries have no `raw/<slug>/` folder yet, so they stay
+  invisible on the live site until photos are added and `npm run images` runs
+  again.
 - The four Commercial entries and Landscape & Travel only have `slug` / `title`
   / `category` — no `year`, `client`, or `description`, since this plan only
   gives planning notes for those, not finished copy the way the Projects
@@ -223,10 +226,9 @@ by design, not by accident.
   brief but was never built — no component exists for it anywhere yet.
 
 **Next three things.**
-1. Populate `raw/<slug>/` for the four Projects entries first — Equal Eats,
-   Smarter Window, Bay Home Consignment, Pro Power Washes — since they already
-   have real copy and photos are the only thing blocking them. Run
-   `npm run images` after.
+1. Populate `raw/<slug>/` for the three Projects entries first — Equal Eats,
+   Smarter Window, Bay Home Consignment — since they already have real copy
+   and photos are the only thing blocking them. Run `npm run images` after.
 2. Write the missing `year` / `client` / `description` for the four Commercial
    entries and Landscape & Travel.
 3. Build the social dock component.

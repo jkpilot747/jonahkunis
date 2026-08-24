@@ -6,7 +6,12 @@ const SELECTED_EXPERIENCE = [
   { role: "Freelance Photographer", org: "Jonah Kunis Photography", year: "2018–Present" },
   { role: "Photographer and Project Lead", org: "Equal Eats", year: "2025" },
   { role: "Marketing Intern", org: "J Leaders", year: "2025" },
-  { role: "Owner/Operator", org: "Pro Power Washes", year: "2024–2025" },
+  {
+    role: "Owner/Operator",
+    org: "Pro Power Washes",
+    year: "2024–2025",
+    href: "https://www.instagram.com/propowerwashes",
+  },
 ];
 
 export default function InfoPage() {
@@ -59,7 +64,12 @@ export default function InfoPage() {
           <ul className="flex flex-col gap-1 text-body tracking-body">
             {SELECTED_EXPERIENCE.map((entry) => (
               <li key={`${entry.role}-${entry.org}`}>
-                {entry.role} — {entry.org}, {entry.year}
+                {entry.role} — {entry.href ? (
+                  <a href={entry.href}>{entry.org}</a>
+                ) : (
+                  entry.org
+                )}
+                , {entry.year}
               </li>
             ))}
           </ul>
