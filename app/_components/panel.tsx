@@ -20,7 +20,7 @@ export function Panel({
   return (
     <aside className="fixed left-5 top-5 bottom-5 flex w-[640px] flex-col rounded-[10px] bg-panel p-5">
       <h1 className="text-wordmark font-bold tracking-wordmark">
-        Jonah Kunis
+        Jonah Kunis<span className="text-muted">*</span>
       </h1>
       <p className="mt-1 font-mono text-metadata tracking-metadata text-muted">
         Commercial photography, video, and product work
@@ -45,9 +45,15 @@ export function Panel({
 
       <div className="mt-5 border-t border-hairline" />
 
-      <ul className="index-list mt-5 min-h-0 flex-1 overflow-y-auto">
-        {visibleProjects.map((project) => (
-          <li key={project.slug} className="text-index tracking-index">
+      <ul className="index-list mt-5 flex min-h-0 flex-1 flex-col overflow-y-auto">
+        {visibleProjects.map((project, i) => (
+          <li
+            key={project.slug}
+            className="flex items-baseline gap-3 border-t border-hairline py-2 text-index tracking-index first:border-t-0 first:pt-0"
+          >
+            <span className="font-mono text-metadata tracking-metadata text-muted">
+              {String(i + 1).padStart(2, "0")}
+            </span>
             <Link href={`/work/${project.slug}`} className="text-inherit no-underline">
               {project.title}
             </Link>

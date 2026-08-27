@@ -67,12 +67,23 @@ Stay on this scale. Do not introduce intermediate sizes.
 
 | Role | Face | Size | Weight | Tracking |
 |---|---|---|---|---|
-| Wordmark | Archivo | 30px | 700 | -0.03em |
-| Page title | Archivo | 24px | 700 | -0.02em |
-| Index item | Archivo | 14px | 400 | -0.005em |
-| Body / bio | Archivo | 15px | 400 | 0 |
-| Metadata | Geist Mono | 12px | 400 | 0.01em |
-| Filter label | Geist Mono | 11px | 400 | 0.12em, uppercase |
+| Wordmark | Archivo | 42px | 700 | -0.03em |
+| Page title | Archivo | 32px | 700 | -0.02em |
+| Index item | Archivo | 18px | 400 | -0.005em |
+| Body / bio | Archivo | 19px | 400 | 0 |
+| Metadata | Geist Mono | 14px | 400 | 0.01em |
+| Filter label | Geist Mono | 13px | 400 | 0.12em, uppercase |
+
+These sizes ended up larger than the original draft above through several
+rounds of eyeballing the panel in the browser at 640px wide — the numbers
+here are what's actually in `globals.css`'s `@theme inline` block, not a
+starting proposal.
+
+One deliberate exception: `--text-huge` (72px, weight 700, `tracking-wordmark`,
+`leading-none`) exists solely for the "→ Book a session ←" CTA at the bottom
+of Graduation's booking section — see Flourishes below. Don't reach for it
+anywhere else; if a second spot wants oversized type, that's a sign the scale
+needs a real new row, not more ad hoc reuse of this one.
 
 Line height: 1.25 for anything 24px and above, 1.5 for index items, 1.6 for body.
 
@@ -87,8 +98,8 @@ Light only. Photographs supply all the color on this site; the interface
 supplies none.
 
 ```css
---ground:   #EFEFED;  /* page background */
---panel:    #FFFFFF;  /* the index panel, and project page surfaces */
+--ground:   #FFFFFF;  /* page background, behind the grid */
+--panel:    #EFEFED;  /* the index panel, and project page surfaces */
 --ink:      #111111;  /* all primary text */
 --muted:    #8A8A85;  /* metadata, inactive filters, captions */
 --hairline: #E1E1DD;  /* dividers inside the panel */
@@ -129,18 +140,20 @@ with the grid.
 
 ### The panel
 
-- Fixed position, 300px wide, inset 20px from the left, top, and bottom of the
-  viewport — full height, not content-driven.
+- Fixed position, 640px wide, inset 20px from the left, top, and bottom of the
+  viewport — full height, not content-driven. (Widened from an original 300px
+  draft after seeing the bumped type scale above in the browser — 300px read
+  cramped at 18px index items.)
 - Background `--panel`, radius 10px, no border, no shadow. It sits on `--ground`,
   and that tonal step is the only separation it needs.
 - Internal padding 20px.
 - Contents in order:
-  1. Wordmark: `Jonah Kunis`
+  1. Wordmark: `Jonah Kunis*` — see Flourishes below for the trailing asterisk
   2. One line of Geist Mono, `--muted`: what he does, one short line
   3. Hairline divider
   4. Filter row (see below)
   5. Hairline divider
-  6. Project index: one project name per line
+  6. Project index: one numbered row per project (see Flourishes)
   7. Hairline divider, pinned to the bottom of the panel
   8. `Info` link, sitting on the panel's bottom edge
 - The project index (step 6) is the only flexible region — it grows to fill
@@ -225,14 +238,44 @@ Everything else is a plain click.
 
 ---
 
+## Flourishes
+
+A deliberate departure from pure restraint, added after the base system was
+working — inspired by the Cargo templates in `docs/refs/`. These are the only
+ones. Don't extrapolate a general "add personality" license from them; each
+one below is specific and intentional, not a style to sprinkle everywhere.
+
+- **Wordmark asterisk.** `Jonah Kunis*` — the trailing `*` in `--muted`, same
+  weight and size as the rest of the wordmark. Cargo's "DOC_OSC*" move.
+- **Numbered track-listing rows.** Two places use this: the panel's project
+  index, and Graduation's packages and FAQ lists. Each row gets a zero-padded
+  two-digit index (`01`, `02`, ...) in Geist Mono `--muted`, and rows are
+  separated by a hairline divider (the first row in a list skips its top
+  divider). This is a real pattern now — reuse it verbatim for any future
+  numbered list rather than inventing a new numbering style.
+- **Terminal metadata block.** On `/work/[slug]`, entries that have a
+  `client` and/or `year` (currently only the three Projects entries) get a
+  small monospace block between the page title and the description: a line
+  of 28 hyphens, then `CLIENT — <value>` / `YEAR — <value>` each on their own
+  line, then another 28 hyphens. Entries without that data skip the block
+  entirely — this is conditional on having real metadata to show, never
+  padded out with empty rows. Borrowed from the "CARGO™ Place_holder" ref.
+- **The huge CTA.** "→ Book a session ←" at `--text-huge` (72px) — see
+  Typography above. One CTA, one spot. Arrows point inward at the text on
+  both sides, not a trailing "go here" arrow.
+
+---
+
 ## Routes
 
 Three. Resist adding more.
 
 - `/` — panel plus grid, all projects, filterable.
-- `/work/[slug]` — a single project. Same panel on the left. Right side becomes a
-  single-column stack of that project's images with a short description block at
-  the top, Archivo body scale.
+- `/work/[slug]` — a single project. Same panel on the left. Right side leads
+  with a page title (Page title scale), then — only for entries with a
+  `client`/`year` — the terminal metadata block from Flourishes above, then a
+  short description block, Archivo body scale, then a single-column stack of
+  that project's images.
 - `/info` — bio, contact, gear, license, recognition, selected experience. Same
   panel. Right side is a single text column, max 65 characters wide,
   left-aligned against the grid's left edge. See `docs/content-plan.md` for the

@@ -25,6 +25,16 @@ export interface Project {
   // Only needed for entries whose images span multiple distinct shoots
   // (e.g. Events & Fundraisers).
   groups?: Record<string, string | { text: string; href: string }>;
+  // Booking section rendered after the image stack. Only Graduation
+  // sets this — see "This page ends with booking" in docs/content-plan.md.
+  booking?: ProjectBooking;
+}
+
+export interface ProjectBooking {
+  packages: { name: string; price: string; detail?: string }[];
+  testimonials: { quote: string; attribution: string }[];
+  faq: { q: string; a: string }[];
+  formHref: string;
 }
 
 // content/projects.json currently has every images[] empty, which collapses

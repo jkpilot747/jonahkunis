@@ -130,15 +130,18 @@ private vineyard clients.* GRID Alternatives lives here, not under a separate
 entry. The other named client stays anonymous as "private vineyard clients"
 rather than naming the vineyard.
 
-### 8. Portraits & Grad
+### 8. Graduation
 `category: commercial`
 
 Your actual revenue engine, and the one entry that carries a commercial ask.
+Originally combined with general portrait/headshot work as "Portraits &
+Grad," then split apart — grad sessions are the higher-volume, more
+seasonal business and deserve their own entry; portraits and headshots are
+a different kind of booking (see #8a below) and shouldn't share a page just
+because both are "portraiture."
 
-Final description (in `content/projects.json`): *Portrait and senior/grad
-photography sessions, shot in natural light on location or at home.* The
-booking section below (packages, testimonials, FAQ) is still unbuilt — this
-is just the entry's intro copy.
+Final description (in `content/projects.json`): *Senior and grad
+photography sessions, shot in natural light on location or at home.*
 
 **This page ends with booking.** After the image stack: packages and pricing, the
 two client testimonials, a short FAQ, and the Google Form link. Nothing about
@@ -152,6 +155,20 @@ treatment. The hard rules in the design brief still apply here.
 
 Trim the current site's copy hard. Four packages, two testimonials, five FAQ
 lines at most.
+
+### 8a. Portraits & Headshots
+`category: commercial`
+
+Split out from Graduation (see above) — general portrait and headshot
+sessions, not tied to grad season. No booking section of its own yet; add
+one later if this line of work turns out to need the same kind of
+commercial ask Graduation gets.
+
+Final description (in `content/projects.json`): *Portrait and headshot
+sessions, shot in natural light on location or at home.*
+
+Needs: `raw/portraits-headshots/` doesn't exist yet — this entry is hidden
+from the site until photos are added.
 
 ---
 
@@ -215,13 +232,14 @@ and the commercial entries demonstrate the same thing by existing.
   whether that is enough to carry an entry on its own or whether Product folds
   into the Equal Eats project until there is more.
 
-Confirmed and closed: booking lives on the Portraits & Grad page only; personal
+Confirmed and closed: booking lives on the Graduation page only; personal
 work is substantial and splits into Aerial and Landscape & Travel; Pro Power
 Washes is not a Projects entry (see above); Product & Brand stays in Commercial
 as planned. The paid-work scope going forward is three Projects entries (Equal
-Eats, Smarter Window, Bay Home Consignment) plus four Commercial entries (Real
-Estate & Architecture, Events & Fundraisers, Product & Brand, Portraits &
-Grad).
+Eats, Smarter Window, Bay Home Consignment) plus five Commercial entries (Real
+Estate & Architecture, Events & Fundraisers, Product & Brand, Graduation,
+Portraits & Headshots — split from the original combined "Portraits & Grad,"
+see #8/#8a above).
 
 ---
 
@@ -235,37 +253,69 @@ with real `title` / `category` / `slug` and a real `description` (Pro Power
 Washes was cut as a Projects entry — see above — and instead appears as a
 linked line on `/info` under Selected experience, pointing at
 @propowerwashes on Instagram). The three Projects entries also carry real
-`client` / `year`; the four Commercial entries and Landscape & Travel don't —
+`client` / `year`; the Commercial entries and Landscape & Travel don't —
 per this plan's own organization (Commercial is per-category, not
 per-engagement), a single client/year doesn't fit those, so client names live
-in the description prose instead and `client`/`year` stay empty. Equal Eats,
-Smarter Window, Bay Home Consignment, and Aerial have real photos processed
-into `public/work/` and are the only entries currently visible on the site,
-since entries with no images are hidden from the index and grid by design,
-not by accident. The social dock reads its three icons from
-`public/icons/{instagram,linkedin,email}.svg` (swap the files to change the
-icons — no code changes needed) and opens all three links in a new tab. The
-project page also supports grouped sub-sections now (`images[].group` +
-top-level `groups` map, see "Grouped entries" in `docs/design-brief.md`) for
-entries like Events & Fundraisers that span multiple unrelated shoots —
-raw folders exist for it but photos and group assignments aren't in yet.
+in the description prose instead and `client`/`year` stay empty. The social
+dock reads its three icons from `public/icons/{instagram,linkedin,email}.svg`
+(swap the files to change the icons — no code changes needed) and opens all
+three links in a new tab. The project page also supports grouped sub-sections
+now (`images[].group` + top-level `groups` map, see "Grouped entries" in
+`docs/design-brief.md`) for entries like Events & Fundraisers that span
+multiple unrelated shoots — raw folders exist for it but photos and group
+assignments aren't in yet. `docs/design-brief.md`'s panel width and type
+scale match the code (640px, bumped sizes) — reconciled, no drift between
+the two.
+
+"Portraits & Grad" is now two entries: **Graduation** (`graduation`) and
+**Portraits & Headshots** (`portraits-headshots`) — see #8/#8a above. Grad
+sessions are the higher-volume, more seasonal business and carry Graduation's
+booking section (`app/work/[slug]/_components/booking-section.tsx`, rendered
+from a `booking` field on the project entry — see the `ProjectBooking` type
+in `lib/projects.ts`) with real packages/pricing, both testimonials, five FAQ
+lines, and the live Google Form link. Portraits & Headshots split off empty,
+with no booking section of its own yet. Equal Eats, Smarter Window, Bay Home
+Consignment, Graduation, and Aerial have real photos processed into
+`public/work/` and are the only entries currently visible on the site, since
+entries with no images are hidden from the index and grid by design, not by
+accident. Graduation's raw folder (`raw/graduation/`, 17 photos) was moved
+there directly from the old `raw/portraits-grad/` rather than reprocessed
+from scratch, since nothing about the images themselves changed.
+
+Also swapped: `--ground` is now white and `--panel` is the off-white
+`#EFEFED` (the reverse of the original tokens) — the page background behind
+the grid is white, the panel itself is the tonal grey.
+
+`scripts/images.mjs` got a safety fix. It walks every project's raw/ folder
+on every run, and `raw/bay-home-consignment-2022/` had drifted out of sync
+with what was already shipped (missing `bayhome-4.jpg`, deliberately removed
+by hand) — which the old script would have applied silently while someone
+was really just trying to add photos to an unrelated entry. It now diffs
+each project's raw/ contents against what's already in `content/projects.json`
+and logs any removal or cover change loudly (`<slug>: removing N image(s)
+no longer in raw/ — ...`, `<slug>: cover changed X -> Y`) instead of doing it
+without a trace. Adding and removing files from raw/ still works exactly as
+before — the fix is visibility, not a block.
+
+A round of Cargo-inspired flourishes landed too — see "Flourishes" in
+`docs/design-brief.md` for the authoritative list: the wordmark's trailing
+`Jonah Kunis*`, numbered track-listing rows (panel index, Graduation's
+packages and FAQ), the dashed monospace "terminal" metadata block on project
+pages with real `client`/`year` data, and the huge "→ Book a session ←" CTA
+at the bottom of Graduation. These are deliberate, specific exceptions to the
+otherwise-restrained system, not a general license to keep adding personality
+everywhere — read that section before extending the pattern further.
 
 **Half-finished.**
-- The four Commercial entries and Landscape & Travel have no `raw/<slug>/`
-  folder yet, so they stay invisible on the live site until photos are added
-  and `npm run images` runs again.
-- The panel is 640px wide with a bumped type scale in the actual code, agreed
-  on by eye in the browser over several iterations, but `docs/design-brief.md`
-  still documents the original 300px width and the original, smaller type
-  scale. Nobody's gone back to reconcile the numbers.
-- Portraits & Grad's booking section (packages, pricing, two testimonials,
-  FAQ, Google Form link) still needs building — the entry currently only has
-  its intro description.
+- Real Estate & Architecture, Events & Fundraisers, Product & Brand,
+  Portraits & Headshots, and Landscape & Travel have no `raw/<slug>/` folder
+  yet, so they stay invisible on the live site until photos are added and
+  `npm run images` runs again.
 
-**Next three things.**
-1. Populate `raw/<slug>/` for the four Commercial entries and Landscape &
-   Travel, the same way it was done for the three Projects entries. Run
-   `npm run images` after each batch.
-2. Build Portraits & Grad's booking section.
-3. Reconcile `docs/design-brief.md`'s panel width/type-scale numbers with
-   what's actually in the code.
+**Next thing.**
+1. Populate `raw/<slug>/` for the five remaining empty entries (Real Estate &
+   Architecture, Events & Fundraisers, Product & Brand, Portraits &
+   Headshots, Landscape & Travel), the same way it was done for the three
+   Projects entries, Graduation, and Aerial. Run `npm run images` after each
+   batch — that's the only thing standing between these five entries and
+   showing up on the live site.

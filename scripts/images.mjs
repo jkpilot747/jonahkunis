@@ -104,11 +104,33 @@ async function main() {
       continue;
     }
 
+    // raw/ is a curation folder, not a permanent mirror (see header comment),
+    // so images legitimately come and go as files are added to or removed
+    // from raw/<slug>/ between runs — that's expected. But this script walks
+    // every project's raw/ folder on every run, so a removal made for one
+    // project's sake is easy to lose track of when it's really a side effect
+    // showing up under a different project you weren't paying attention to.
+    // Log it loudly instead of letting it pass silently.
+    const existingImages = project.images ?? [];
+    const previousCoverSrc = project.cover?.src;
+    const newOutNames = new Set(
+      files.map((file) => `${path.parse(file).name}.jpg`),
+    );
+    const removed = existingImages
+      .map((image) => image.src)
+      .filter((src) => !newOutNames.has(src));
+
+    if (removed.length > 0) {
+      console.warn(
+        `  ${project.slug}: removing ${removed.length} image(s) no longer in raw/ — ${removed.join(", ")}`,
+      );
+    }
+
     const outDir = path.join(PUBLIC_WORK_DIR, project.slug);
     await mkdir(outDir, { recursive: true });
 
     const existingBySrc = new Map(
-      (project.images ?? []).map((image) => [image.src, image]),
+      existingImages.map((image) => [image.src, image]),
     );
 
     const newImages = [];
@@ -152,6 +174,12 @@ async function main() {
     if (newImages.length === 0) {
       console.warn(`Skipping ${project.slug} — every image in raw/${project.slug}/ failed.`);
       continue;
+    }
+
+    if (previousCoverSrc && previousCoverSrc !== newImages[0].src) {
+      console.warn(
+        `  ${project.slug}: cover changed ${previousCoverSrc} -> ${newImages[0].src}`,
+      );
     }
 
     project.cover = {

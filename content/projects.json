@@ -141,16 +141,9 @@
     "role": "",
     "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Built an Excel tracker that automates eBay fee calculations and consignor payouts.",
     "cover": {
-      "src": "bayhome-4.jpg"
+      "src": "bayhome-9.jpg"
     },
     "images": [
-      {
-        "src": "bayhome-4.jpg",
-        "w": 2400,
-        "h": 1800,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUEAwb/xAAlEAABBAAFBAMBAAAAAAAAAAABAAIDEQQFEiIxIUFRgTVDcrH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABkRAQEAAwEAAAAAAAAAAAAAAAABESFBMf/aAAwDAQACEQMRAD8A881jjQDQSB2HC6sh1toxmx0JB6j0qEmbSOwukwhzjZ1tbQA8LUM0idh2mHChkxaH8UKtBXKdh8FO4bGyhwdVO4PpFWgzSJxOqOQyg6jfYeOnKJanAzakRfHM/IWcE1ML+of0IiE6pfI0YTeYtW7d3REToP/Z",
-        "caption": ""
-      },
       {
         "src": "bayhome-9.jpg",
         "w": 2400,
@@ -222,13 +215,203 @@
     "images": []
   },
   {
-    "slug": "portraits-grad",
-    "title": "Portraits & Grad",
+    "slug": "graduation",
+    "title": "Graduation",
     "year": null,
     "category": "commercial",
     "client": "",
     "role": "",
-    "description": "Portrait and senior/grad photography sessions, shot in natural light on location or at home.",
+    "description": "Senior and grad photography sessions, shot in natural light on location or at home.",
+    "cover": {
+      "src": "Daniel_Rasas_Grad-14.jpg"
+    },
+    "images": [
+      {
+        "src": "Daniel_Rasas_Grad-14.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwb/xAAnEAABBAAFAwQDAAAAAAAAAAABAAIDEQQSEyExBUFRIjJCYXHB0f/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgT/xAAZEQEBAAMBAAAAAAAAAAAAAAABAAIREkH/2gAMAwEAAhEDEQA/AJLZpWZXRSiMuBst2JH2UxD0l2NN6xzk799vNrVzYxM86TmahtrWMBNjkb9lREeWJ5jAeS31Rkgbj9/Szrl5HJS+odBkgp0cmoyt7/qEw180kIY72mxXAvyUIHOSFvJiwIXZeQHEE82eVBwmJfEaBNFwP4IPKe1LFbKZlyzhgPypasTUl3dYcSzLVAgG8pOyFFMpCFHBV1f/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "Daniel_Rasas_Grad-15.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgQG/8QAKRAAAgEDAgQFBQAAAAAAAAAAAQIDAAQRITEFEhNBIkJhgcEUI1Jx8P/EABgBAAMBAQAAAAAAAAAAAAAAAAIDBAAB/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAECESExUf/aAAwDAQACEQMRAD8AUQrESB1EBIORgnPp6U2tbSGePo9LIK+N11KD+xUJbzRzHnWFNtDgsNhnG+a1hDavMjD7GvMwbDY76VI268OqTSnD7c2wiIt+ZUwOUY375796KVNcxxXLLGquoHg1BwaKBzX02ooIY7CGK5uSzM2uEO5Pr7VptuKJJAZGiBZAQyZ8unwaX8alLRR5IwCdv1S62maM5/JeU+9XTCa6C3j4dALON5BcQMqxHDjTG/loqeGTj6CHIz4fmilOBizD/9k=",
+        "caption": ""
+      },
+      {
+        "src": "Daniel_Rasas_Grad-18.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAUCBAEDBv/EACUQAAICAQMEAQUAAAAAAAAAAAECAxEABBIhBRMxQSJCUnGBkf/EABYBAQEBAAAAAAAAAAAAAAAAAAACA//EABgRAQEBAQEAAAAAAAAAAAAAAAARARIh/9oADAMBAAIRAxEAPwBzbzQRbRXFmzkjG1hu42+vt4/mKNJ1oTasIVO1yFHy5GWJtbNHMyK8XD1Ru6zP1dxdhEkQk7htSLBBwznJuuzmRgjbaPgYY61Nxv0+jh0rrqI0Z5Tzs28L+Mm0rTPIskAEwbegUevHOXoAI0C3dezmQgE5m+ort/V5pE0kTpcUru84kio2EFkEYY8emBDL5wxB/9k=",
+        "caption": ""
+      },
+      {
+        "src": "Daniel_Rasas_Grad-23.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAABAABAwX/xAAoEAACAgIBAwEJAQAAAAAAAAABAgMRAAQhBRITkiIjMTJBUWFigZH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgD/xAAYEQEBAQEBAAAAAAAAAAAAAAAAASERMf/aAAwDAQACEQMRAD8A49F3386QFyyOfqLxu5HOdmQruyxqSAqLVDPP6DqMrrsO/PICj/MRvyeXZgaC5B5rah8tUOciQzzWakk69RQPuPLF7XBYG6GWB6eksJ94jIQznkfesseF3lnaGZhrMFjB4Aw+vKyTuA1hhfP5xo00q+5vUcxenxl+7uax+2VMTR5JJKsUP5ljG1EI+J9WWDP/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "Daniel_Rasas_Grad-25.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGBAL/xAAnEAACAQMDAwMFAAAAAAAAAAABAgMABBEFEiEiMUFRUtETYXGRof/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwBNc6pKbtJYWKFe33ppa3ksdwpuPrBWw4DHC4NTKsUlwyggHGD5qjttHkdBLNdSo3t27uPSg3XN+0DHayMXOQF6s/FFIHciMb8jk4GPGaKBjd6bptvCsjzATYztHO79dq3pKI9PjlSVWR4i+CeoY7/nFScsu+Zz4Zif7TGyvyLM2xPG2UYPoy/IoO1tYZE6Jgx93OaKWQTFLiM57nBooP/Z",
+        "caption": ""
+      },
+      {
+        "src": "Daniel_Rasas_Grad-3.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAwADAAAAAAAAAAAAAAAAAAIEAQMF/8QAJxAAAgEEAgAEBwAAAAAAAAAAAQIDAAQRMRIhBRNxoRQjMkFRUmH/xAAYAQACAwAAAAAAAAAAAAAAAAABAgADBP/EABkRAAMBAQEAAAAAAAAAAAAAAAABAhESIv/aAAwDAQACEQMRAD8AXwK2S7EiMWAUDoax3v8AtMFaOXMDMCrYAI7qeydrK2dLZhJLKVZsZA9Mne6tja7aHPEg9HiT3gbNZrp75G5TLbiRx4V8xzG69sv07orn3hubuHy2R+A2M5op4erWK5IknmLMom4gHoEVUlwxhwZlD4K5PqKm+FdmZtAnVBtm+ze1TgtTnDL3VxDhkmBJ/CjqitL2z/t7UUeQ9Sf/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "Daniel_Rasas_Grad-9.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAQFAwEC/8QAKhAAAgEDAwIDCQAAAAAAAAAAAQIDABEhBBIxBVETFEEiJEJhgZGx4fD/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgQB/8QAGREAAwEBAQAAAAAAAAAAAAAAAAEREiFB/9oADAMBAAIRAxEAPwDkmogkb25TvOTs+H0GT8vzSup8KKT3IzMGwcEhsUyvTmiiFlctzyP7vTEQmh0rtCj70YYYWx3qR3w2Ui6TUxwTJeDdta+Tls4+1FPatJAHmkjUHkALm4+nFFNnXYKkaeaPobVpH1MIjxDLEc9uP3UnxDXgFgxY2N6pyhqys2t3qVPBwRfBoqUXPaiiIKz/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-24.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUEAwb/xAAmEAABAwMCBgMBAAAAAAAAAAABAAIDBBESITEFEyJBcbE0NVGB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8A86aSV0uDWkm17D8VOkhbHDPHgc7iMPLukO3sR3WmlnmqKiOJlmmwaCewGq6PpZOHyUkXOL+bPcutvfXbypekzKiMa/OUv6ceotsiuzyCGoljcA46gnTVE5U5GfhnzWeD6V7FrhC5zQS3YkbIi3oyg8U+wl/npEREr//Z",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-27.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAQFBv/EACUQAAIBBAEDBAMAAAAAAAAAAAECAAMEERIhEzFBBTNRcqGxwf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABgRAQEBAQEAAAAAAAAAAAAAAAABAhEx/9oADAMBAAIRAxEAPwDL9M7a65PbJk6rQpUbemzu3XJOFGeBjjMsqFxb0qqulsrPhRyO5Hn8yRX9OuLjaprTKCvuEI8YweYapnqiZXrKjlSxxgA+REulp2a6qabAKCp1PJiXKNyg0/cT7D9zUpxZMR8/2Ij0ePGUYnduT3MRE0H/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-30.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAJhAAAgIBAgUEAwAAAAAAAAAAAQIDEQAEIQUSMUFREyMykUJhcf/EABcBAAMBAAAAAAAAAAAAAAAAAAACAwH/xAAXEQEBAQEAAAAAAAAAAAAAAAABABES/9oADAMBAAIRAxEAPwDDV445iyuUIPyXtnMmoKB0heQIR5OXycG1S/hd9N+37+8Yk4dJplgUAvO9hq3AGTck5WW4XNComrmWcofTcdVPf7wyxtE8IQlCvM21DevFYYqbGNadTv4P9zSfVxnhcPI/uqxsEdcx6vJJPIE7Ak5ZKgzQ1sgIJo0bF71hiVEG8MMs2//Z",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-32.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQEC/8QAIRAAAQQBBAMBAAAAAAAAAAAAAQACAxEEEiExURMiMkH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREC/9oADAMBAAIRAxEAPwDAbM3TIPG422tjsE9zjlscdRk0b/SOlpnIeK0tAroK1HlQhga6Brm+MuogffaxZWZyoYOPA+eITNazG21A8muyim1scPbFjce97RM2HEa9t4RE0x0coiKT/9k=",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-34.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQFAv/EACIQAAEEAgIBBQAAAAAAAAAAAAEAAgMRBBITIUEUIjFRof/EABYBAQEBAAAAAAAAAAAAAAAAAAECAP/EABcRAQEBAQAAAAAAAAAAAAAAAAEAAhH/2gAMAwEAAhEDEQA/AMQZDeI6wnZxGzifykJlnjLmNDG1qTZ9x8BafqY2mxE0dVWgVAlxTh7vjDniiBVD5rwoRgz2zcYCaGKGVoYIyXHU9EH7RV8mJJtywuIcAKa4ikWBhzRuXNmqvpEVtRGkoiLRf//Z",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-36.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAUDAgQG/8QAIhAAAgICAgICAwAAAAAAAAAAAQIAAwQRBSESURNBFVKR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAERITH/2gAMAwEAAhEDEQA/AOXHc/fjqtbuLal/YaYD1KPL8lj34yiu1QVPkVbptiRl416sey2xLQhHXkANH66lJ8XFahKVRBaRvZ0DvUzeHvHW/GnKIyrXNdDKetact9f33Eyt4thUGWt7j2GPy7O9+olcCcehbtCD3Jz1oMksEXy967iJpNTEREP/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-39.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMEAv/EACYQAAICAQEGBwAAAAAAAAAAAAECAxEABBITISIxMgUUUWFxkaH/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAgED/8QAGREBAQEAAwAAAAAAAAAAAAAAAAECEyFB/9oADAMBAAIRAxEAPwDLpmkTxLTyIokKKGoHrwzUyzxS7c0YO9O0Bd2MhvvLsGPKoIDECyB7Z1LrpZgLcqFJ2VVRVXw/M567hiXbTq5JZqagiqtAEnj8YzM2skVOSdzXQFRWMSxfFarqFBhNgHnGTZFrtHX0xjHjMpsq32j6xjGFv//Z",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-48.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAApEAACAgEDAQYHAAAAAAAAAAABAgMRAAQSITEFExQVQlEiQWGBkaGx/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgADBP/EABoRAAIDAQEAAAAAAAAAAAAAAAACARESIjH/2gAMAwEAAhEDEQA/AHeHj8si1EjlwSAtmiOOeT9cXpzKkgET94Ceg5P3yZta8kMULBmRF+EgWD+MZDPJDJGN7KQBVDMWLNl3bUrGON1ckEVQNc+1YZFrkk1ciiR9q1warDGvgGWbMQyCHVKIwioRRG0ZqWUnUoxKtIEGxgOh/nzOc1UDvLujWxXtWTmKUegYMnStRFFrzaraVMsbAi6IBGGQMko9H7wxQXJ//9k=",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-50.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQBAgX/xAAlEAACAgEDAwQDAAAAAAAAAAABAgADBBEhMRIiUQUTQVJhscH/xAAXAQEBAQEAAAAAAAAAAAAAAAACAQME/8QAGhEBAQACAwAAAAAAAAAAAAAAAQACAyExQf/aAAwDAQACEQMRAD8Am9Kvrx8i17lAUKQmo26v5Lsa+oWq1g7teVHJ+J5yhS7dNIYg/YykXGyyt0xEHtagBW2MyeZmC93Oe9l9tr11kIxO/nTmJ3ZlkANbir+D1afqIhIupaS0kX2aHTuMwOwOzHnzEQ3R5Y5JG5JiIkrf/9k=",
+        "caption": ""
+      },
+      {
+        "src": "libby+company+grads-51.jpg",
+        "w": 2400,
+        "h": 1800,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAMEAQIF/8QAIhAAAgIBAwQDAAAAAAAAAAAAAQIAAxEEBRITITFRM3GB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/EABwRAAICAgMAAAAAAAAAAAAAAAABAhEDITFBUf/aAAwDAQACEQMRAD8Ah2m0Uae97UwHHGokdifYlnS2olqs4PIZ7qPPqYTU02ba2m6WTXxxk+ZHXYQoK0Lj7EjK2Mo3sh3K6y7Uu6oyhs4bHY+4luzcKhpmreghw3gHAMR0/QPG+jl3/N+CIiKXjwasTwIycZiIhRj/2Q==",
+        "caption": ""
+      }
+    ],
+    "booking": {
+      "packages": [
+        {
+          "name": "Mini",
+          "price": "$100",
+          "detail": "30 min · up to 2 locations · 15+ edited photos"
+        },
+        {
+          "name": "Standard",
+          "price": "$200",
+          "detail": "1 hour · up to 3 locations · 30+ edited photos"
+        },
+        {
+          "name": "Crew (group shots, per person)",
+          "price": "$85/person",
+          "detail": "2+ people · 1 hour · 30+ edited photos, shared gallery"
+        },
+        {
+          "name": "The Works (solo + group, per person)",
+          "price": "$200/person",
+          "detail": "2+ people · 2–3 hours · 50+ edited photos, solo set for each person"
+        }
+      ],
+      "testimonials": [
+        {
+          "quote": "Jonah did a great job with our grad shoot! In the span of an hour we did 4 locations with a mix of solo and group shots. He helped with pose ideas, and was really patient and flexible. The photos came out great, highly recommend!",
+          "attribution": "Daniel Rasas"
+        },
+        {
+          "quote": "Jonah took some great photos for my graduation! Some grad photos, professional photos, and he worked with me to recreate an old family portrait. Great experience.",
+          "attribution": "Libby A."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What if the weather is bad?",
+          "a": "We'll reschedule at no extra cost. Overcast days actually make for great portraits — heavy rain is where we draw the line."
+        },
+        {
+          "q": "Can I bring friends or family?",
+          "a": "Yes, a few photos with friends or family can be worked into any session — just mention it when booking. For larger groups, look at Crew or The Works."
+        },
+        {
+          "q": "What's the difference between Crew and The Works?",
+          "a": "Crew is group shots only. The Works adds an individual solo set for each person, plus more time and locations."
+        },
+        {
+          "q": "Do you shoot outside of Davis?",
+          "a": "Yes, I'm available throughout the Bay Area and Sacramento. A travel fee may apply beyond 30 miles from Davis or Berkeley."
+        },
+        {
+          "q": "What payment methods do you accept?",
+          "a": "Venmo and Zelle. Group bookings can pay separately — no need to collect cash from friends."
+        }
+      ],
+      "formHref": "https://docs.google.com/forms/d/e/1FAIpQLSf5SnePz49RVhhm09drvgPVurNS76pQXHOahqna2CNzd3ib9Q/viewform?usp=sharing&ouid=117815390308065805020"
+    }
+  },
+  {
+    "slug": "portraits-headshots",
+    "title": "Portraits & Headshots",
+    "year": null,
+    "category": "commercial",
+    "client": "",
+    "role": "",
+    "description": "Portrait and headshot sessions, shot in natural light on location or at home.",
     "cover": null,
     "images": []
   },

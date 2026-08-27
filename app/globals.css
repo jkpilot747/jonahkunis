@@ -2,8 +2,8 @@
 
 :root {
   /* Color — light only. Photographs supply all the color on this site. */
-  --ground: #efefed;
-  --panel: #ffffff;
+  --ground: #ffffff;
+  --panel: #efefed;
   --ink: #111111;
   --muted: #8a8a85;
   --hairline: #e1e1dd;
@@ -30,6 +30,11 @@
   --text-body--line-height: 1.6;
   --text-metadata: 14px;
   --text-filter: 13px;
+
+  /* One deliberate oversized flourish, reserved for the Graduation booking
+     CTA — not part of the restrained scale above, on purpose. */
+  --text-huge: 72px;
+  --text-huge--line-height: 1;
 
   --tracking-wordmark: -0.03em;
   --tracking-title: -0.02em;
