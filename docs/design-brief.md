@@ -195,19 +195,24 @@ Homepage and project pages use different grid rules.
   other. Nothing on the homepage grid breaks row alignment, because nothing
   is allowed to.
 
-**Project pages (`/work/[slug]`).** Three columns, same 16px gutter and 6px
-radius as the homepage grid, dropping to two columns on narrow viewports.
-Thumbnails are a uniform 3:2 crop, `object-fit: cover` — same "no spans, no
-exceptions" rule as the homepage. "No cropping" now applies to the lightbox,
-not the thumbnails: clicking a thumbnail opens the image at its natural
-aspect ratio, fit to the viewport, never upscaled past its real pixel size.
-Close with Escape or the close control; move between images by clicking the
+**Project pages (`/work/[slug]`).** Two-column CSS masonry (`columns-2`,
+16px gutter, 6px radius), not a uniform grid. Thumbnails render at each
+image's real aspect ratio instead of being cropped — a portrait shot and a
+landscape shot both show their full frame, at the cost of columns not
+staying row-aligned. This is a deliberate departure from the homepage's
+"no spans, no exceptions" rule: portfolio pages are photo-first, and
+cropping a composition to force row alignment cost more than the alignment
+was worth. The homepage grid keeps the uniform 3:2 crop described above —
+one curated cover per project, where a consistent scanning grid matters
+more than showing the cover's full frame.
+
+Clicking a thumbnail still opens the lightbox at the image's natural aspect
+ratio, fit to the viewport, never upscaled past its real pixel size. Close
+with Escape or the close control; move between images by clicking the
 left/right half of the lightbox or the arrow keys.
 
-There is no `wide` field. It existed only because the single-column layout
-made a full-width image harmless; now that thumbnails are a uniform grid,
-the same "no spans, no exceptions" reasoning that killed the homepage's
-`feature` flag applies here too.
+There is no `wide` field — irrelevant now that thumbnails already render at
+their native aspect ratio instead of a fixed crop.
 
 Images load with their blur placeholder from the manifest. No spinners, no
 skeleton loaders, no fade-in animation.

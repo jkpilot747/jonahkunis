@@ -14,6 +14,7 @@ import { readdir, mkdir, readFile, writeFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import exifr from "exifr";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -41,6 +42,42 @@ async function exists(targetPath) {
   } catch {
     return false;
   }
+}
+
+// Photos are ordered oldest-to-newest by EXIF capture date. Files with no
+// readable capture date (screenshots, heavily re-exported files, scans)
+// fall back to filename order at the end of the list — see the warning
+// logged for them below, in keeping with this script's habit of surfacing
+// anything that silently changes ordering or covers.
+async function getCaptureDate(filePath) {
+  try {
+    const data = await exifr.parse(filePath, ["DateTimeOriginal", "CreateDate"]);
+    const date = data?.DateTimeOriginal ?? data?.CreateDate;
+    return date instanceof Date && !Number.isNaN(date.valueOf()) ? date : null;
+  } catch {
+    return null;
+  }
+}
+
+async function sortByCaptureDate(dir, files) {
+  const withDates = await Promise.all(
+    files.map(async (file) => ({
+      file,
+      date: await getCaptureDate(path.join(dir, file)),
+    })),
+  );
+
+  withDates.sort((a, b) => {
+    if (a.date && b.date) return a.date - b.date;
+    if (a.date) return -1;
+    if (b.date) return 1;
+    return a.file.localeCompare(b.file);
+  });
+
+  return {
+    files: withDates.map((entry) => entry.file),
+    undated: withDates.filter((entry) => !entry.date).map((entry) => entry.file),
+  };
 }
 
 async function processImage(inputPath, outputPath) {
@@ -95,13 +132,24 @@ async function main() {
       continue;
     }
 
-    const files = (await readdir(projectRawDir))
-      .filter((file) => IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()))
-      .sort();
+    const candidateFiles = (await readdir(projectRawDir)).filter((file) =>
+      IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()),
+    );
 
-    if (files.length === 0) {
+    if (candidateFiles.length === 0) {
       console.warn(`Skipping ${project.slug} — raw/${project.slug}/ has no images.`);
       continue;
+    }
+
+    const { files, undated } = await sortByCaptureDate(
+      projectRawDir,
+      candidateFiles,
+    );
+
+    if (undated.length > 0) {
+      console.warn(
+        `  ${project.slug}: ${undated.length} image(s) missing capture date, sorted by filename at the end — ${undated.join(", ")}`,
+      );
     }
 
     // raw/ is a curation folder, not a permanent mirror (see header comment),

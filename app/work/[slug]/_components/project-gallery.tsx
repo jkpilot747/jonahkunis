@@ -81,22 +81,23 @@ export function ProjectGallery({
                 {label}
               </p>
             ))}
-          <div className="grid grid-cols-2 gap-4 min-[1600px]:grid-cols-3">
+          <div className="columns-2 gap-4">
             {run.items.map(({ image, index }) => (
               <button
                 key={image.src}
                 type="button"
                 onClick={() => setOpenIndex(index)}
-                className="relative aspect-[3/2] overflow-hidden rounded-[6px]"
+                className="mb-4 block w-full overflow-hidden rounded-[6px] break-inside-avoid"
               >
                 <Image
                   src={`/work/${projectSlug}/${image.src}`}
                   alt={image.caption || projectTitle}
-                  fill
+                  width={image.w}
+                  height={image.h}
                   placeholder="blur"
                   blurDataURL={image.blur}
-                  sizes="(min-width: 1600px) 33vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  sizes="50vw"
+                  className="h-auto w-full"
                 />
               </button>
             ))}
