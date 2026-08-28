@@ -92,20 +92,25 @@ under Selected experience, linking out to the Instagram profile
 Nonprofit galas, fundraisers, walks, corporate events, and private
 celebrations.
 
-Final description (in `content/projects.json`): *Event coverage for nonprofit
-galas, fundraisers, walks, and private celebrations, including Hillel, the MG
-Walk NorCal, a gala fundraiser for Shalom School, NCJW (National Council of
-Jewish Women), and bat mitzvahs for private clients.*
+Final description (in `content/projects.json`): *Event coverage across
+nonprofit fundraisers, walks, awards ceremonies, and private celebrations,
+including the MG Walk NorCal, the Shalom School Benefit, NorCal Clean Cities
+and Communities, the Big Bang Business Competition at UC Davis, and bat
+mitzvahs and other private events.* Hillel and NCJW were in the original plan
+but didn't end up among the photos actually selected for `raw/`, so they're
+not named in the copy — describe what's actually shown, not what was planned.
 
 Event work is the hardest to make look good in a grid, since it is often many
 similar frames. Cut ruthlessly. Ten strong frames beat forty adequate ones.
 
 This entry spans multiple unrelated shoots (a gala is not a bat mitzvah), so
-its grid should break into labeled sections per event rather than read as one
-undifferentiated pile of photos. See "Grouped entries" in
-`docs/design-brief.md`'s Content model section — tag each image's `group` and
-add a short description per group to `content/projects.json` once the photos
-are in `raw/events-fundraisers/`.
+its grid breaks into labeled sections per event rather than reading as one
+undifferentiated pile of photos — see "Grouped entries" in
+`docs/design-brief.md`'s Content model section. Five named groups are tagged
+in `content/projects.json` (`lilys-bat-mitzvah`, `shalom-school-benefit`,
+`big-bang`, `mg-walk`, `norcal-clean-cities`); two small private shoots
+(Jodi's private party, the Wornick prom pre-party) were left ungrouped by
+request — not every shoot needs a named section, and these didn't warrant one.
 
 ### 7. Product & Brand
 `category: commercial`
@@ -315,14 +320,14 @@ otherwise-restrained system, not a general license to keep adding personality
 everywhere — read that section before extending the pattern further.
 
 **Half-finished.**
-- Events & Fundraisers, Product & Brand, and Portraits & Headshots have no
-  `raw/<slug>/` folder yet (Portraits & Headshots has no folder at all), so
-  they stay invisible on the live site until photos are added and
-  `npm run images` runs again. Landscape & Travel and Architecture (formerly
-  "Real Estate & Architecture," see #11 above) are both populated and live now.
+- Product & Brand and Portraits & Headshots have no `raw/<slug>/` folder yet
+  (Portraits & Headshots has no folder at all), so they stay invisible on the
+  live site until photos are added and `npm run images` runs again. Landscape
+  & Travel, Architecture (formerly "Real Estate & Architecture," see #11
+  above), and Events & Fundraisers (see #6 above) are all populated and live.
 
 **Next thing.**
-1. Populate `raw/<slug>/` for the three remaining empty entries (Events &
-   Fundraisers, Product & Brand, Portraits & Headshots), the same way it was
-   done for the rest. Run `npm run images` after each batch — that's the only
-   thing standing between these three entries and showing up on the live site.
+1. Populate `raw/<slug>/` for the two remaining empty entries (Product &
+   Brand, Portraits & Headshots), the same way it was done for the rest. Run
+   `npm run images` after each batch — that's the only thing standing between
+   these two entries and showing up on the live site.
