@@ -182,17 +182,6 @@
     ]
   },
   {
-    "slug": "real-estate-architecture",
-    "title": "Real Estate & Architecture",
-    "year": null,
-    "category": "commercial",
-    "client": "",
-    "role": "",
-    "description": "Real estate and architectural photography, shot from the ground and the air. FAA Part 107 licensed, so listings get aerial coverage most photographers can't offer.",
-    "cover": null,
-    "images": []
-  },
-  {
     "slug": "events-fundraisers",
     "title": "Events & Fundraisers",
     "year": null,
@@ -414,6 +403,146 @@
     "description": "Portrait and headshot sessions, shot in natural light on location or at home.",
     "cover": null,
     "images": []
+  },
+  {
+    "slug": "real-estate-architecture",
+    "title": "Architecture",
+    "year": null,
+    "category": "personal",
+    "client": "",
+    "role": "",
+    "description": "Architectural photography, shot from the ground and the air, across office buildings, civic architecture, and other structures that caught my eye.",
+    "cover": {
+      "src": "IMG_1450.jpg"
+    },
+    "images": [
+      {
+        "src": "IMG_1450.jpg",
+        "w": 2400,
+        "h": 1575,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgb/xAAgEAACAQQCAwEAAAAAAAAAAAABAgMABBESBSETMUGB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8ATPzckXjkiGqkY0PYBplrzdxJcxkyqyswUrrgYNQ2CyeNSxIz8HVat4gHyJGUKwzshH2lWO4lRZWkTPrFFQHvV2Z1YEd/lFKR/9k=",
+        "caption": ""
+      },
+      {
+        "src": "43255montgomeryave-1.jpg",
+        "w": 2400,
+        "h": 1359,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EACEQAAEEAAYDAAAAAAAAAAAAAAIAAQMRBAUTIUFxEkJR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/8QAGREBAAIDAAAAAAAAAAAAAAAAAAERAkGB/9oADAMBAAIRAxEAPwBKTNJI2fyljvhmC1zSZzjR9Q6cEWEsmo1E7brOWcyxBCRE+31Z43uVmiZ53ixei0hfliGlIeUie7In73Un0X//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "43255montgomeryave-3.jpg",
+        "w": 2400,
+        "h": 1530,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAwT/xAAjEAABAwMCBwAAAAAAAAAAAAABAAIRAwQGMWEFEiJRVKGx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAYEQEAAwEAAAAAAAAAAAAAAAAAAQIRQf/aAAwDAQACEQMRAD8A2nJa3iAnYlQciuDpY+yk9Os5joZ0gbK5tw4GWgAxrCjSZDjty4SLFxHcShKm16jTzD6hTNrcOQ//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "43255montgomeryave-2.jpg",
+        "w": 2400,
+        "h": 1340,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUD/8QAIxAAAQIEBgMAAAAAAAAAAAAAAQACAwQREgYTFTFBUSEzYf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERAjH/2gAMAwEAAhEDEQA/ANNcmWkCyED0QtdbnAy7LhgdlvhSJiIRU0FQeULnOhtNxt4bXZTy70TRTOJZ1p9UKn0FFFe47IlAn//Z",
+        "caption": ""
+      },
+      {
+        "src": "deathstarshoot-5.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAQUAAAAAAAAAAAAAAAAAAAECAwQF/8QAIxAAAgEDBAIDAQAAAAAAAAAAAQIAAxEhBBIiMRRBJEJRwf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/8QAFxEBAQEBAAAAAAAAAAAAAAAAABEBEv/aAAwDAQACEQMRAD8A3PCa5JZT+W9Q8dgu5nUAD1gCGlpCnUPx0pcexV3SHVVC1RgTdQcD1HrRMNq6pgu3T8bfZv4ISuzYMJVQ8VlQ3Kg37IXMjqVgG4qQmfr1M7S12Y1A5JG7jf8AJZFS47gSNqUyN2YRTYnqEg//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "deathstarshoot-7.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUCAwYE/8QAJRAAAgIBAgUFAQAAAAAAAAAAAQIAAxEEURITITFhFSNBQnGx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oADAMBAAIRAxEAPwBj6hpScc9Adicf2WC1HGUdWHg5iTVUFyehI/Jx8u1HCVozA7DsIK05hM69dtKixbHUfI4oREp3Ralyk5APgSRVM8WWP6YmpubTXlM9ie+xkbddqslGYIQfqIU0t5eT7ak7kQmfa9nOLHZsHPUwmdI//9k=",
+        "caption": ""
+      },
+      {
+        "src": "deathstarshoot-1.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAE/8QAIxAAAgICAgIBBQAAAAAAAAAAAQIAAwQREiEFMRMiMkFRYf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AA67AJsryUA71BxyY6VGJ/giFPirmqex/aAHgvbHcETpsV1+g7Mpt8Lg0VVm1aClgJG27MpMjMPIRqlqVSthHfFNiOeNp+KogvyP71qD42StevQmwZ6j8yJkkAdygz52x90oh//Z",
+        "caption": ""
+      },
+      {
+        "src": "deathstarshoot-3.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAQFBgECA//EACUQAAEDBAIBBAMAAAAAAAAAAAEAAgMEESExBRIiMkFDUYGCkv/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AJ01lONzxj9wtTyFIBmpj/pVXiKbrycXcdmgm4dkaKsrG09vTEHE/QUmH8pRj52/gFCrtU3rUPMbiDc++kJgp6lhfBL3Db2zpPulDWguiBO8BcIKqnm8mFM+FrgA3O9oKKdTySPc6zRfOShSLw0ZsEKoj//Z",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-12.jpg",
+        "w": 1801,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EACYQAAIBAwMDBAMAAAAAAAAAAAECAwAEEQUSURMhMSIyQZFScYH/xAAYAQACAwAAAAAAAAAAAAAAAAABBAACA//EABkRAAMBAQEAAAAAAAAAAAAAAAABAhESA//aAAwDAQACEQMRAD8AlWY3kU+lk87hEGSeewFIrhH3KNjBj+j3p5r6J4xGJmglIGQB5HFYPdG+skfttGswnUurgtwq+kH+mipVxesdsYVUAxlR7fP3RU1i3dMvQ2lqqndEp2jLFvupV1bKdYhkKhIsAbAMc960j1HqSzuTmJTkD8sCkJ78yHe3nPNCUxpzJtf2Mwkz1VkUHIDDFFLS6qG9MmQR8/BoorpFXHm2f//Z",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-11.jpg",
+        "w": 1801,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCAwUG/8QAJBAAAgEEAgIBBQAAAAAAAAAAAQIDAAQREiExE0EFMlFxocH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGREBAQEBAQEAAAAAAAAAAAAAAAERAhJh/9oADAMBAAIRAxEAPwDECcZqYQYOftxim7C8Sxm2ns1nBHTDr8Vur8paX8DRW0IScqdUeMD99VDS3HKPGR6opzxyztKGjWNogSRjBOKKBLqHmwJTtsfIccZ4ojup4SHjDAkYOqk1dbBUZy7Fg3S5wBVqx3jrHpNpqMNoPqH8pRXXNpSa9ZnLsj+j1yT1RT80qsxVQOKKWn4+v//Z",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-10.jpg",
+        "w": 1801,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAnEAACAQMDAwMFAAAAAAAAAAABAgMABBEFEiETMUEyUbEGFCKBgv/EABcBAQEBAQAAAAAAAAAAAAAAAAEDAAL/xAAZEQEBAAMBAAAAAAAAAAAAAAABAAIRITH/2gAMAwEAAhEDEQA/AEtP02a/fbABgepjwFquv0udgL3SL/NT9B1ZbW56btiOQgHPg+DXXXL6aLUQhLkHlQDx+qnupnknlm80C5t0aRCsqKMnbwce+KK73OtmLTEgBxO6/lz6Vx80UG27HnaG00YIIjBIbBB8U5c30d3GrTKoZGO0d6nIsiy7ETEefYNVIWkATeyDefOPNKEBkycsX3LtIACScHHbNFZZpBNjpjp57ABfiit2Qv/Z",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-9.jpg",
+        "w": 1802,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQGBQP/xAAqEAABAwIEBQMFAAAAAAAAAAADAQIRAAQFEhMhFDJRYXEiMcEjQWKB0f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDbBcDvbVpgulrkjunnwsU9nkOf8ZqFwq+LhZ/qtdov2e3r3SqNhhteptF+hzobW9Ee8x8UDF/dDtAOIV0NYkeV7fuipPEbwuK3ECa7RYvpT5WigbbhgMiNUhI3+6UkorBbjgmkPmmJzJlnp5pu4uXDCqs512b/AGs3hES3UjXvUkzyb+9A6uHsTlMRO0JRXUJ1uQNIqQRNnp360UH/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-8.jpg",
+        "w": 1802,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGAQT/xAApEAACAQIEBQMFAAAAAAAAAAABAgMABAUGERIhIjFBURRisTJCYdHh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABkRAAMBAQEAAAAAAAAAAAAAAAABAiEREv/aAAwDAQACEQMRAD8AzJya3c7eIx81VFKkcsXItTcSspZeVToOnWqUYnbyACHc7twCgVM2kaXDp4asIuLjaRyIdzfnwKKJ5vR24iTjcS/NFQ63VpahtY+IksDvnsIZpVhMqFlD6dhoacR5lT6YLRi57D+CkeA4pb2KSrMWXeQQQNaaPmKxUHbIxPtQ0t6Pstad4Z+M051mfr7R4FFTF7jstySluDGh7/cf1RS8h0//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-7.jpg",
+        "w": 1802,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUDBAYB/8QAIxAAAQMDBAMBAQAAAAAAAAAAAQACEQMEIQUSIjETUWEUQf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDLAZUhbj6mWj3bNNvBUr0WVKbhDpaCR9CeO1y3GqNt229uaLiHC4nG2JmI7QY1wyhN9Zuqep3u63osp0xhsNALvpQghaLcQ2o8PJxtYeiepK4LW3bU2S0TxJ8vGfcx0qFM8miQJOSUxOo240n8/gZ5IjfOUFUyNwbVZuaY2n56KFXq8ajxIdnsf1CD/9k=",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-6.jpg",
+        "w": 1801,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAYFAgT/xAAtEAABBAECAwQLAAAAAAAAAAABAAIDBBEFEgYTIhQhJEExQlFSYXGBkbHh8P/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQIRAxMxYf/aAAwDAQACEQMRAD8ApifaT+EGFkVLFsVuZJEZGtODgYP0C7GuwNdtdWth/umEojkUkN43FmsPmiwp9adIdsZZEC3I5hwfsinb4VqZQ2Joqdd80hDI4xk4Ue/iG+YzbdHHyjJlrMdW3+804o1jtdgU4HZijPUR6zv0vFKyQVuWADGBjIPoQxcK7w9+uyQsZLG9uRuaD3Ip3hvUi0mnIek9UfwPmEWd0bUf/9k=",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-4.jpg",
+        "w": 1801,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAUBBgIDBP/EACYQAAIBAwMDBAMAAAAAAAAAAAECAwAEEQUSIVFhcQYiMUEjgcH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIhERJB/9oADAMBAAIRAxEAPwCziVXUNndmp3jOM89KUnR57RWlhuWQKMkZJz+qWQXU0czE3CPIxyCXGB5rPt81Cp3C0PPHCNzsF/tFJG0y8kUyu5uGbkYk20Vh3fcRRRPNMvUGqmRhYWhyXbbIR0+TjtSWXTQrjDAE8gDv9VAuImmedshw2AfrFbHvg7M4RSxbbH17mjbbwm2jv0fWHt7k6ffEDaPY4+PHiiq7qc35w6sCV4yBRTlfCsuGtP/Z",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-3.jpg",
+        "w": 1802,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIEBQYD/8QAKBAAAgAFBAECBwAAAAAAAAAAAQIAAwURIQQSMUETI5EGIiRhcaHR/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQMAAv/EABsRAAICAwEAAAAAAAAAAAAAAAABAhEDE1Eh/9oADAMBAAIRAxEAPwDRFb8X9oTbnn9RHNR8UvyTlKJ2SLWjma5TmLfUC4GCAYdiOHjZO2DviCKtq/pVJCNu6wpsYIdsQ1y4M+lklfX2svHzX7/JhtNQ9G8wFZr7lN2Wy/yM5NqWtnrZ9olsOLBb+8SJdT1Ugs0qY5YrndbNsZxEaos58NVNo+mnhMFdtyLQRX074kWYAk6WCwFvSza32PUENJm9R//Z",
+        "caption": ""
+      },
+      {
+        "src": "marinciviccenter-1.jpg",
+        "w": 1800,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQP/xAAlEAACAgIABQQDAAAAAAAAAAABAgADBBEFEiEiQTI0YXGRofD/xAAXAQADAQAAAAAAAAAAAAAAAAAAAwQB/8QAGhEAAgMBAQAAAAAAAAAAAAAAAAECERJhE//aAAwDAQACEQMRAD8Axqt+IDH34j1apZ6TOyUoG0SN6jXKhObJ6Y/xCOEZIe1UxwQB2MWGjCZ6BkhWcWe0WV0VO/MCOg0B9eY1wfBu4gjF7zS6kEBjsMPz/biGIxyivMblBGyayND7AEqYeZg4VbCq3nPnS9ekmdsqSjRcGHlKp71Gh2hG6fuEm1cdxWX3HJ8EmELl0Mw4f//Z",
+        "caption": ""
+      }
+    ]
   },
   {
     "slug": "aerial",

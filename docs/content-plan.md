@@ -19,8 +19,8 @@ Two different axes, deliberately:
 - **Personal** is **per-body-of-work**. Loose, image-led, minimal text.
 
 Never create a commercial entry named after a single client. If you shoot three
-more listings next spring, they go into the existing Real Estate entry, not into
-three new index lines.
+more grad sessions next spring, they go into the existing Graduation entry, not
+into three new index lines.
 
 **Index order.** The default filter is ALL, so the order of this list is the
 order a first-time visitor reads. Projects first, then Commercial, then Personal.
@@ -85,17 +85,6 @@ under Selected experience, linking out to the Instagram profile
 ---
 
 ## COMMERCIAL
-
-### 5. Real Estate & Architecture
-`category: commercial`
-
-Ground and aerial. Your Part 107 license is the differentiator and belongs in
-this entry's description, not buried on the Info page.
-
-Final description (in `content/projects.json`): *Real estate and architectural
-photography, shot from the ground and the air. FAA Part 107 licensed, so
-listings get aerial coverage most photographers can't offer.* No named clients
-in the copy — kept it to the Part 107 line only.
 
 ### 6. Events & Fundraisers
 `category: commercial`
@@ -198,6 +187,25 @@ beyond.*
 
 Music production and drums stay off the site. They dilute a page that is already
 arguing two things at once.
+
+### 11. Architecture
+`category: personal`
+
+Started life as "Real Estate & Architecture," a planned Commercial entry built
+around the Part 107 real estate differentiator. Once real photos went in
+(`raw/real-estate-architecture/`), most of what actually got shot was hobby
+architectural photography — building interiors and exteriors shot for their
+own sake, not real estate listings for a client — so it got moved here and
+retitled instead of staying miscategorized as paid work. The slug stayed
+`real-estate-architecture` (renaming it would mean moving the raw/ and
+public/work/ folders and breaking the existing URL for no real benefit); only
+the display title, category, and description changed. Part 107 is still true
+of some frames but isn't the point of the entry anymore, so it's not in the
+description — it's stated plainly on `/info` regardless.
+
+Final description (in `content/projects.json`): *Architectural photography,
+shot from the ground and the air, across office buildings, civic architecture,
+and other structures that caught my eye.*
 
 ---
 
@@ -307,15 +315,14 @@ otherwise-restrained system, not a general license to keep adding personality
 everywhere — read that section before extending the pattern further.
 
 **Half-finished.**
-- Real Estate & Architecture, Events & Fundraisers, Product & Brand,
-  Portraits & Headshots, and Landscape & Travel have no `raw/<slug>/` folder
-  yet, so they stay invisible on the live site until photos are added and
-  `npm run images` runs again.
+- Events & Fundraisers, Product & Brand, and Portraits & Headshots have no
+  `raw/<slug>/` folder yet (Portraits & Headshots has no folder at all), so
+  they stay invisible on the live site until photos are added and
+  `npm run images` runs again. Landscape & Travel and Architecture (formerly
+  "Real Estate & Architecture," see #11 above) are both populated and live now.
 
 **Next thing.**
-1. Populate `raw/<slug>/` for the five remaining empty entries (Real Estate &
-   Architecture, Events & Fundraisers, Product & Brand, Portraits &
-   Headshots, Landscape & Travel), the same way it was done for the three
-   Projects entries, Graduation, and Aerial. Run `npm run images` after each
-   batch — that's the only thing standing between these five entries and
-   showing up on the live site.
+1. Populate `raw/<slug>/` for the three remaining empty entries (Events &
+   Fundraisers, Product & Brand, Portraits & Headshots), the same way it was
+   done for the rest. Run `npm run images` after each batch — that's the only
+   thing standing between these three entries and showing up on the live site.
