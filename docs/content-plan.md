@@ -120,9 +120,10 @@ purely a range demonstration across clients.
 
 Final description (in `content/projects.json`): *Product and brand
 photography across a range of clients, including GRID Alternatives and
-private vineyard clients.* GRID Alternatives lives here, not under a separate
-entry. The other named client stays anonymous as "private vineyard clients"
-rather than naming the vineyard.
+UrbnEco.* GRID Alternatives lives here, not under a separate entry. No
+vineyard client material exists, despite an earlier draft of this plan
+assuming there would be — UrbnEco (clothing) is the second named client
+instead.
 
 ### 8. Graduation
 `category: commercial`
