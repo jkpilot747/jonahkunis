@@ -148,7 +148,8 @@ with the grid.
   and that tonal step is the only separation it needs.
 - Internal padding 20px.
 - Contents in order:
-  1. Wordmark: `Jonah Kunis*` — see Flourishes below for the trailing asterisk
+  1. Wordmark: `Jonah Kunis*` — links to `/`; see Flourishes below for the
+     trailing asterisk
   2. One line of Geist Mono, `--muted`: what he does, one short line
   3. Hairline divider
   4. Filter row (see below)
@@ -228,7 +229,7 @@ skeleton loaders, no fade-in animation.
 
 ## Interaction
 
-Restraint is the point. Three behaviors, nothing else.
+Restraint is the point. Four behaviors, nothing else.
 
 1. **Index hover.** Hovering a project name drops every *other* name in the list
    to 40% opacity. The hovered item stays at full. No weight change, no
@@ -238,6 +239,11 @@ Restraint is the point. Three behaviors, nothing else.
    move, scale, or change opacity.
 3. **Filter change.** The index list updates instantly with no animation. The
    grid crossfades at 120ms.
+4. **Text link hover.** Any inline text link — Graduation's booking CTA,
+   `/info`'s Contact/LinkedIn/Selected-experience links — fades to 60%
+   opacity (`transition-opacity duration-150 hover:opacity-60`). Same
+   opacity-only rule as everything else on this site: never a color change,
+   never an underline.
 
 Everything else is a plain click.
 
@@ -252,12 +258,16 @@ one below is specific and intentional, not a style to sprinkle everywhere.
 
 - **Wordmark asterisk.** `Jonah Kunis*` — the trailing `*` in `--muted`, same
   weight and size as the rest of the wordmark. Cargo's "DOC_OSC*" move.
-- **Numbered track-listing rows.** Two places use this: the panel's project
-  index, and Graduation's packages and FAQ lists. Each row gets a zero-padded
-  two-digit index (`01`, `02`, ...) in Geist Mono `--muted`, and rows are
-  separated by a hairline divider (the first row in a list skips its top
-  divider). This is a real pattern now — reuse it verbatim for any future
-  numbered list rather than inventing a new numbering style.
+- **Numbered track-listing rows.** The panel's project index, Graduation's
+  packages and FAQ lists, and `/info`'s Recognition and Selected experience
+  lists all use this. Each row gets a zero-padded two-digit index (`01`,
+  `02`, ...) in Geist Mono `--muted`, and rows are separated by a hairline
+  divider (the first row in a list skips its top divider). Where a row has a
+  trailing date/year, it renders right-aligned in Geist Mono `--muted`
+  (matching the Typography section's definition of metadata), the same
+  layout Graduation's packages use for price. This is a real pattern now —
+  reuse it verbatim for any future numbered list rather than inventing a new
+  numbering style.
 - **Terminal metadata block.** On `/work/[slug]`, entries that have a
   `client` and/or `year` (currently only the three Projects entries) get a
   small monospace block between the page title and the description: a line
@@ -283,8 +293,12 @@ Three. Resist adding more.
   that project's images.
 - `/info` — bio, contact, gear, license, recognition, selected experience. Same
   panel. Right side is a single text column, max 65 characters wide,
-  left-aligned against the grid's left edge. See `docs/content-plan.md` for the
-  exact copy and structure.
+  left-aligned against the grid's left edge, leading with a page title
+  ("Info", Page title scale) for the same anchor `/work/[slug]` gets.
+  Recognition and Selected experience use the numbered track-listing rows
+  from Flourishes above; Contact's email/Instagram and the LinkedIn link are
+  real links using the standard hover-opacity transition. See
+  `docs/content-plan.md` for the exact copy and structure.
 
 ---
 
