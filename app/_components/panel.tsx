@@ -23,7 +23,6 @@ export function Panel({
         <Link href="/" className="text-inherit no-underline">
           Jonah Kunis
         </Link>
-        <span className="text-muted">*</span>
       </h1>
       <p className="mt-1 font-mono text-metadata tracking-metadata text-muted">
         Commercial photography, video, and product work

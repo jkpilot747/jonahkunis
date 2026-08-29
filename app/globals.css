@@ -16,11 +16,11 @@
   --color-muted: var(--muted);
   --color-hairline: var(--hairline);
 
-  --font-sans: var(--font-archivo);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
   /* Type scale — see docs/design-brief.md. Sizes pair with their line-height. */
-  --text-wordmark: 42px;
+  --text-wordmark: 56px;
   --text-wordmark--line-height: 1.25;
   --text-title: 32px;
   --text-title--line-height: 1.25;

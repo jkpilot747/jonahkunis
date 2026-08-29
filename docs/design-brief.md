@@ -40,7 +40,7 @@ framework drifts toward generic, and this list is what stops it.
 - No site-wide `max-width` container centering everything. The grid runs to the
   right edge of the viewport.
 - No border radius larger than 10px.
-- No typeface beyond the two named below.
+- No typeface beyond the two named below (Inter and Geist Mono).
 - No font weight other than 400 and 700.
 - No color that is not a token defined in `globals.css`.
 - No transition longer than 150ms.
@@ -56,10 +56,9 @@ framework drifts toward generic, and this list is what stops it.
 
 Two faces, and only two.
 
-**Archivo** (Google Fonts) — everything that is not metadata.
+**Inter** (Google Fonts, via `next/font/google`) — everything that is not
+metadata.
 **Geist Mono** (already loaded in `app/layout.tsx`) — all metadata.
-
-Replace Geist Sans with Archivo in `app/layout.tsx`; keep Geist Mono as it is.
 
 ### Scale
 
@@ -67,10 +66,10 @@ Stay on this scale. Do not introduce intermediate sizes.
 
 | Role | Face | Size | Weight | Tracking |
 |---|---|---|---|---|
-| Wordmark | Archivo | 42px | 700 | -0.03em |
-| Page title | Archivo | 32px | 700 | -0.02em |
-| Index item | Archivo | 18px | 400 | -0.005em |
-| Body / bio | Archivo | 19px | 400 | 0 |
+| Wordmark | Inter | 56px | 700 | -0.03em |
+| Page title | Inter | 32px | 700 | -0.02em |
+| Index item | Inter | 18px | 400 | -0.005em |
+| Body / bio | Inter | 19px | 400 | 0 |
 | Metadata | Geist Mono | 14px | 400 | 0.01em |
 | Filter label | Geist Mono | 13px | 400 | 0.12em, uppercase |
 
@@ -148,8 +147,7 @@ with the grid.
   and that tonal step is the only separation it needs.
 - Internal padding 20px.
 - Contents in order:
-  1. Wordmark: `Jonah Kunis*` — links to `/`; see Flourishes below for the
-     trailing asterisk
+  1. Wordmark: `Jonah Kunis` — links to `/`
   2. One line of Geist Mono, `--muted`: what he does, one short line
   3. Hairline divider
   4. Filter row (see below)
@@ -256,8 +254,6 @@ working — inspired by the Cargo templates in `docs/refs/`. These are the only
 ones. Don't extrapolate a general "add personality" license from them; each
 one below is specific and intentional, not a style to sprinkle everywhere.
 
-- **Wordmark asterisk.** `Jonah Kunis*` — the trailing `*` in `--muted`, same
-  weight and size as the rest of the wordmark. Cargo's "DOC_OSC*" move.
 - **Numbered track-listing rows.** The panel's project index, Graduation's
   packages and FAQ lists, and `/info`'s Recognition and Selected experience
   lists all use this. Each row gets a zero-padded two-digit index (`01`,
