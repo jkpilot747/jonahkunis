@@ -16,7 +16,7 @@
   --color-muted: var(--muted);
   --color-hairline: var(--hairline);
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-instrument-sans);
   --font-mono: var(--font-geist-mono);
 
   /* Type scale — see docs/design-brief.md. Sizes pair with their line-height. */

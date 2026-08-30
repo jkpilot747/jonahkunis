@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Instrument_Sans, Geist_Mono } from "next/font/google";
 import { SocialDock } from "@/app/_components/social-dock";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${instrumentSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}
