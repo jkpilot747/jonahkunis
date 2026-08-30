@@ -422,6 +422,21 @@ for lack of images anymore.
   ceiling to reduce generational loss.
 - Added a hard rule: no em dashes anywhere in site copy. Not yet applied as
   an actual copy pass — see "What is still open" below.
+- Replaced the fixed bottom-right icon social dock with plain-text
+  `LinkedIn` / `Instagram` / `Email` links, stacked one per line inside the
+  panel itself, right under the tagline. Drawn from
+  `docs/refs/Screenshot 2026-08-31 at 00.34.57.png` (a Cargo template),
+  which lists contact info as plain text under the site name the same way.
+  `app/_components/social-dock.tsx` is deleted; `SocialDock` is no longer
+  imported anywhere. `docs/design-brief.md`'s "The panel" contents list,
+  Hard rules, the ASCII layout diagram, and the Video section's now-dangling
+  reference to "the social dock's icon convention" are all updated —
+  the video play-icon overlay is the only hand-drawn icon left on the site.
+- Bumped the filter row from 13px to 16px (`--text-filter`, only used
+  there, so nothing else moved) and the panel's `Info` footer link to its
+  own 16px (previously shared `--text-metadata` with captions/dates/
+  categories/the `CLIENT`/`YEAR` block — gave it a one-off size instead of
+  bumping that shared token and inflating all of those too).
 
 **Next thing.**
 1. Decide video hosting (self-hosted vs. external) once there's real

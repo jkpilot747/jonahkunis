@@ -34,7 +34,9 @@ framework drifts toward generic, and this list is what stops it.
 
 - No drop shadows. Anywhere. Not on the panel, not on images, not on hover.
 - No gradients of any kind.
-- No icon libraries. The social dock uses hand-written inline SVG, nothing else.
+- No icon libraries. The one icon left on the site (the video play-icon
+  overlay in the grid) is hand-written inline SVG. Social links are plain
+  text, not icons at all — see "The panel" below.
 - No centered hero with a headline and a subtitle underneath it.
 - No cards. Text content does not get a bordered box around it.
 - No site-wide `max-width` container centering everything. The grid runs to the
@@ -78,12 +80,21 @@ Stay on this scale. Do not introduce intermediate sizes.
 | Index item | Instrument Sans | 18px | 400 | -0.005em |
 | Body / bio | Instrument Sans | 19px | 400 | 0 |
 | Metadata | Geist Mono | 14px | 400 | 0.01em |
-| Filter label | Geist Mono | 13px | 400 | 0.12em, uppercase |
+| Filter label | Geist Mono | 16px | 400 | 0.12em, uppercase |
 
 These sizes ended up larger than the original draft above through several
 rounds of eyeballing the panel in the browser at 640px wide — the numbers
 here are what's actually in `globals.css`'s `@theme inline` block, not a
-starting proposal.
+starting proposal. `--text-filter` (the Filter label row above) started at
+13px and was bumped to 16px for more presence in the panel; nothing else
+reads at that token, so this didn't cascade anywhere.
+
+Another one-off outside this table: the panel's `Info` footer link is Geist
+Mono at 16px too (`text-[16px]` directly in `panel.tsx`, not a shared
+token) — bumped up from the Metadata row it used to share, on purpose,
+since `--text-metadata` is still used elsewhere (captions, dates,
+categories, the `CLIENT`/`YEAR` block) and bumping the token itself would
+have inflated all of those along with it.
 
 One deliberate exception: `--text-huge` (72px, weight 700, `tracking-wordmark`,
 `leading-none`) exists solely for the "→ Book a session ←" CTA at the bottom
@@ -129,21 +140,25 @@ with the grid.
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│  ┌──────────────┐  ┌─────────────┐ ┌─────────────┐    │
+│  ┌──────────────│  ┌─────────────┐ ┌─────────────┐    │
 │  │  PANEL       │  │             │ │             │    │
-│  │  (fixed)     │  │   project   │ │   project   │    │
-│  │              │  │             │ │             │    │
-│  │  wordmark    │  └─────────────┘ └─────────────┘    │
-│  │  ──────────  │  ┌─────────────┐ ┌─────────────┐    │
-│  │  filters     │  │   project   │ │   project   │    │
+│  │  (fixed,     │  │   project   │ │   project   │    │
+│  │  no fill,    │  │             │ │             │    │
+│  │  hairline    │  └─────────────┘ └─────────────┘    │
+│  │  on right    │  ┌─────────────┐ ┌─────────────┐    │
+│  │  edge)       │  │   project   │ │   project   │    │
+│  │              │  └─────────────┘ └─────────────┘    │
+│  │  wordmark    │  ┌─────────────┐ ┌─────────────┐    │
+│  │  social      │  │             │ │             │    │
+│  │  ──────────  │  │   project   │ │   project   │    │
+│  │  filters     │  │             │ │             │    │
 │  │  ──────────  │  └─────────────┘ └─────────────┘    │
-│  │  project     │  ┌─────────────┐ ┌─────────────┐    │
-│  │  project     │  │             │ │             │    │
-│  │  project     │  │   project   │ │   project   │    │
-│  │              │  │             │ │             │ ◗  │
-│  │  ──────────  │  └─────────────┘ └─────────────┘    │
-│  │  Info  CV    │                              dock ──┘
-│  └──────────────┘                                      │
+│  │  project     │                                      │
+│  │  project     │                                      │
+│  │  project     │                                      │
+│  │  ──────────  │                                      │
+│  │  Info        │                                      │
+│  └──────────────│                                      │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -165,13 +180,22 @@ with the grid.
 - Contents in order:
   1. Wordmark: `Jonah Kunis` — links to `/`
   2. One line of Geist Mono, `--muted`: what he does, one short line
-  3. Hairline divider
-  4. Filter row (see below)
-  5. Hairline divider
-  6. Project index: one numbered row per project (see Flourishes)
-  7. Hairline divider, pinned to the bottom of the panel
-  8. `Info` link, sitting on the panel's bottom edge
-- The project index (step 6) is the only flexible region — it grows to fill
+  3. Social links: `LinkedIn`, `Instagram`, `Email`, stacked one per line,
+     plain Geist Mono text — `--muted` at rest, `--ink` on hover, no
+     underline, no icons of any kind. This replaced an earlier fixed
+     bottom-right icon dock (hand-written inline SVG logos in a `--panel`
+     pill) — the icons were dropped for plain text entirely, moved into the
+     panel itself, after comparing against
+     `docs/refs/Screenshot 2026-08-31 at 00.34.57.png` (a Cargo template,
+     which lists `Email`/`Instagram` as plain text under the site name the
+     same way). There is no floating dock anywhere on the site anymore.
+  4. Hairline divider
+  5. Filter row (see below)
+  6. Hairline divider
+  7. Project index: one numbered row per project (see Flourishes)
+  8. Hairline divider, pinned to the bottom of the panel
+  9. `Info` link, sitting on the panel's bottom edge
+- The project index (step 7) is the only flexible region — it grows to fill
   whatever space is left between the filter row and the footer, and scrolls
   internally if the list is too long for that space. Everything else in the
   panel keeps its natural height.
@@ -232,7 +256,8 @@ left/right half of the lightbox or the arrow keys.
 below) — its `src`/`w`/`h`/`blur` still describe a poster frame, exactly
 like a still. In the grid, that tile gets a small always-visible play-icon
 overlay (a hand-drawn inline SVG triangle in a plain `--panel` circle — no
-icon library, no drop shadow, matching the social dock's icon convention).
+icon library, no drop shadow). This is the only hand-drawn icon left on the
+site now that the social links moved to plain text — see "The panel" above.
 Clicking it opens the lightbox exactly like a photo, except the media is a
 native `<video controls>` element instead of an `<Image>`, and the
 left/right click-to-navigate zones are disabled for that one item — they'd
@@ -244,13 +269,6 @@ elsewhere in this Interaction section.
 
 Images load with their blur placeholder from the manifest. No spinners, no
 skeleton loaders, no fade-in animation.
-
-### The social dock
-
-- Fixed, bottom-right, 20px from both edges.
-- Vertical stack: `--panel` background, square corners, 44px wide, 10px padding.
-- Instagram, LinkedIn, Email. Hand-written inline SVG, single path each,
-  `--muted` at rest and `--ink` on hover.
 
 ---
 
