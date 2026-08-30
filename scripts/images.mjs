@@ -34,7 +34,7 @@ const PUBLIC_WORK_DIR = path.join(ROOT, "public", "work");
 const PROJECTS_JSON_PATH = path.join(ROOT, "content", "projects.json");
 
 const LONG_EDGE = 2400;
-const QUALITY = 80;
+const QUALITY = 90;
 const BLUR_WIDTH = 24;
 const SUSPICIOUSLY_SMALL_BYTES = 10 * 1024;
 const IMAGE_EXTENSIONS = new Set([

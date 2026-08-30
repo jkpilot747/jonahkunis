@@ -34,6 +34,7 @@ export default function Home() {
                   placeholder="blur"
                   blurDataURL={cover.blur}
                   sizes="(min-width: 1800px) 33vw, 50vw"
+                  quality={90}
                   className="h-auto w-full"
                 />
               </div>

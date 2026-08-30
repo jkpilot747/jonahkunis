@@ -97,6 +97,7 @@ export function ProjectGallery({
                   placeholder="blur"
                   blurDataURL={image.blur}
                   sizes="50vw"
+                  quality={90}
                   className="h-auto w-full"
                 />
                 {image.video && <PlayIcon />}
@@ -168,6 +169,7 @@ export function ProjectGallery({
               height={images[openIndex].h}
               placeholder="blur"
               blurDataURL={images[openIndex].blur}
+              quality={90}
               className="relative z-0 h-auto max-h-[calc(100vh-40px)] w-auto max-w-[calc(100vw-40px)]"
             />
           )}
