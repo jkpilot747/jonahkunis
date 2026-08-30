@@ -87,7 +87,7 @@ export function ProjectGallery({
                 key={image.src}
                 type="button"
                 onClick={() => setOpenIndex(index)}
-                className="relative mb-4 block w-full overflow-hidden rounded-[6px] break-inside-avoid"
+                className="relative mb-4 block w-full overflow-hidden break-inside-avoid"
               >
                 <Image
                   src={`/work/${projectSlug}/${image.src}`}

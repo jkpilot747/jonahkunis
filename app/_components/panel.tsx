@@ -18,7 +18,7 @@ export function Panel({
   }
 
   return (
-    <aside className="fixed left-5 top-5 bottom-5 flex w-[640px] flex-col rounded-[10px] bg-panel p-5">
+    <aside className="fixed left-5 top-5 bottom-5 flex w-[640px] flex-col border-r border-hairline p-5">
       <h1 className="text-wordmark font-bold tracking-wordmark">
         <Link href="/" className="text-inherit no-underline">
           Jonah Kunis

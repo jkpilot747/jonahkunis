@@ -25,7 +25,7 @@ export default function Home() {
               href={`/work/${project.slug}`}
               className="mb-6 block break-inside-avoid"
             >
-              <div className="overflow-hidden rounded-[6px]">
+              <div className="overflow-hidden">
                 <Image
                   src={`/work/${project.slug}/${cover.src}`}
                   alt={project.title}

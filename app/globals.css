@@ -20,7 +20,7 @@
   --font-mono: var(--font-geist-mono);
 
   /* Type scale — see docs/design-brief.md. Sizes pair with their line-height. */
-  --text-wordmark: 56px;
+  --text-wordmark: 80px;
   --text-wordmark--line-height: 1.25;
   --text-title: 32px;
   --text-title--line-height: 1.25;

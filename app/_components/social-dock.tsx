@@ -18,7 +18,7 @@ const LINKS = [
 
 export function SocialDock() {
   return (
-    <div className="fixed right-5 bottom-5 flex w-14 flex-col items-center gap-5 rounded-[10px] bg-panel p-3">
+    <div className="fixed right-5 bottom-5 flex w-14 flex-col items-center gap-5 bg-panel p-3">
       {LINKS.map((link) => (
         <a
           key={link.label}
