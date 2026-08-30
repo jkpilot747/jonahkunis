@@ -4,6 +4,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { FILTERS, type Filter, filterProjects } from "@/lib/projects";
 
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/jonahkunis" },
+  { label: "Instagram", href: "https://www.instagram.com/jonahkunis" },
+  { label: "Email", href: "mailto:jonahkunis@gmail.com" },
+] as const;
+
 export function Panel({
   onFilterChange,
 }: {
@@ -27,6 +33,20 @@ export function Panel({
       <p className="mt-1 font-mono text-metadata tracking-metadata text-muted">
         Commercial photography, video, and product work
       </p>
+
+      <div className="mt-5 flex flex-col gap-1 font-mono text-metadata tracking-metadata">
+        {SOCIAL_LINKS.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted no-underline transition-colors hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
 
       <div className="mt-5 border-t border-hairline" />
 
@@ -65,7 +85,7 @@ export function Panel({
 
       <div className="mt-5 border-t border-hairline" />
 
-      <div className="mt-5 flex gap-3 font-mono text-metadata tracking-metadata text-ink">
+      <div className="mt-5 flex gap-3 font-mono text-[16px] tracking-metadata text-ink">
         <Link href="/info" className="text-inherit no-underline">
           Info
         </Link>

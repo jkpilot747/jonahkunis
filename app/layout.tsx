@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Geist_Mono } from "next/font/google";
-import { SocialDock } from "@/app/_components/social-dock";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -26,10 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${instrumentSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        {children}
-        <SocialDock />
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
