@@ -87,7 +87,7 @@ export function ProjectGallery({
                 key={image.src}
                 type="button"
                 onClick={() => setOpenIndex(index)}
-                className="mb-4 block w-full overflow-hidden rounded-[6px] break-inside-avoid"
+                className="relative mb-4 block w-full overflow-hidden rounded-[6px] break-inside-avoid"
               >
                 <Image
                   src={`/work/${projectSlug}/${image.src}`}
@@ -99,6 +99,7 @@ export function ProjectGallery({
                   sizes="50vw"
                   className="h-auto w-full"
                 />
+                {image.video && <PlayIcon />}
               </button>
             ))}
           </div>
@@ -126,37 +127,68 @@ export function ProjectGallery({
             </svg>
           </button>
 
-          <button
-            type="button"
-            aria-label="Previous image"
-            onClick={() =>
-              setOpenIndex((i) =>
-                i === null ? i : (i - 1 + images.length) % images.length,
-              )
-            }
-            className="absolute inset-y-0 left-0 z-10 w-1/2 cursor-w-resize"
-          />
-          <button
-            type="button"
-            aria-label="Next image"
-            onClick={() =>
-              setOpenIndex((i) => (i === null ? i : (i + 1) % images.length))
-            }
-            className="absolute inset-y-0 right-0 z-10 w-1/2 cursor-e-resize"
-          />
+          {!images[openIndex].video && (
+            <>
+              <button
+                type="button"
+                aria-label="Previous image"
+                onClick={() =>
+                  setOpenIndex((i) =>
+                    i === null ? i : (i - 1 + images.length) % images.length,
+                  )
+                }
+                className="absolute inset-y-0 left-0 z-10 w-1/2 cursor-w-resize"
+              />
+              <button
+                type="button"
+                aria-label="Next image"
+                onClick={() =>
+                  setOpenIndex((i) => (i === null ? i : (i + 1) % images.length))
+                }
+                className="absolute inset-y-0 right-0 z-10 w-1/2 cursor-e-resize"
+              />
+            </>
+          )}
 
-          <Image
-            key={images[openIndex].src}
-            src={`/work/${projectSlug}/${images[openIndex].src}`}
-            alt={images[openIndex].caption || projectTitle}
-            width={images[openIndex].w}
-            height={images[openIndex].h}
-            placeholder="blur"
-            blurDataURL={images[openIndex].blur}
-            className="relative z-0 h-auto max-h-[calc(100vh-40px)] w-auto max-w-[calc(100vw-40px)]"
-          />
+          {images[openIndex].video ? (
+            <video
+              key={images[openIndex].src}
+              src={images[openIndex].video.src}
+              poster={`/work/${projectSlug}/${images[openIndex].src}`}
+              controls
+              className="relative z-0 h-auto max-h-[calc(100vh-40px)] w-auto max-w-[calc(100vw-40px)]"
+              style={{ aspectRatio: `${images[openIndex].w} / ${images[openIndex].h}` }}
+            />
+          ) : (
+            <Image
+              key={images[openIndex].src}
+              src={`/work/${projectSlug}/${images[openIndex].src}`}
+              alt={images[openIndex].caption || projectTitle}
+              width={images[openIndex].w}
+              height={images[openIndex].h}
+              placeholder="blur"
+              blurDataURL={images[openIndex].blur}
+              className="relative z-0 h-auto max-h-[calc(100vh-40px)] w-auto max-w-[calc(100vw-40px)]"
+            />
+          )}
         </div>
       )}
     </>
+  );
+}
+
+// Hand-drawn inline SVG, matching the lightbox's close/arrow icons and the
+// social dock's no-icon-library rule. A play triangle in a plain circle —
+// no gradient, no shadow, always visible (not hover-only) so a video clip
+// reads as playable at a glance in the grid.
+function PlayIcon() {
+  return (
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-panel">
+        <svg width="18" height="20" viewBox="0 0 18 20" fill="none">
+          <path d="M1 1.5V18.5L17 10L1 1.5Z" fill="var(--ink)" />
+        </svg>
+      </div>
+    </div>
   );
 }

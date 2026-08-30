@@ -9,12 +9,23 @@
 // evicted files look like normal files in Finder but are tiny placeholder
 // stubs on disk, and sharp will fail or hang trying to read them. Right-click
 // the source folder in Finder and "Download Now" before copying anything in.
+//
+// Video files (.mp4/.mov/.m4v) are also picked up from raw/<slug>/: ffmpeg
+// extracts a poster frame (run through the same sharp/blur path as a still)
+// and transcodes the clip to a size-capped, web-friendly mp4. This requires
+// ffmpeg on PATH — `brew install ffmpeg` — but that's only checked lazily,
+// the first time a video file is actually encountered, so image-only runs
+// are unaffected on a machine without it installed.
 
-import { readdir, mkdir, readFile, writeFile, stat } from "node:fs/promises";
+import { readdir, mkdir, readFile, writeFile, stat, rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import sharp from "sharp";
 import exifr from "exifr";
+
+const execFileAsync = promisify(execFile);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -34,6 +45,79 @@ const IMAGE_EXTENSIONS = new Set([
   ".tiff",
   ".webp",
 ]);
+const VIDEO_EXTENSIONS = new Set([".mp4", ".mov", ".m4v"]);
+const ALL_EXTENSIONS = new Set([...IMAGE_EXTENSIONS, ...VIDEO_EXTENSIONS]);
+const VIDEO_MAX_WIDTH = 1920;
+const POSTER_TIMESTAMP = "00:00:00.5";
+
+let ffmpegChecked = false;
+async function ensureFfmpeg() {
+  if (ffmpegChecked) return;
+  try {
+    await execFileAsync("ffmpeg", ["-version"]);
+    ffmpegChecked = true;
+  } catch {
+    throw new Error(
+      "ffmpeg not found on PATH — required to process video files. Install it (`brew install ffmpeg`) and try again.",
+    );
+  }
+}
+
+async function getVideoDuration(inputPath) {
+  try {
+    const { stdout } = await execFileAsync("ffprobe", [
+      "-v", "error",
+      "-show_entries", "format=duration",
+      "-of", "default=noprint_wrappers=1:nokey=1",
+      inputPath,
+    ]);
+    const seconds = Number.parseFloat(stdout.trim());
+    return Number.isFinite(seconds) ? Math.round(seconds) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+// Extracts a poster frame and a web-optimized mp4 from a raw video file.
+// The poster frame is run through processImage() below exactly like a still
+// so it gets the same resize/blur-placeholder treatment as every other
+// image on the site.
+async function processVideo(inputPath, outputVideoPath, outputPosterPath) {
+  await ensureFfmpeg();
+
+  const tempPosterPath = `${outputPosterPath}.source.jpg`;
+  await execFileAsync("ffmpeg", [
+    "-y",
+    "-ss", POSTER_TIMESTAMP,
+    "-i", inputPath,
+    "-frames:v", "1",
+    "-q:v", "2",
+    tempPosterPath,
+  ]);
+
+  const { width, height, blurDataURL } = await processImage(
+    tempPosterPath,
+    outputPosterPath,
+  );
+  await rm(tempPosterPath, { force: true });
+
+  await execFileAsync("ffmpeg", [
+    "-y",
+    "-i", inputPath,
+    "-vf", `scale='min(${VIDEO_MAX_WIDTH},iw)':-2`,
+    "-c:v", "libx264",
+    "-preset", "slow",
+    "-crf", "23",
+    "-c:a", "aac",
+    "-b:a", "128k",
+    "-movflags", "+faststart",
+    outputVideoPath,
+  ]);
+
+  const duration = await getVideoDuration(inputPath);
+
+  return { width, height, blurDataURL, duration };
+}
 
 async function exists(targetPath) {
   try {
@@ -133,7 +217,7 @@ async function main() {
     }
 
     const candidateFiles = (await readdir(projectRawDir)).filter((file) =>
-      IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()),
+      ALL_EXTENSIONS.has(path.extname(file).toLowerCase()),
     );
 
     if (candidateFiles.length === 0) {
@@ -185,6 +269,7 @@ async function main() {
 
     for (const file of files) {
       const inputPath = path.join(projectRawDir, file);
+      const isVideo = VIDEO_EXTENSIONS.has(path.extname(file).toLowerCase());
       const outName = `${path.parse(file).name}.jpg`;
       const outputPath = path.join(outDir, outName);
 
@@ -196,12 +281,22 @@ async function main() {
           );
         }
 
-        const { width, height, blurDataURL } = await processImage(
-          inputPath,
-          outputPath,
-        );
-
         const existing = existingBySrc.get(outName) ?? existingBySrc.get(file);
+
+        let width, height, blurDataURL, video;
+
+        if (isVideo) {
+          const videoOutName = `${path.parse(file).name}.mp4`;
+          const videoOutputPath = path.join(outDir, videoOutName);
+          const result = await processVideo(inputPath, videoOutputPath, outputPath);
+          ({ width, height, blurDataURL } = result);
+          video = {
+            src: `/work/${project.slug}/${videoOutName}`,
+            ...(result.duration ? { duration: result.duration } : {}),
+          };
+        } else {
+          ({ width, height, blurDataURL } = await processImage(inputPath, outputPath));
+        }
 
         newImages.push({
           src: outName,
@@ -210,9 +305,12 @@ async function main() {
           blur: blurDataURL,
           caption: existing?.caption ?? "",
           ...(existing?.group ? { group: existing.group } : {}),
+          ...(video ? { video } : {}),
         });
 
-        console.log(`  ${project.slug}/${outName} — ${width}x${height}`);
+        console.log(
+          `  ${project.slug}/${outName} — ${width}x${height}${isVideo ? " (video)" : ""}`,
+        );
       } catch (error) {
         failures.push(`${project.slug}/${file}: ${error.message}`);
         console.error(`  FAILED ${project.slug}/${file} — ${error.message}`);
@@ -224,14 +322,22 @@ async function main() {
       continue;
     }
 
-    if (previousCoverSrc && previousCoverSrc !== newImages[0].src) {
+    // A hand-picked cover (set by editing content/projects.json directly)
+    // is preserved across reruns as long as its image still exists — this
+    // script only ever picks a *default* cover, for a brand-new project or
+    // one whose previous cover image was removed from raw/. A video is
+    // never eligible as that default; covers are always a still.
+    const coverStillExists = newImages.some((image) => image.src === previousCoverSrc);
+    const defaultCover = newImages.find((image) => !image.video) ?? newImages[0];
+
+    if (previousCoverSrc && !coverStillExists) {
       console.warn(
-        `  ${project.slug}: cover changed ${previousCoverSrc} -> ${newImages[0].src}`,
+        `  ${project.slug}: previous cover ${previousCoverSrc} no longer in raw/, switching to ${defaultCover.src}`,
       );
     }
 
     project.cover = {
-      src: newImages[0].src,
+      src: coverStillExists ? previousCoverSrc : defaultCover.src,
       ...(project.cover?.focal ? { focal: project.cover.focal } : {}),
     };
     project.images = newImages;
