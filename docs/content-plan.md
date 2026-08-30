@@ -239,21 +239,35 @@ and the commercial entries demonstrate the same thing by existing.
 
 ## What is still open
 
-- **Smarter Window.** Whether any of the material is shareable yet. Pre-launch
-  hardware usually is not. Ask the founder before building the entry.
-- **The Chamisal shoot.** Which entry it belongs to.
-- **Per-entry image counts.** Product is confirmed as thin (a few frames). Decide
-  whether that is enough to carry an entry on its own or whether Product folds
-  into the Equal Eats project until there is more.
+- **The Chamisal shoot.** Which entry it belongs to — no `raw/chamisal*/`
+  folder exists yet, so it hasn't been placed anywhere.
+- **Video hosting.** Video support is now built (see "Where I left off"), but
+  where the actual clip files will live is undecided — self-hosted under
+  `public/work/<slug>/` (the pipeline's current default) versus an external
+  host (Vercel Blob, S3, Mux, etc.) to keep the git repo from ballooning.
+  Decide this once there's real footage to add, not before.
+- **A real copy pass.** Deliberately deferred — the user wants to work out
+  voice/style separately before touching existing prose. Whenever that
+  happens: no em dashes anywhere (see Hard rules in `docs/design-brief.md`),
+  and `docs/refs/Screenshot 2026-08-31 at 00.07.14.png` (a Cargo template)
+  is a useful reference for tone/format — label:value metadata pairs
+  ("Publisher: Querido"), italic subtitles under a title, bracketed text
+  links ("[View]") instead of styled buttons. That reference's own
+  lorem-ipsum placeholder text is full of em dashes, which is irrelevant
+  noise from Cargo's filler generator, not a style cue to follow.
 
 Confirmed and closed: booking lives on the Graduation page only; personal
 work is substantial and splits into Aerial and Landscape & Travel; Pro Power
 Washes is not a Projects entry (see above); Product & Brand stays in Commercial
-as planned. The paid-work scope going forward is three Projects entries (Equal
-Eats, Smarter Window, Bay Home Consignment) plus five Commercial entries (Real
-Estate & Architecture, Events & Fundraisers, Product & Brand, Graduation,
-Portraits & Headshots — split from the original combined "Portraits & Grad,"
-see #8/#8a above).
+as planned, and its image count (now 15 real frames) is enough to carry the
+entry on its own — it did not fold into Equal Eats. Smarter Window's material
+turned out to be shareable — real photos are live. The paid-work scope is
+three Projects entries (Equal Eats, Smarter Window, Bay Home Consignment)
+plus four Commercial entries (Events & Fundraisers, Product & Brand,
+Graduation, Portraits & Headshots — split from the original combined
+"Portraits & Grad," see #8/#8a above). Architecture (originally planned as
+a fifth Commercial entry, "Real Estate & Architecture") ended up recategorized
+as Personal instead — see #11 above for why.
 
 ---
 
@@ -262,7 +276,7 @@ see #8/#8a above).
 **Done.** Tokens, shell (panel + grid), index/filter wiring, the `/work/[slug]`
 project page with a real lightbox, `/info`, and the social dock are all built
 and working. `scripts/images.mjs` is written, tested, and wired up as
-`npm run images`. All nine entries from this plan are in `content/projects.json`
+`npm run images`. All ten entries from this plan are in `content/projects.json`
 with real `title` / `category` / `slug` and a real `description` (Pro Power
 Washes was cut as a Projects entry — see above — and instead appears as a
 linked line on `/info` under Selected experience, pointing at
@@ -320,15 +334,99 @@ at the bottom of Graduation. These are deliberate, specific exceptions to the
 otherwise-restrained system, not a general license to keep adding personality
 everywhere — read that section before extending the pattern further.
 
-**Half-finished.**
-- Product & Brand and Portraits & Headshots have no `raw/<slug>/` folder yet
-  (Portraits & Headshots has no folder at all), so they stay invisible on the
-  live site until photos are added and `npm run images` runs again. Landscape
-  & Travel, Architecture (formerly "Real Estate & Architecture," see #11
-  above), and Events & Fundraisers (see #6 above) are all populated and live.
+**All ten entries are populated and live.** Product & Brand and Portraits &
+Headshots (the two that were still empty as of the last update to this
+section) both got real photos and custom covers. Every entry in this plan's
+scope — three Projects, four Commercial, two Personal (plus Architecture,
+recategorized — see above) — now has real photos in `raw/<slug>/`, processed
+into `public/work/<slug>/`, and is visible on the site. Nothing is hidden
+for lack of images anymore.
+
+**Since then, this session:**
+- Swapped the wordmark/body typeface from Archivo to Inter (a brief detour
+  through a self-hosted Fontshare face, Switzer, landed and was then
+  reverted in favor of Inter — see git history on `app/layout.tsx` if that
+  matters later). Wordmark bumped to 56px and its trailing asterisk
+  flourish was dropped. `docs/design-brief.md` reflects Inter throughout.
+- Bay Home Consignment's photos were updated twice — first adding 6 new
+  shots from an 08-26 session, then swapping 2 of those back out — netting
+  4 new photos over the original 5. Along the way, found and fixed a real
+  bug in `scripts/images.mjs`: every run was silently resetting every
+  project's cover to first-in-sort-order, clobbering any hand-picked cover
+  that didn't happen to match (this had already quietly overwritten covers
+  on Smarter Window, Product & Brand, Graduation, Portraits & Headshots,
+  Architecture, and Aerial before it was caught and reverted). The script
+  now preserves an existing cover across reruns unless its image is
+  actually gone from `raw/`.
+- `docs/design-brief.md`'s Layout section was rewritten to match reality:
+  the homepage was already masonry (reworked in an earlier session, commit
+  `b88c54b`) but the brief still described an old uniform 3:2-crop grid with
+  hover-reveals-caption-in-panel behavior that was never actually built that
+  way. It now documents the real masonry grid and the real static
+  under-tile caption. `cover.focal` and `images[].wide` are both noted as
+  inert leftovers from that old design.
+- **Video support, in progress.** Content model (`ProjectImage.video`),
+  pipeline (`scripts/images.mjs` — ffmpeg-based poster-frame extraction +
+  transcode, lazily checked so image-only projects are unaffected on a
+  machine without ffmpeg installed), grid play-icon tile, and the
+  lightbox's `<video controls>` branch are all built and type-checked.
+  Untested against real footage — no `raw/<slug>/` folder has a video file
+  yet, and `ffmpeg` isn't installed on this machine, so the pipeline half
+  has never actually run. Click-to-play only, no autoplay/loop preview —
+  see "Video" under Layout in `docs/design-brief.md`. Hosting location for
+  the actual clip files is still an open decision (see "What is still
+  open" above).
+
+**This session:**
+- Swapped the wordmark/body typeface again, from Inter to **Instrument
+  Sans** (still Google Fonts, via `next/font/google`) — Inter read as too
+  close to the generic default every AI site-builder reaches for first.
+  Picked after comparing Instrument Sans against General Sans, Cabinet
+  Grotesk, Author, Switzer, Bricolage Grotesque, Schibsted Grotesk, and
+  Space Grotesk side by side in the site's real type scale. `app/layout.tsx`
+  (`instrumentSans` / `--font-instrument-sans`), `app/globals.css`
+  (`--font-sans`), and `docs/design-brief.md`'s Typography section and Hard
+  rules all updated to match.
+- Dropped the panel's `--panel` background and 10px radius entirely, after
+  comparing against `docs/refs/Screenshot 2026-08-31 at 00.07.14.png` (a
+  Cargo template) — the boxed-panel look read too close to a generic
+  template card. Replaced with a single right-edge hairline
+  (`border-r border-hairline` on `<aside>` in `app/_components/panel.tsx`)
+  separating the nav column from the grid, matching the reference's
+  full-height vertical rules between columns. Radius removed everywhere else
+  too — homepage grid tiles, project-page gallery thumbnails, and the social
+  dock all went from 6px/10px radius to square corners. Hard rules and "The
+  panel"/"The grid"/"The social dock" in `docs/design-brief.md` all updated;
+  the radius cap changed from "10px max" to "none, anywhere."
+- Wordmark bumped from 56px to 80px (now exceeds `--text-huge`'s 72px, which
+  is fine — see the note in design-brief.md's Typography section for why
+  that's not a conflict).
+- **Fixed a real double-compression bug.** Next.js 16 defaults
+  `images.qualities` to `[75]`, which was silently coercing every `<Image>`
+  on the site to quality 75 regardless of the source file's own quality —
+  confirmed live via network requests (`_next/image?...&q=75` on every
+  photo) after the user flagged images looking under-resolved. Fixed by
+  adding `images: { qualities: [75, 90] }` to `next.config.ts` and setting
+  `quality={90}` on all three `<Image>` usages (`app/page.tsx`,
+  `project-gallery.tsx` grid thumbnail and lightbox). Same file at the same
+  1920px width went from 55KB to 102KB, visibly sharper. Cross-checked
+  against a real photography Cargo site
+  (juliannehan.cargo.site) via its network requests — Cargo's own CDN
+  (`freight.cargo.site`) serves every size tier at quality 75 by default, so
+  90 already exceeds what a comparable professional site ships. Also bumped
+  `scripts/images.mjs`'s own `QUALITY` constant from 80 to 90 and reran
+  `npm run images` to regenerate every project's photos and blur
+  placeholders at the new source quality (`public/work/` grew from 100M to
+  196M) — this doesn't change what's delivered to visitors (Next re-encodes
+  to its own quality regardless of source), it only raises the source
+  ceiling to reduce generational loss.
+- Added a hard rule: no em dashes anywhere in site copy. Not yet applied as
+  an actual copy pass — see "What is still open" below.
 
 **Next thing.**
-1. Populate `raw/<slug>/` for the two remaining empty entries (Product &
-   Brand, Portraits & Headshots), the same way it was done for the rest. Run
-   `npm run images` after each batch — that's the only thing standing between
-   these two entries and showing up on the live site.
+1. Decide video hosting (self-hosted vs. external) once there's real
+   footage — likely Smarter Window or Equal Eats, per the original content
+   plan for those two entries.
+2. Install `ffmpeg` and run the video pipeline against a real clip
+   end-to-end at least once before trusting it.
+3. Place the Chamisal shoot.

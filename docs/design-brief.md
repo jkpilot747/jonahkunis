@@ -39,8 +39,12 @@ framework drifts toward generic, and this list is what stops it.
 - No cards. Text content does not get a bordered box around it.
 - No site-wide `max-width` container centering everything. The grid runs to the
   right edge of the viewport.
-- No border radius larger than 10px.
-- No typeface beyond the two named below (Inter and Geist Mono).
+- No border radius anywhere. Square corners only — rounded corners are the
+  first thing that reads as generic template/AI-tool output, so this is
+  stricter than the "10px cap" an earlier draft of this rule allowed. See
+  "The panel" and "The grid" below for what replaced the panel's old
+  rounded box.
+- No typeface beyond the two named below (Instrument Sans and Geist Mono).
 - No font weight other than 400 and 700.
 - No color that is not a token defined in `globals.css`.
 - No transition longer than 150ms.
@@ -49,6 +53,9 @@ framework drifts toward generic, and this list is what stops it.
   switching that `create-next-app` left in `globals.css`.
 - No lorem ipsum at any stage. Use real project names and real copy, or use
   clearly-labeled placeholder text like `[project title]`.
+- No em dashes anywhere in site copy (headings, descriptions, captions, FAQ,
+  anywhere a visitor reads text). Applies to future copy too, not just what
+  exists today.
 
 ---
 
@@ -56,8 +63,8 @@ framework drifts toward generic, and this list is what stops it.
 
 Two faces, and only two.
 
-**Inter** (Google Fonts, via `next/font/google`) — everything that is not
-metadata.
+**Instrument Sans** (Google Fonts, via `next/font/google`) — everything that
+is not metadata.
 **Geist Mono** (already loaded in `app/layout.tsx`) — all metadata.
 
 ### Scale
@@ -66,10 +73,10 @@ Stay on this scale. Do not introduce intermediate sizes.
 
 | Role | Face | Size | Weight | Tracking |
 |---|---|---|---|---|
-| Wordmark | Inter | 56px | 700 | -0.03em |
-| Page title | Inter | 32px | 700 | -0.02em |
-| Index item | Inter | 18px | 400 | -0.005em |
-| Body / bio | Inter | 19px | 400 | 0 |
+| Wordmark | Instrument Sans | 80px | 700 | -0.03em |
+| Page title | Instrument Sans | 32px | 700 | -0.02em |
+| Index item | Instrument Sans | 18px | 400 | -0.005em |
+| Body / bio | Instrument Sans | 19px | 400 | 0 |
 | Metadata | Geist Mono | 14px | 400 | 0.01em |
 | Filter label | Geist Mono | 13px | 400 | 0.12em, uppercase |
 
@@ -82,7 +89,10 @@ One deliberate exception: `--text-huge` (72px, weight 700, `tracking-wordmark`,
 `leading-none`) exists solely for the "→ Book a session ←" CTA at the bottom
 of Graduation's booking section — see Flourishes below. Don't reach for it
 anywhere else; if a second spot wants oversized type, that's a sign the scale
-needs a real new row, not more ad hoc reuse of this one.
+needs a real new row, not more ad hoc reuse of this one. (The wordmark's own
+80px now exceeds `--text-huge`'s 72px — that's fine, they're unrelated: the
+wordmark is a fixed row in this table, `--text-huge` is the one-off token
+reserved for the booking CTA specifically.)
 
 Line height: 1.25 for anything 24px and above, 1.5 for index items, 1.6 for body.
 
@@ -143,8 +153,14 @@ with the grid.
   viewport — full height, not content-driven. (Widened from an original 300px
   draft after seeing the bumped type scale above in the browser — 300px read
   cramped at 18px index items.)
-- Background `--panel`, radius 10px, no border, no shadow. It sits on `--ground`,
-  and that tonal step is the only separation it needs.
+- No background fill, no radius, no shadow. What separates the panel from the
+  grid is a single hairline down its right edge (`border-r border-hairline`)
+  — not a tonal box. This replaced an earlier `--panel`-filled, 10px-radius
+  box once it read too close to a generic template "card" left over from the
+  original draft; see `docs/refs/Screenshot 2026-08-31 at 00.07.14.png` (a
+  Cargo template) for the reference this pattern is drawn from — full-height
+  vertical rules between columns, square corners throughout, no background
+  fill on the nav column itself.
 - Internal padding 20px.
 - Contents in order:
   1. Wordmark: `Jonah Kunis` — links to `/`
@@ -178,40 +194,53 @@ page navigation, no URL change required in v1.
 
 Homepage and project pages use different grid rules.
 
+Both the homepage and project pages are masonry now — an earlier draft of
+this brief specified a uniform, cropped 3:2 homepage grid with hover-reveals-
+caption-in-panel interaction; that was superseded when the homepage was
+reworked into a captioned masonry grid, and this section documents what's
+actually built, not that earlier draft.
+
 **Homepage (`/`).** One tile per project — its `cover`, never the full
 `images` array.
 
-- Two columns by default, 16px gutter, 8px from the top and right edges of
-  the viewport, 20px from the panel. Three columns above an 1800px viewport
-  width, so a tile never grows to wallpaper size on an external monitor.
-- Every tile is a uniform 3:2 landscape crop, `object-fit: cover`. Zero gaps
-  by construction — every tile in a row is the same height, so there is
-  nothing for the CSS grid to misalign.
-- `object-position` comes from the cover's optional `focal` field (e.g.
-  `"50% 30%"`); default to `center` when a cover has none.
-- Radius 6px on every tile.
-- No spans, no exceptions. Every tile is the same size and shape as every
-  other. Nothing on the homepage grid breaks row alignment, because nothing
-  is allowed to.
+- Two-column CSS masonry (`columns-2`, 16px gutter), three columns above an
+  1800px viewport width so a tile never grows to wallpaper size on an
+  external monitor. 8px from the top and right edges of the viewport, 20px
+  from the panel.
+- Each cover renders at its own real aspect ratio (`h-auto w-full`) — no
+  forced crop, no `object-fit: cover`. A portrait cover and a landscape
+  cover both show their full frame, at the cost of tiles not staying
+  row-aligned across columns. `cover.focal` and the `wide` field mentioned
+  elsewhere in this doc are both dead — nothing here crops, so there's
+  nothing for either to position or override.
+- Square corners, no radius — see Hard rules above.
+- Below each tile: the project title (Index item scale) and its category
+  (Metadata scale, `--muted`, capitalized), both static — always visible,
+  not a hover reveal.
 
-**Project pages (`/work/[slug]`).** Two-column CSS masonry (`columns-2`,
-16px gutter, 6px radius), not a uniform grid. Thumbnails render at each
-image's real aspect ratio instead of being cropped — a portrait shot and a
-landscape shot both show their full frame, at the cost of columns not
-staying row-aligned. This is a deliberate departure from the homepage's
-"no spans, no exceptions" rule: portfolio pages are photo-first, and
-cropping a composition to force row alignment cost more than the alignment
-was worth. The homepage grid keeps the uniform 3:2 crop described above —
-one curated cover per project, where a consistent scanning grid matters
-more than showing the cover's full frame.
+**Project pages (`/work/[slug]`).** Same two-column CSS masonry pattern
+(`columns-2`, 16px gutter, square corners). Thumbnails render at each image's
+real aspect ratio for the same reason as the homepage — a portrait shot and
+a landscape shot both show their full frame.
 
 Clicking a thumbnail still opens the lightbox at the image's natural aspect
 ratio, fit to the viewport, never upscaled past its real pixel size. Close
 with Escape or the close control; move between images by clicking the
 left/right half of the lightbox or the arrow keys.
 
-There is no `wide` field — irrelevant now that thumbnails already render at
-their native aspect ratio instead of a fixed crop.
+**Video.** An `images[]` entry can carry a `video` field (see Content model
+below) — its `src`/`w`/`h`/`blur` still describe a poster frame, exactly
+like a still. In the grid, that tile gets a small always-visible play-icon
+overlay (a hand-drawn inline SVG triangle in a plain `--panel` circle — no
+icon library, no drop shadow, matching the social dock's icon convention).
+Clicking it opens the lightbox exactly like a photo, except the media is a
+native `<video controls>` element instead of an `<Image>`, and the
+left/right click-to-navigate zones are disabled for that one item — they'd
+otherwise sit on top of and swallow clicks meant for the video's own
+play/pause/scrubber controls. Arrow-key navigation still steps past a video
+like any other item. Click-to-play only: no autoplay, no muted-loop grid
+preview — consistent with this site's zero-motion-until-clicked rule
+elsewhere in this Interaction section.
 
 Images load with their blur placeholder from the manifest. No spinners, no
 skeleton loaders, no fade-in animation.
@@ -219,7 +248,7 @@ skeleton loaders, no fade-in animation.
 ### The social dock
 
 - Fixed, bottom-right, 20px from both edges.
-- Vertical pill: `--panel` background, radius 10px, 44px wide, 10px padding.
+- Vertical stack: `--panel` background, square corners, 44px wide, 10px padding.
 - Instagram, LinkedIn, Email. Hand-written inline SVG, single path each,
   `--muted` at rest and `--ink` on hover.
 
@@ -232,9 +261,9 @@ Restraint is the point. Four behaviors, nothing else.
 1. **Index hover.** Hovering a project name drops every *other* name in the list
    to 40% opacity. The hovered item stays at full. No weight change, no
    underline, no movement — those cause layout shift.
-2. **Grid image hover.** The image's caption appears in a fixed slot at the
-   bottom of the panel, in Geist Mono at `--muted`. The image itself does not
-   move, scale, or change opacity.
+2. **Homepage grid caption.** Each tile's title and category print statically
+   underneath it (see "The grid" above) — there's no hover-to-reveal
+   behavior; the caption is always visible, not conditional on hover.
 3. **Filter change.** The index list updates instantly with no animation. The
    grid crossfades at 120ms.
 4. **Text link hover.** Any inline text link — Graduation's booking CTA,
@@ -285,7 +314,7 @@ Three. Resist adding more.
 - `/work/[slug]` — a single project. Same panel on the left. Right side leads
   with a page title (Page title scale), then — only for entries with a
   `client`/`year` — the terminal metadata block from Flourishes above, then a
-  short description block, Archivo body scale, then a single-column stack of
+  short description block, Body/bio scale, then a single-column stack of
   that project's images.
 - `/info` — bio, contact, gear, license, recognition, selected experience. Same
   panel. Right side is a single text column, max 65 characters wide,
@@ -312,15 +341,39 @@ everything the script cannot know.
   "client": "Chamisal Vineyards",
   "role": "Photography, direction",
   "description": "One or two sentences. Optional.",
-  "cover": { "src": "01.jpg", "focal": "50% 30%" },
+  "cover": { "src": "01.jpg" },
   "images": [
-    { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "" }
+    { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "" },
+    {
+      "src": "02.jpg", "w": 2400, "h": 1350, "blur": "data:...", "caption": "",
+      "video": { "src": "/work/chamisal-2026/02.mp4", "duration": 34 }
+    }
   ]
 }
 ```
 
 `category` is one of `projects`, `commercial`, `personal`. The filter row reads
 from this field, so it must be exactly one of those three strings.
+
+`cover.focal` still exists on the type and `npm run images` still preserves
+it across reruns, but it's inert — nothing renders it. It was written for a
+now-superseded uniform-crop homepage grid (see "The grid" above); the
+current masonry grid shows every cover at its full aspect ratio, so there's
+no crop for a focal point to position. Leave it out of new entries.
+
+**Video.** An `images[]` entry can carry an optional `video` field —
+`src`/`w`/`h`/`blur`/`caption` above it still describe the poster frame,
+generated by `scripts/images.mjs` the exact same way a still's blur
+placeholder is. `video.src` is the actual clip to play; it can be a
+site-relative path under `/work/<slug>/` (self-hosted, the pipeline's
+current default) or an absolute URL (externally hosted) — the lightbox's
+`<video>` element doesn't care which, so the hosting location can change
+later without touching this schema. `video.duration` (seconds) is optional
+and currently unused by any component. See "Video" under Layout above for
+how it renders. Processing a video file in `raw/<slug>/` requires `ffmpeg`
+on `PATH` (`brew install ffmpeg`) — the script only checks for it the first
+time it actually encounters a video file, so an image-only project is
+unaffected on a machine without it installed.
 
 **Grouped entries.** A Commercial entry that spans multiple distinct shoots
 (Events & Fundraisers is the motivating case — one entry, several unrelated
@@ -350,9 +403,9 @@ is entirely optional and preserved across `npm run images` reruns the same
 way `caption` is; entries that don't set it render exactly as before this
 feature existed — one continuous grid, no section breaks.
 
-`cover.focal` is optional; omit it to default to `center`. There is no `feature`
-field and no `images[].wide` field: both grids are uniform, no spans, no
-exceptions.
+There is no `feature` field and no `images[].wide` field — see "The grid"
+under Layout above for why (both grids are masonry now, rendering each
+image's real aspect ratio; neither field would have anything to do).
 
 Images are never referenced by hardcoded path in a component. Every image on the
 site comes from this file.
@@ -365,7 +418,8 @@ Follow this sequence. Each step should look finished before the next begins.
 
 1. **Tokens.** Write the color and type tokens into `globals.css`. Strip the
    `create-next-app` defaults and the dark mode switching. Swap Geist Sans for
-   Archivo in `app/layout.tsx`.
+   the display face named in Typography above (Instrument Sans, currently) in
+   `app/layout.tsx`.
 2. **Shell.** Build the panel and grid regions with flat grey rectangles standing
    in for photographs. Get the proportions, spacing, and type scale right while
    there is nothing pretty to hide behind. This step matters more than any other.
