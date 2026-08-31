@@ -239,13 +239,6 @@ and the commercial entries demonstrate the same thing by existing.
 
 ## What is still open
 
-- **The Chamisal shoot.** Which entry it belongs to — no `raw/chamisal*/`
-  folder exists yet, so it hasn't been placed anywhere.
-- **Video hosting.** Video support is now built (see "Where I left off"), but
-  where the actual clip files will live is undecided — self-hosted under
-  `public/work/<slug>/` (the pipeline's current default) versus an external
-  host (Vercel Blob, S3, Mux, etc.) to keep the git repo from ballooning.
-  Decide this once there's real footage to add, not before.
 - **A real copy pass.** Deliberately deferred — the user wants to work out
   voice/style separately before touching existing prose. Whenever that
   happens: no em dashes anywhere (see Hard rules in `docs/design-brief.md`),
@@ -439,9 +432,13 @@ for lack of images anymore.
   bumping that shared token and inflating all of those too).
 
 **Next thing.**
-1. Place the Chamisal shoot.
-2. A real copy pass, whenever the user is ready — see "What is still open"
+1. A real copy pass, whenever the user is ready — see "What is still open"
    above, unchanged.
+
+Closed: the Chamisal shoot, previously tracked here as unplaced content,
+doesn't exist — there was never a real shoot to place. Drop it from
+planning; the "chamisal-2026" slug in `docs/design-brief.md`'s Content
+model section is an illustrative schema example only, unrelated to this.
 
 **This session (mobile pass toward launch):**
 - `ffmpeg` installed (`brew install ffmpeg`, PATH wired into `~/.zprofile`
