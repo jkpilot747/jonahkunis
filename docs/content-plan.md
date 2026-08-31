@@ -439,9 +439,70 @@ for lack of images anymore.
   bumping that shared token and inflating all of those too).
 
 **Next thing.**
-1. Decide video hosting (self-hosted vs. external) once there's real
-   footage — likely Smarter Window or Equal Eats, per the original content
-   plan for those two entries.
-2. Install `ffmpeg` and run the video pipeline against a real clip
-   end-to-end at least once before trusting it.
-3. Place the Chamisal shoot.
+1. Place the Chamisal shoot.
+2. A real copy pass, whenever the user is ready — see "What is still open"
+   above, unchanged.
+
+**This session (mobile pass toward launch):**
+- `ffmpeg` installed (`brew install ffmpeg`, PATH wired into `~/.zprofile`
+  and `~/.zshrc`) and the video pipeline run end-to-end against a real
+  clip for the first time — Smarter Window's `raw/smarter-window-2026/`
+  got a real product-demo `.mov`, processed into a poster frame + capped
+  mp4 under `public/work/smarter-window-2026/`. The pipeline held up:
+  correct poster frame, correct duration, cover untouched (a video is
+  never eligible as a default cover, confirmed). This also resolves the
+  "video hosting" open question from before, at least for now — it's
+  self-hosted under `public/work/<slug>/`, the pipeline's existing
+  default; nothing pushed us to Vercel Blob/S3/Mux yet. Revisit if the
+  repo size becomes a real problem as more clips land.
+- The video needed two follow-up fixes once real footage was in: it
+  wasn't wide enough (tried `column-span: all` inside the two-column
+  masonry first — WebKit doesn't reliably honor `width: 100%` on a
+  spanning element and centers/shrinks it instead), and its caption was
+  centered (native `<button>` defaults to `text-align: center` and
+  nothing overrode it). Fixed by having a video break out of the masonry
+  into its own full-width block in normal flow (`ProjectGallery`'s
+  `chunkByVideo`, see `app/work/[slug]/_components/project-gallery.tsx`)
+  and adding `text-left` to the shared tile markup. Image captions
+  (`ProjectImage.caption`) are now actually rendered for the first time
+  — previously stored in the data model but only ever used as alt text —
+  styled like the grouped-section labels (bold, `text-index`), printed
+  above the tile.
+- **Mobile got a real layout for the first time.** Previously there was
+  none — the panel was a `fixed`, hardcoded-640px sidebar with no
+  fallback, so the site was unusable below `lg` (1024px, chosen so
+  portrait tablets get the mobile treatment too and only landscape
+  tablets/laptops and up get the sidebar). Two iterations:
+  1. First pass stacked the panel in normal flow above the grid and used
+     a scroll-on-mount hack (`ScrollToContent`) to jump past it into a
+     project's content on navigation, since otherwise tapping a project
+     just landed you back at the top of the same menu with no sign
+     anything happened. Worked, but had a real gap: once scrolled deep
+     into a gallery there was no way back to the nav except scrolling
+     all the way back up, with no visual cue that was even possible.
+  2. Replaced with a slim sticky header (wordmark + a Menu/Close toggle)
+     that expands into a full-screen overlay holding everything the old
+     sidebar had — tagline, socials, filters, project index, Info link.
+     It's reachable at any scroll depth, tapping a link or filter closes
+     it and takes you there directly. This made the scroll-jump hack
+     unnecessary — `ScrollToContent` was deleted along with its usages.
+     Desktop (`lg` and up) is byte-for-byte the same fixed sidebar as
+     before; the two layouts share one `panelBody` JSX value in
+     `app/_components/panel.tsx` rather than duplicating the filter/
+     index/social markup.
+  3. Hit one real CSS bug getting there: the sticky header's wrapping
+     `<div className="lg:hidden">` was exactly as tall as the header
+     itself, and `position: sticky` sticks *within its parent's box* —
+     zero extra height meant zero room to stay stuck, so it just
+     scrolled away like a normal element despite `position: sticky`
+     being set correctly. Fixed by putting the sticky/fixed classes
+     directly on that div instead of a separate inner one, so its
+     containing block is the full page height, not just its own content.
+- Along the way, found that testing against the `next dev` network URL
+  (a phone on the same Wi-Fi hitting `http://192.168.0.25:3000`) loaded
+  the page but left it completely non-interactive — Next 16 blocks
+  cross-origin requests for dev-only JS chunks by default, so React never
+  hydrated. Fixed with `allowedDevOrigins: ["192.168.0.25"]` in
+  `next.config.ts`. Dev-only; irrelevant once actually deployed, where
+  everyone loads from one real origin. If the phone's LAN IP changes
+  later, that value needs updating to match.
