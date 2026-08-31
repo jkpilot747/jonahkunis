@@ -432,8 +432,13 @@ for lack of images anymore.
   bumping that shared token and inflating all of those too).
 
 **Next thing.**
-1. A real copy pass, whenever the user is ready — see "What is still open"
-   above, unchanged.
+Superseded — see "Status as of 2026-09-01" at the very bottom of this file
+for the current open list. Left here so this paragraph's own history
+(the copy pass turning out to already be mostly done) doesn't get lost:
+what's left from that point is optional and unrelated to the current open
+list — a Portraits & Headshots booking section if that work ever needs its
+own commercial ask (see #8a above), and general content additions as new
+work comes in.
 
 Closed: the Chamisal shoot, previously tracked here as unplaced content,
 doesn't exist — there was never a real shoot to place. Drop it from
@@ -503,3 +508,342 @@ model section is an illustrative schema example only, unrelated to this.
   `next.config.ts`. Dev-only; irrelevant once actually deployed, where
   everyone loads from one real origin. If the phone's LAN IP changes
   later, that value needs updating to match.
+
+**This session (copy pass + mobile/bug QA):**
+- Did the copy pass this doc had flagged as deferred (see "What is still
+  open" above). Turned out most of it was already done — every project
+  description in `content/projects.json` already reads as real, finished
+  copy in a consistent voice, not the draft placeholders this doc's earlier
+  "Draft:" blurbs implied were still live. Two actual gaps found and fixed:
+  - Graduation's weather FAQ answer had an em dash in visitor-facing prose
+    ("great portraits — heavy rain is where we draw the line"), a real
+    violation of the Hard rules' no-em-dash rule in `docs/design-brief.md`
+    (the `CLIENT — <value>` / `role — org` em dashes elsewhere are the
+    documented terminal-metadata-block flourish, a UI separator glyph, not
+    prose — those are correct as-is and weren't touched). Reworded to
+    "...great portraits, but heavy rain is where we draw the line."
+  - Aerial (`content/projects.json`) had an empty `description` — the only
+    entry with no copy at all, silently blank on `/work/aerial`. Added one
+    line following this plan's own direction for the entry ("say so" about
+    the recognition): "Aerial photography and video, FAA Part 107 licensed.
+    Work recognized by SFGate's Photo of the Day, VisitMontana, and Canon
+    USA." Worth a second look from the user since it's new prose, not just
+    a mechanical fix like the FAQ line.
+- Full mobile/bug QA pass via `npm run dev` + Chrome automation: homepage
+  grid, mobile menu overlay (open/close, filter tap keeping the menu open —
+  confirmed the fix from commit `1addbcc` still holds), project pages, the
+  Smarter Window video tile and its lightbox playback, and `/info` all
+  checked. No real bugs found. `npm run lint` clean. No console errors on
+  any page visited.
+  - One rabbit hole along the way: `resize_window` in this session's
+    browser tooling stopped reliably setting the actual viewport after its
+    first call (subsequent calls reported success but the real
+    `window.innerWidth` stayed stuck around 150-340px regardless of the
+    requested size, sometimes drifting between screenshots with no resize
+    call in between) — a tooling bug in this session's Chrome automation,
+    not a site issue. Where a screenshot taken under that broken window
+    looked wrong (e.g. the video lightbox appearing to not cover the full
+    screen), cross-checked against the DOM directly
+    (`getBoundingClientRect`, computed `position`/`background-color`) and
+    confirmed the site was actually rendering correctly (full-viewport
+    `position: fixed`, black 90%-opacity backdrop, centered video) — the
+    screenshot was misleading, not the site.
+- After the QA pass above, the user looked at the real site in their own
+  browser (not the automated Chrome tab) and flagged two real problems the
+  automated pass had missed because they only show up once every photo is
+  real and the window is a normal size, not a design-brief compliance
+  check: the whole page read as too big, and the homepage grid had
+  landscape covers bunched at the top and portrait covers bunched at the
+  bottom instead of a mix. Both fixed — see the corresponding notes in
+  `docs/design-brief.md` (Typography's Scale table intro, "The panel", and
+  "The grid" in Layout) for the full reasoning; in short:
+  - Shrank the whole type scale and the panel width (wordmark 80→48,
+    title 32→26, index 18→16, body 19→17, metadata/filter 14/16→13 each,
+    huge CTA 72→56, panel 640→440px, mobile header wordmark 28→22px,
+    homepage's 3-column breakpoint 1800→1400px) — `app/globals.css`,
+    `app/_components/panel.tsx`, `app/page.tsx`, and the `lg:ml-[680px]`
+    content offset in `app/page.tsx`/`app/info/page.tsx`/
+    `app/work/[slug]/page.tsx` (all three now `480px`, matching the new
+    440px panel + 20px inset + 20px gap) all touched.
+  - Added `orderForMasonry()` to `lib/projects.ts`, used only by the
+    homepage grid (`app/page.tsx`) — the panel's index still uses the real
+    category order from `filterProjects()`, untouched. Root cause: native
+    CSS multi-column masonry fills column 1 with roughly the first half of
+    its source array and column 2 with the rest, so the panel's Projects→
+    Commercial→Personal category order (a deliberate choice, see "How the
+    index is organized" above) put every landscape cover near the top
+    (Projects and Commercial happen to be mostly landscape shoots) and
+    every portrait cover near the bottom (Personal is entirely portrait
+    shots) once real photos replaced placeholders. Wasn't visible earlier
+    in the build because it depends on which specific frames got picked as
+    covers, not on layout code.
+    - Superseded a few minutes later, same session: the user looked at the
+      reordered grid and asked for a specific hand-picked lead sequence
+      instead — Landscape & Travel and Aerial up top, then Graduation,
+      Architecture, Events & Fundraisers, then everything else. Replaced
+      the orientation-interleave logic in `orderForMasonry()` with a fixed
+      `GRID_LEAD_ORDER` slug list; anything not in that list keeps
+      `filterProjects()`'s normal category order and is appended after it.
+      Works per-filter, not just under ALL — e.g. filtering to PERSONAL
+      still shows Landscape & Travel and Aerial before Architecture, since
+      the sort only cares about each entry's position in the lead list,
+      not which filter produced the list being sorted. The orientation
+      clustering problem the previous version fixed is back in principle
+      (this lead sequence is mostly portrait covers) but wasn't re-flagged,
+      so left as is — see the note in `docs/design-brief.md`'s "The grid".
+    - Extended a few minutes later again, same session: user asked for
+      Portraits & Headshots to replace Equal Eats' old spot, Smarter
+      Window after it, then Bay Home, then Product & Brand — confirmed via
+      an AskUserQuestion after the request read ambiguously (a mention of
+      "events should take place of bay home" could have meant moving
+      Events & Fundraisers out of the lead group entirely; user confirmed
+      it stays put, Equal Eats just moves to last). `GRID_LEAD_ORDER`
+      (renamed `GRID_PRIORITY_ORDER` in the next round below) grew to name
+      every entry except Equal Eats.
+      - Checking the live result at this point also surfaced a real CSS
+        bug: the homepage was rendering 2 columns instead of 3 on a normal
+        laptop-width screen, because `lg:columns-2` and (at the time)
+        `min-[1400px]:columns-3` are two independent Tailwind utility
+        classes for the same `columns` property, and Tailwind doesn't
+        guarantee the wider breakpoint's rule lands later in the generated
+        stylesheet — at a viewport matching both conditions, `lg:` happened
+        to win. Tried registering 1400px as a proper named `--breakpoint-*`
+        custom breakpoint instead (thinking Tailwind would sort it into the
+        same ascending chain as the built-in breakpoints); that didn't fix
+        it either, and a variant name starting with a digit (`3col:`) also
+        silently failed to generate any CSS at all along the way. Settled
+        on hand-writing the three `column-count` rules directly in
+        `globals.css` as a plain `.masonry-grid` class instead of fighting
+        Tailwind's variant ordering — see the note in
+        `docs/design-brief.md`'s "The grid" for the full detail.
+    - Extended once more immediately after, same session: user said the
+      result was "better, but mix up the horizontal and vertical" —
+      pointing at the same same-orientation-clustering problem from two
+      rounds back (Landscape & Travel and Aerial, both portrait, sat next
+      to each other at the very top of the priority list, so column 1
+      opened with two tall portrait tiles in a row). Brought back
+      orientation interleaving, but layered on top of the curated priority
+      order instead of replacing it: `orderForMasonry()` now builds the
+      priority-ordered list first, then splits it into landscape/portrait
+      sub-sequences (each preserving its own relative order from the
+      priority list) and merges them alternately, starting with whichever
+      orientation the first entry actually is so Landscape & Travel still
+      leads. Verified in the browser: grid order came back exactly as
+      predicted by hand (Landscape & Travel, Graduation, Aerial, Portraits
+      & Headshots, Architecture, Smarter Window, Events & Fundraisers,
+      Equal Eats, Bay Home Consignment, Product & Brand — alternating P/L
+      until the portrait list, one entry longer, runs out).
+
+**This session (a big copy and content batch, one message with ~20 items):**
+- Panel tagline: "Commercial photography, video, and product work" →
+  "Commercial and personal photography and video" (`panel.tsx`), per the
+  user's own suggestion to drop "product work."
+- Homepage grid priority order updated again (`GRID_PRIORITY_ORDER` in
+  `lib/projects.ts`, renamed from `GRID_LEAD_ORDER` in the previous round):
+  now Landscape & Travel, Aerial, Graduation, Events & Fundraisers,
+  Architecture, Smarter Window, Product & Brand, Bay Home Consignment —
+  Graduation moved ahead of Events & Fundraisers/Architecture, and
+  Portraits & Headshots dropped out of the named list entirely (so it now
+  falls through to "rest" alongside Equal Eats, in that relative order).
+  The orientation-interleave layer built in the previous round still runs
+  on top of this unchanged.
+- `/info` bio rewritten start to finish — the old three-sentence bio read
+  as generic/AI-written to the user. New version keeps a personal, joking
+  tone (opens with a Jonah Hill name comparison) while still naming the
+  East Bay/UC Davis grounding and folding a list of roles
+  (photographer/videographer/entrepreneur/musician/athlete/creative) into
+  a normal sentence rather than a bulleted list, to match the site's
+  flowing-prose bio pattern rather than introducing a new list style. Only
+  a first draft — flagged for the user to react to, not treated as final.
+- Canon USA recognition entry got a date (`Jun 2022`) — previously the
+  only `RECOGNITION` row with no date.
+- Selected experience section removed from `/info` entirely (the user felt
+  it didn't fit the site; LinkedIn is enough) — `SELECTED_EXPERIENCE` and
+  its whole rendered block deleted from `app/info/page.tsx`. Its LinkedIn
+  link moved into the Contact section instead of disappearing, alongside
+  email and Instagram, per the user's explicit ask ("don't need another
+  link to LinkedIn on the info page unless it can be added to contact
+  section"). Real side effect worth flagging: Pro Power Washes' only
+  appearance on the whole site was a linked line in Selected experience
+  (see "Pro Power Washes — not a Projects entry" above) — removing that
+  section means Pro Power Washes no longer appears anywhere on the site.
+  Not restored anywhere else since the user didn't ask for that; flagged
+  rather than decided unilaterally.
+- Terminal metadata block (`CLIENT — <value>` / `YEAR — <value>` on
+  `/work/[slug]`) lost its bracketing lines of 28 hyphens, sitewide — see
+  the Flourishes note in `docs/design-brief.md`. Affects only the three
+  Projects entries, since they're the only ones with `client`/`year` set.
+- Equal Eats: description rewritten to drop the solo-shooter framing
+  ("alongside their product marketing team" instead of "solo") and link
+  out to equaleats.com. That link is a first real content need for a
+  clickable mention inside prose — added a small `DescriptionText` helper
+  in `app/work/[slug]/page.tsx` supporting one `[text](url)` pair per
+  description (regex-based, not a real markdown parser) rather than
+  bolting a whole rich-text field onto the content model for one link. See
+  the Content model note in `docs/design-brief.md`.
+- Bay Home Consignment: `year` cleared (client stays), and the description
+  dropped the Excel tracker sentence in favor of a line about shooting the
+  building itself, on the ground and from the air, for marketing use. Flag
+  for the user: the actual `raw/bay-home-consignment-2022/` images don't
+  currently include any aerial/drone shots (no `DJI`-prefixed files, just
+  interior/product shots) — the new copy describes work that isn't yet
+  reflected in what's on the page. Either the description is describing
+  something not yet uploaded, or it should be trimmed back to just "shot
+  the building for marketing use" until aerial building shots are added.
+- Smarter Window: the 10 install-step images were sorted in *descending*
+  order (13, 12, 11 ... 4) because `scripts/images.mjs` sorts by EXIF
+  capture date, not filename, and these were apparently shot in reverse of
+  their logical step order. For a step-by-step sequence that reads
+  backwards, so reordered the array to plain ascending filename order (04
+  through 13, video still last). This was a manual one-time fix to
+  `content/projects.json` — a future `npm run images` run against this
+  same `raw/` folder would re-derive capture-date order and undo it, so if
+  new install photos ever get added to this project, the order needs
+  checking again after running the script. Also removed this entry's
+  dashed terminal-block lines (see above, same fix as Equal Eats/Bay
+  Home). Left the actual 2-column masonry layout alone — the user's note
+  ("since it's two columns, it should actually go") read as ambiguous
+  between "switch to a single column so steps read top-to-bottom" and just
+  explaining why the wrong order was extra confusing in two columns;
+  interpreted it as the latter since the numbering was the concrete,
+  unambiguous complaint. Flagged for the user to confirm either way.
+- Events & Fundraisers: the two Wornick prom pre-party images (previously
+  ungrouped by request, see "Grouped entries" note above) now carry a
+  `wornick-prom` group tagged "Prom party at Wornick's," matching every
+  other shoot in this entry. Jodi's private party (the other
+  previously-ungrouped shoot) wasn't touched — the user only asked about
+  the prom photos.
+  - Also fixed a real visual bug in the MG Walk NorCal group: 7 images,
+    6 landscape and 1 portrait, rendering in native CSS multi-column
+    masonry (`columns-2`) left a large empty gap at the bottom of the left
+    column while the right column kept going, because the one tall
+    portrait image landed early in the source order and threw off the
+    browser's height-balancing estimate for that group. Moved the
+    portrait image (`MG_Walk_2026-41.jpg`) to the end of the group's image
+    order instead of its original middle position — confirmed in the
+    browser that both columns now end at very close to the same height.
+    This is a manual, order-dependent workaround for a CSS multi-column
+    limitation, not a structural fix — if more images get added to this
+    group later and it goes lopsided again, the fix is the same kind of
+    manual reorder (or, for a real fix instead of a per-group workaround,
+    a JS-computed masonry algorithm that assigns each image to whichever
+    column is currently shortest — bigger change, not done here).
+- Graduation description shortened to "Grad photography sessions shot on
+  UC Davis campus."
+- Fixed a real data bug in Graduation's testimonials: the two reviews were
+  attributed to the wrong people. "Jonah did a great job with our grad
+  shoot..." is Libby A.'s review; "Jonah took some great photos for my
+  graduation..." is Daniel Rasas's. Swapped.
+- Graduation's payment FAQ now mentions cash as an accepted method
+  alongside Venmo and Zelle (previously said Venmo and Zelle only, despite
+  the same answer already talking about not needing to collect cash from
+  friends for group bookings) — also dropped an em dash from that same
+  answer while touching it (Hard rules, no em dashes).
+- Portraits & Headshots description now says "Portrait, headshot, and
+  family sessions..." instead of just "Portrait and headshot sessions..."
+- Aerial description simplified to "Aerial photography shot on a DJI
+  Air 2S." — replacing the previous version that also mentioned FAA Part
+  107 licensing and named all three recognition credits (SFGate, Visit
+  Montana, Canon USA). Flagged for the user: that recognition mention was
+  originally added deliberately (see the Aerial section above, "say so in
+  the entry") since it's the strongest differentiator for this specific
+  body of work — it isn't lost from the site (Part 107 is still stated
+  plainly on `/info`, and all three credits are still in `/info`'s
+  Recognition list), just no longer repeated on the Aerial project page
+  itself. The user said the simpler version was "good I think," so went
+  with it, but flagging the tradeoff since it wasn't a completely settled
+  call.
+- Two open questions the user asked outright, answered in chat rather than
+  in code (no site changes needed unless the user says otherwise):
+  - Whether GRID Alternatives (an energy nonprofit) fits under Product &
+    Brand: checked the actual photos (`DJI_*-HDR.jpg` in
+    `raw/product-brand/`) and they're aerial documentation of completed
+    residential solar installations — closer to project documentation
+    than classic product photography, but "Product & Brand" already reads
+    broadly enough (per-category, any client work) to cover it
+    comfortably; recommended leaving it where it is.
+  - Real estate drone imagery mixed into Architecture (`real-estate-`
+    `architecture/`, e.g. `43255montgomeryave-*.jpg` — clearly a specific
+    property listing shoot): recommended leaving the description as-is
+    ("other structures that caught my eye" already covers it without
+    singling out real estate specifically), since Architecture was
+    deliberately recategorized away from being a real-estate-focused
+    entry earlier (see the Architecture section above) and calling out
+    real estate work in the description would partly undo that.
+  - Whether `mailto:` links are still a reasonable contact pattern: yes —
+    still the standard, lowest-friction pattern most photography portfolio
+    sites use; recommended keeping it as-is unless the user specifically
+    wants a copy-to-clipboard or contact-form alternative instead.
+
+---
+
+## Status as of 2026-09-01
+
+The user wants to keep working before going live and connecting the real
+domain — not ready to deploy yet. Everything below this file's own session
+logs (above) is accomplished and committed on `main`
+(`9c87e3e` design-system/layout, `c39072d` content pass); nothing is
+pushed to `origin` yet.
+
+**Accomplished, this and the prior session, not previously summarized in
+one place:**
+- Full mobile layout (sticky header, full-screen menu overlay), video
+  support end to end (pipeline, grid tile, lightbox), and a real copy pass
+  across every project description.
+- Type scale and panel shrunk to a size that reads right on a real
+  monitor; a real Tailwind cascade bug that was silently capping the
+  homepage grid at 2 columns fixed with a hand-written CSS class.
+- Homepage grid has a deliberate, hand-picked display order (independent
+  of the panel's category order) with orientation mixing layered on top.
+- A full content and copy batch: new bio, tagline, several project
+  descriptions rewritten, Selected experience section removed, two real
+  data bugs fixed (swapped testimonial attributions, backwards Smarter
+  Window image order), a masonry layout bug fixed (MG Walk column
+  imbalance), and a new inline-link capability added to project
+  descriptions (used once so far, on Equal Eats).
+
+**Open — flagged during the last session, not yet resolved:**
+1. **Bio is a first draft.** The user hasn't reacted to the new `/info`
+   bio yet (Jonah Hill line, role list, etc.) — read it live and confirm
+   or keep iterating before this is considered final copy.
+2. **Bay Home's description says "on the ground and from the air"** but
+   `raw/bay-home-consignment-2022/` has no aerial/drone images yet (no
+   `DJI`-prefixed files). Either add aerial building shots to match the
+   copy, or trim the copy back to just "shot the building for marketing
+   use" until they exist.
+3. **Aerial's description dropped its FAA Part 107 / recognition
+   mention** in favor of a one-line "shot on a DJI Air 2S." The user said
+   the shorter version was good, but this was flagged as a real tradeoff
+   (the recognition mention was originally added deliberately as this
+   entry's differentiator) — worth a second look, not just a rubber stamp.
+4. **Pro Power Washes no longer appears anywhere on the site.** Its only
+   appearance was a linked line in Selected experience; removing that
+   section (per the user's request) removed Pro Power Washes along with
+   it. Not restored elsewhere — confirm that's actually fine, or find it
+   a new home.
+5. **Smarter Window's gallery layout wasn't changed.** The user's note
+   ("since it's two columns, it should actually go") was read as
+   explaining why the wrong image order looked especially bad in two
+   columns, not as a request to switch this project to a single column —
+   the order itself was fixed (see the session log above), but confirm
+   whether a single-column, strictly-top-to-bottom layout is actually
+   wanted for this specific step-by-step project.
+6. **Two open questions the user asked, answered with a recommendation
+   but no action taken:** whether GRID Alternatives fits under Product &
+   Brand (recommended: yes, leave it), and what to do about real estate
+   drone imagery inside the Architecture entry (recommended: leave the
+   description as-is). Revisit only if the user wants to actually act on
+   either.
+
+**Not yet started — the actual next milestone:**
+- Going live: choosing a host (Vercel is the default fit for a Next.js
+  App Router project with no backend beyond static content + local image
+  files), and connecting the real domain (jonahkunis.com, presumably —
+  not yet confirmed registered/pointed anywhere from inside this repo).
+  `npm run build` was run against the current `main` at the end of this
+  session as a sanity check — compiles clean, typechecks clean, `/` and
+  `/info` prerender as static, `/work/[slug]` is server-rendered on
+  demand (expected, since it reads from `content/projects.json` per
+  request rather than being statically known at build time). No actual
+  deploy has happened yet; none of this has been scoped beyond the user
+  saying they want to keep iterating first.

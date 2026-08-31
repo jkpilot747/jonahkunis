@@ -75,35 +75,38 @@ Stay on this scale. Do not introduce intermediate sizes.
 
 | Role | Face | Size | Weight | Tracking |
 |---|---|---|---|---|
-| Wordmark | Instrument Sans | 80px | 700 | -0.03em |
-| Page title | Instrument Sans | 32px | 700 | -0.02em |
-| Index item | Instrument Sans | 18px | 400 | -0.005em |
-| Body / bio | Instrument Sans | 19px | 400 | 0 |
-| Metadata | Geist Mono | 14px | 400 | 0.01em |
-| Filter label | Geist Mono | 16px | 400 | 0.12em, uppercase |
+| Wordmark | Instrument Sans | 48px | 700 | -0.03em |
+| Page title | Instrument Sans | 26px | 700 | -0.02em |
+| Index item | Instrument Sans | 16px | 400 | -0.005em |
+| Body / bio | Instrument Sans | 17px | 400 | 0 |
+| Metadata | Geist Mono | 13px | 400 | 0.01em |
+| Filter label | Geist Mono | 13px | 400 | 0.12em, uppercase |
 
-These sizes ended up larger than the original draft above through several
-rounds of eyeballing the panel in the browser at 640px wide — the numbers
-here are what's actually in `globals.css`'s `@theme inline` block, not a
-starting proposal. `--text-filter` (the Filter label row above) started at
-13px and was bumped to 16px for more presence in the panel; nothing else
-reads at that token, so this didn't cascade anywhere.
+Shrunk from an earlier, larger pass (wordmark 80/title 32/index 18/body 19/
+metadata 14/filter 16) that read too big once seen on a real monitor at full
+size — the panel had widened and the grid had gone full-bleed (no
+`max-width` container, per the Hard rules above), and the two together made
+every size in the scale feel oversized. The numbers here are what's
+actually in `globals.css`'s `@theme inline` block, not a proposal.
+`--text-filter` briefly lived at 16px for more presence in the panel before
+this pass folded it back down to match Metadata; nothing else reads at that
+token, so this didn't cascade anywhere.
 
 Another one-off outside this table: the panel's `Info` footer link is Geist
-Mono at 16px too (`text-[16px]` directly in `panel.tsx`, not a shared
-token) — bumped up from the Metadata row it used to share, on purpose,
-since `--text-metadata` is still used elsewhere (captions, dates,
-categories, the `CLIENT`/`YEAR` block) and bumping the token itself would
-have inflated all of those along with it.
+Mono at 16px (`text-[16px]` directly in `panel.tsx`, not a shared token) —
+kept above the Metadata row on purpose, for the same "more presence" reason
+Filter label used to be bumped, since `--text-metadata` is still used
+elsewhere (captions, dates, categories, the `CLIENT`/`YEAR` block) and
+bumping the token itself would have inflated all of those along with it.
 
-One deliberate exception: `--text-huge` (72px, weight 700, `tracking-wordmark`,
+One deliberate exception: `--text-huge` (56px, weight 700, `tracking-wordmark`,
 `leading-none`) exists solely for the "→ Book a session ←" CTA at the bottom
 of Graduation's booking section — see Flourishes below. Don't reach for it
 anywhere else; if a second spot wants oversized type, that's a sign the scale
-needs a real new row, not more ad hoc reuse of this one. (The wordmark's own
-80px now exceeds `--text-huge`'s 72px — that's fine, they're unrelated: the
-wordmark is a fixed row in this table, `--text-huge` is the one-off token
-reserved for the booking CTA specifically.)
+needs a real new row, not more ad hoc reuse of this one. It's the single
+biggest text on the site now that the wordmark shrank back below it (the
+wordmark briefly grew past `--text-huge` during the larger pass mentioned
+above — both are back to their intended relationship, huge CTA on top).
 
 Line height: 1.25 for anything 24px and above, 1.5 for index items, 1.6 for body.
 
@@ -164,10 +167,13 @@ with the grid.
 
 ### The panel
 
-- Fixed position, 640px wide, inset 20px from the left, top, and bottom of the
+- Fixed position, 440px wide, inset 20px from the left, top, and bottom of the
   viewport — full height, not content-driven. (Widened from an original 300px
-  draft after seeing the bumped type scale above in the browser — 300px read
-  cramped at 18px index items.)
+  draft to 640px after the type scale got bumped up, then brought back down
+  to 440px once that whole larger pass — panel and type scale together — read
+  too big in the browser; see the note at the top of Typography's Scale
+  table above. 440px still isn't the original cramped 300px: the type scale
+  landed smaller too this time, so the two didn't just cancel out.)
 - No background fill, no radius, no shadow. What separates the panel from the
   grid is a single hairline down its right edge (`border-r border-hairline`)
   — not a tonal box. This replaced an earlier `--panel`-filled, 10px-radius
@@ -227,10 +233,51 @@ actually built, not that earlier draft.
 **Homepage (`/`).** One tile per project — its `cover`, never the full
 `images` array.
 
-- Two-column CSS masonry (`columns-2`, 16px gutter), three columns above an
-  1800px viewport width so a tile never grows to wallpaper size on an
-  external monitor. 8px from the top and right edges of the viewport, 20px
-  from the panel.
+- Two-column masonry, three columns above a 1400px viewport width so a tile
+  never grows to wallpaper size on an external monitor (lowered from an
+  original 1800px threshold in the same pass that shrank the panel and type
+  scale — see Typography's Scale table above — since tiles were still
+  growing too large on an ordinary laptop screen between 1400 and 1800px).
+  16px gutter, 8px from the top and right edges of the viewport, 20px from
+  the panel. The column count is a hand-written `.masonry-grid` class in
+  `globals.css` (three `@media` blocks in ascending order: 1 column base,
+  2 at 1024px, 3 at 1400px) instead of Tailwind's `columns-1 lg:columns-2
+  <breakpoint>:columns-3` utilities — at a viewport matching both the 1024
+  and 1400 conditions, Tailwind doesn't guarantee the wider breakpoint's
+  rule lands later in the generated stylesheet than `lg:`'s (tried both a
+  `min-[1400px]:` arbitrary variant and a proper named `--breakpoint-*`
+  custom breakpoint; neither reliably won the cascade over `lg:columns-2`
+  above 1400px), so hand-writing the three rules directly, in the correct
+  order, in one place was the only way to actually guarantee it.
+- Display order isn't the panel index's category order (Projects, then
+  Commercial, then Personal — see `docs/content-plan.md`). `orderForMasonry()`
+  in `lib/projects.ts` reorders the currently-filtered list for the grid
+  only (the panel keeps the real category order, and the two are allowed to
+  disagree because the panel shows numbers and the grid doesn't — there's no
+  numbered correspondence between them to break). Two things happen there,
+  in order:
+  1. `GRID_PRIORITY_ORDER` names every entry except Equal Eats, in a
+     hand-picked sequence — currently Landscape & Travel, Aerial,
+     Graduation, Architecture, Events & Fundraisers, Portraits & Headshots,
+     Smarter Window, Bay Home Consignment, Product & Brand — putting the
+     strongest, most visual personal work first since the grid is what
+     actually makes a first impression scrolling down the homepage. Equal
+     Eats isn't in the list, so it falls through to "whatever's left, in
+     filterProjects()'s order" and lands last.
+  2. That curated sequence is then interleaved by cover orientation
+     (landscape/portrait), preserving each orientation's own relative order
+     from step 1 — this only untangles same-orientation runs, it doesn't
+     re-rank anything within an orientation. Needed because native CSS
+     multi-column masonry fills the first column with roughly the first
+     chunk of its source array before moving to the next column, so feeding
+     it the curated order as-is clumped same-orientation covers together
+     (Landscape & Travel and Aerial are both portrait and sat next to each
+     other at the very top of step 1's order, so column 1 opened with two
+     tall portrait tiles stacked back to back — a real visual problem once
+     real photos replaced placeholders, not visible earlier in the build).
+     The interleave starts with whichever orientation the curated
+     sequence's first entry actually is, so that entry (Landscape & Travel
+     today) still leads the grid.
 - Each cover renders at its own real aspect ratio (`h-auto w-full`) — no
   forced crop, no `object-fit: cover`. A portrait cover and a landscape
   cover both show their full frame, at the cost of tiles not staying
@@ -301,24 +348,31 @@ working — inspired by the Cargo templates in `docs/refs/`. These are the only
 ones. Don't extrapolate a general "add personality" license from them; each
 one below is specific and intentional, not a style to sprinkle everywhere.
 
-- **Numbered track-listing rows.** The panel's project index, Graduation's
-  packages and FAQ lists, and `/info`'s Recognition and Selected experience
-  lists all use this. Each row gets a zero-padded two-digit index (`01`,
-  `02`, ...) in Geist Mono `--muted`, and rows are separated by a hairline
-  divider (the first row in a list skips its top divider). Where a row has a
-  trailing date/year, it renders right-aligned in Geist Mono `--muted`
-  (matching the Typography section's definition of metadata), the same
-  layout Graduation's packages use for price. This is a real pattern now —
-  reuse it verbatim for any future numbered list rather than inventing a new
-  numbering style.
+- **Numbered track-listing rows.** The panel's project index and
+  Graduation's packages and FAQ lists use this. `/info`'s Recognition list
+  still uses it too; Selected experience (the other list that used to)
+  was cut from `/info` entirely — see "Info page" below. Each row gets a
+  zero-padded two-digit index (`01`, `02`, ...) in Geist Mono `--muted`,
+  and rows are separated by a hairline divider (the first row in a list
+  skips its top divider). Where a row has a trailing date/year, it renders
+  right-aligned in Geist Mono `--muted` (matching the Typography section's
+  definition of metadata), the same layout Graduation's packages use for
+  price. This is a real pattern now — reuse it verbatim for any future
+  numbered list rather than inventing a new numbering style.
 - **Terminal metadata block.** On `/work/[slug]`, entries that have a
   `client` and/or `year` (currently only the three Projects entries) get a
-  small monospace block between the page title and the description: a line
-  of 28 hyphens, then `CLIENT — <value>` / `YEAR — <value>` each on their own
-  line, then another 28 hyphens. Entries without that data skip the block
-  entirely — this is conditional on having real metadata to show, never
-  padded out with empty rows. Borrowed from the "CARGO™ Place_holder" ref.
-- **The huge CTA.** "→ Book a session ←" at `--text-huge` (72px) — see
+  small monospace block between the page title and the description:
+  `CLIENT — <value>` / `YEAR — <value>`, each on its own line. Entries
+  without that data skip the block entirely — this is conditional on
+  having real metadata to show, never padded out with empty rows. Used to
+  be bracketed by a line of 28 hyphens above and below (borrowed from the
+  "CARGO™ Place_holder" ref); dropped the hyphens when the user found the
+  ASCII-art box distracting on the entries that actually carry a
+  description right below it (Equal Eats, Smarter Window, Bay Home
+  Consignment) — the `CLIENT —` / `YEAR —` em dash itself stays, since
+  that's the established plain-text label:value convention this doc uses
+  throughout, not the box.
+- **The huge CTA.** "→ Book a session ←" at `--text-huge` (56px) — see
   Typography above. One CTA, one spot. Arrows point inward at the text on
   both sides, not a trailing "go here" arrow.
 
@@ -334,13 +388,14 @@ Three. Resist adding more.
   `client`/`year` — the terminal metadata block from Flourishes above, then a
   short description block, Body/bio scale, then a single-column stack of
   that project's images.
-- `/info` — bio, contact, gear, license, recognition, selected experience. Same
-  panel. Right side is a single text column, max 65 characters wide,
-  left-aligned against the grid's left edge, leading with a page title
-  ("Info", Page title scale) for the same anchor `/work/[slug]` gets.
-  Recognition and Selected experience use the numbered track-listing rows
-  from Flourishes above; Contact's email/Instagram and the LinkedIn link are
-  real links using the standard hover-opacity transition. See
+- `/info` — bio, contact, gear, license, recognition. Same panel. Right side
+  is a single text column, max 65 characters wide, left-aligned against the
+  grid's left edge, leading with a page title ("Info", Page title scale) for
+  the same anchor `/work/[slug]` gets. Recognition uses the numbered
+  track-listing rows from Flourishes above; Contact's email, Instagram, and
+  LinkedIn are all real links using the standard hover-opacity transition —
+  LinkedIn moved into Contact from a since-removed Selected experience
+  section (see `docs/content-plan.md`'s session log for why). See
   `docs/content-plan.md` for the exact copy and structure.
 
 ---
@@ -358,7 +413,7 @@ everything the script cannot know.
   "category": "commercial",
   "client": "Chamisal Vineyards",
   "role": "Photography, direction",
-  "description": "One or two sentences. Optional.",
+  "description": "One or two sentences. Optional. A single [text](url) pair renders as a real link (`DescriptionText` in app/work/[slug]/page.tsx) — anything else in the string is plain text, so don't rely on more than one link per description.",
   "cover": { "src": "01.jpg" },
   "images": [
     { "src": "01.jpg", "w": 2400, "h": 1600, "blur": "data:...", "caption": "" },
