@@ -32,6 +32,33 @@ export function ProjectGallery({
     }
   });
 
+  // Within a run, a video breaks out of the two-column masonry into its own
+  // full-width block in normal document flow, rather than spanning the CSS
+  // columns with `column-span: all` — WebKit doesn't reliably honor
+  // `width: 100%` on a spanning element and shrink-wraps/centers it instead.
+  // Runs of stills on either side of a video still get their own
+  // `columns-2` block so the masonry packing isn't affected by the break.
+  type Item = { image: ProjectImage; index: number };
+  type Chunk =
+    | { type: "columns"; items: Item[] }
+    | { type: "video"; item: Item };
+  function chunkByVideo(items: Item[]): Chunk[] {
+    const chunks: Chunk[] = [];
+    for (const item of items) {
+      if (item.image.video) {
+        chunks.push({ type: "video", item });
+      } else {
+        const last = chunks[chunks.length - 1];
+        if (last?.type === "columns") {
+          last.items.push(item);
+        } else {
+          chunks.push({ type: "columns", items: [item] });
+        }
+      }
+    }
+    return chunks;
+  }
+
   useEffect(() => {
     if (openIndex === null) return;
 
@@ -81,29 +108,30 @@ export function ProjectGallery({
                 {label}
               </p>
             ))}
-          <div className="columns-2 gap-4">
-            {run.items.map(({ image, index }) => (
-              <button
-                key={image.src}
-                type="button"
-                onClick={() => setOpenIndex(index)}
-                className="relative mb-4 block w-full overflow-hidden break-inside-avoid"
-              >
-                <Image
-                  src={`/work/${projectSlug}/${image.src}`}
-                  alt={image.caption || projectTitle}
-                  width={image.w}
-                  height={image.h}
-                  placeholder="blur"
-                  blurDataURL={image.blur}
-                  sizes="50vw"
-                  quality={90}
-                  className="h-auto w-full"
-                />
-                {image.video && <PlayIcon />}
-              </button>
-            ))}
-          </div>
+          {chunkByVideo(run.items).map((chunk, chunkIndex) =>
+            chunk.type === "video" ? (
+              <GalleryTile
+                key={chunk.item.image.src}
+                image={chunk.item.image}
+                onClick={() => setOpenIndex(chunk.item.index)}
+                projectSlug={projectSlug}
+                projectTitle={projectTitle}
+                wide
+              />
+            ) : (
+              <div key={chunkIndex} className="columns-1 gap-4 lg:columns-2">
+                {chunk.items.map(({ image, index }) => (
+                  <GalleryTile
+                    key={image.src}
+                    image={image}
+                    onClick={() => setOpenIndex(index)}
+                    projectSlug={projectSlug}
+                    projectTitle={projectTitle}
+                  />
+                ))}
+              </div>
+            ),
+          )}
         </div>
         );
       })}
@@ -176,6 +204,52 @@ export function ProjectGallery({
         </div>
       )}
     </>
+  );
+}
+
+// A single grid tile — a still or a video's poster frame, with its optional
+// caption printed above it. `wide` renders it as its own full-width block
+// instead of inside the two-column masonry (used for a video breaking out
+// of `chunkByVideo` above) — same tile markup either way.
+function GalleryTile({
+  image,
+  onClick,
+  projectSlug,
+  projectTitle,
+  wide = false,
+}: {
+  image: ProjectImage;
+  onClick: () => void;
+  projectSlug: string;
+  projectTitle: string;
+  wide?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`mb-4 block w-full text-left ${wide ? "" : "break-inside-avoid"}`}
+    >
+      {image.caption && (
+        <p className="mb-3 text-index font-bold tracking-index text-ink">
+          {image.caption}
+        </p>
+      )}
+      <div className="relative overflow-hidden">
+        <Image
+          src={`/work/${projectSlug}/${image.src}`}
+          alt={image.caption || projectTitle}
+          width={image.w}
+          height={image.h}
+          placeholder="blur"
+          blurDataURL={image.blur}
+          sizes={wide ? "100vw" : "(min-width: 1024px) 50vw, 100vw"}
+          quality={90}
+          className="h-auto w-full"
+        />
+        {image.video && <PlayIcon />}
+      </div>
+    </button>
   );
 }
 
