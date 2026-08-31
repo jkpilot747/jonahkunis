@@ -6,7 +6,7 @@
     "category": "projects",
     "client": "Equal Eats",
     "role": "",
-    "description": "Shot and produced a 46-product photography project for Equal Eats solo, end to end. Scoped the shoot, built the schedule, planned locations, and executed both product and lifestyle setups. Delivered assets for e-commerce, marketing, and social.",
+    "description": "Produced a 46-product photography project for [Equal Eats](https://equaleats.com/) alongside their product marketing team, end to end. Scoped the shoot, built the schedule, planned locations, and executed both product and lifestyle setups. Delivered assets for e-commerce, marketing, and social.",
     "cover": {
       "src": "equaleatsfinals-009.jpg"
     },
@@ -61,59 +61,10 @@
     },
     "images": [
       {
-        "src": "smarterwindowproduct-13.jpg",
+        "src": "smarterwindowproduct-04.jpg",
         "w": 2400,
         "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EACQQAAEDAwMEAwAAAAAAAAAAAAEAAhEDBAUSMTMTITJRcXLh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDAf/EAB0RAAEEAgMAAAAAAAAAAAAAAAABAgMhMTIREkH/2gAMAwEAAhEDEQA/ALW3r3kA7NPYqtmWfSYNekgdpK6luNv48rePhYOOyZdpabaNvH8U0Sw6cenLnb6rcYqHRDnjZFJfYq96Q6tSgGz6hELWSjUo9JT4it2cYRFseRHEeS4W/ZERJLsVj1P/2Q==",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-12.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAQIDBv/EACcQAAEDAwMBCQAAAAAAAAAAAAEAAgMEBTEREiEGFBUiMjNBUYGR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAMC/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAExUQIREkH/2gAMAwEAAhEDEQA/AJra17yAcNPBUrvWaOHVrA92APlVTbbX6ean/Fzmt90a0Edn27gNQ3HOVNKhzr0kdR1ssluMbiCDIMfaLFRRumpdlyMRJPhljPOqJElEqLqP0itZ+aNyImBlnn6s5HsiIsF0f//Z",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-11.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJRAAAQIEBAcAAAAAAAAAAAAAAQACAwQFERIxM3EVIzJBUVKB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDAf/EAB4RAAEDBAMAAAAAAAAAAAAAAAABAgMRITEyEkFR/9oADAMBAAIRAxEAPwC5s695AOTciq2VV8NgLsJA7ldS2mz9uqXtsuOF1QmzTK4fOFTRPA407Na7PRY9Js4iznjL6ijn6VOiFzIkAC/rZELbJRqWPSQ9IrRmmERbHkRxFU9Fu6IiSXYrHqf/2Q==",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-10.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAgUG/8QAJhAAAQQCAAQHAQAAAAAAAAAAAQACAxEEBRIxM0ETISMyUnGRkv/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/xAAeEQABAwQDAAAAAAAAAAAAAAAAAQIDESExMhJBYf/aAAwDAQACEQMRAD8AubmPeQD5Aciq2bSSOO3cJA7ldS3WZ9e/H/lajV5hirhhLvlYr8pTTwPCnZx32dLPqacRTnjkikz9TneF6ssAF9m0iy2yO1LHpI+ktGdMIiMeRHEWy6LftERJLsVj1P/Z",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-09.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJBAAAgIBBAEEAwAAAAAAAAAAAQIAAxEEBRIhIhMxM0FxobH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgMB/8QAHREAAgEEAwAAAAAAAAAAAAAAAAExAgMhMhESQf/aAAwDAQACEQMRAD8AsGtdyAegD0ZWm621oCeJA+z7Tq69u1wYFmo4ZGcL9TWuplvYWDTOjYCpnBX9dya4Do16Z77rbr9q8myrOOok2v2nW+li22jjnrxx/Ig8SUpWD0dfxGc1opQNxHLPvjuIi0yjHBNufwr+YiIXdh7ep//Z",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-08.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJRAAAQQBAwIHAAAAAAAAAAAAAQACAxEEBRIhE1EiIzEzYXKh/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQIAA//EAB0RAAIBBAMAAAAAAAAAAAAAAAABMgIDESESMUL/2gAMAwEAAhEDEQA/ALBmySUDxR4Kpj1WWNgJLSBxZ9F1L8LPhhdKei8MG4tDeT8LDCzZpstscuA0RvNcitqhYNwaK9czZp9Lpzra544RT5+lZvS82WDbfHho/iIeuzpStHogLx3X2WGNFGA12xt96RFFMkPlnGp+w37IiJuyG3E//9k=",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-07.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EACQQAAIBAwMDBQAAAAAAAAAAAAECAwAEIQUREgYTUSIxM2Fy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/EABwRAAICAgMAAAAAAAAAAAAAAAABAjIDIRESQv/aAAwDAQACEQMRAD8ArW9dyAcAexqR+rLiCRo1hRuBK+o+KxJaahBA0pMDhByKgZP1XTQxteagO7bMiytnOwFLHgHVovfVr/W4XtXCcSwIcYCnwaVxXOg3VqofuRLnDZ3pWlplIrR6vYG3bfOKntYowFYRpy88RvSlSjZB8s11b4F/VKUpslhsdT//2Q==",
-        "caption": ""
-      },
-      {
-        "src": "smarterwindowproduct-06.jpg",
-        "w": 2400,
-        "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUEBgP/xAAjEAACAgIBAwUBAAAAAAAAAAABAgADBCEFETRxIjFEUZKx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMB/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAECMSEDUf/aAAwDAQACEQMRAD8ApDMdtHQHsZ6Ly7VoCWQgfcj5+BnLhWFzW6a6qg2dyMcWw/Ff8mGUvpjlrDoudzLbuK9TdVdxqJgt4vNfBqNllSoQCoZdjUQvj0rC4dLd2lniSXiJFlIN2Z2VXgfyIiP00yMP/9k=",
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUGBP/EACYQAAICAAQEBwAAAAAAAAAAAAECAAMEBREhEjE0cRMUFiIzkrH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAwL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIxERJR/9oADAMBAAIRAxEAPwCj55tCXPCF34jHqCuhAXurI5cpMx+X40YN2c1uo0JVBud5G8C3T4LPrMJL6Hlpmiz7GW25V7m1V3XaJwW5XjXwNRssqVCAVBXcbRB8TKwnw0l/RW9pFsiJGtKRhTxnRU9h+RETd6EYf//Z",
         "caption": ""
       },
       {
@@ -124,10 +75,59 @@
         "caption": ""
       },
       {
-        "src": "smarterwindowproduct-04.jpg",
+        "src": "smarterwindowproduct-06.jpg",
         "w": 2400,
         "h": 1801,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUGBP/EACYQAAICAAQEBwAAAAAAAAAAAAECAAMEBREhEjE0cRMUFiIzkrH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAwL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIxERJR/9oADAMBAAIRAxEAPwCj55tCXPCF34jHqCuhAXurI5cpMx+X40YN2c1uo0JVBud5G8C3T4LPrMJL6Hlpmiz7GW25V7m1V3XaJwW5XjXwNRssqVCAVBXcbRB8TKwnw0l/RW9pFsiJGtKRhTxnRU9h+RETd6EYf//Z",
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUEBgP/xAAjEAACAgIBAwUBAAAAAAAAAAABAgADBCEFETRxIjFEUZKx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMB/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAECMSEDUf/aAAwDAQACEQMRAD8ApDMdtHQHsZ6Ly7VoCWQgfcj5+BnLhWFzW6a6qg2dyMcWw/Ff8mGUvpjlrDoudzLbuK9TdVdxqJgt4vNfBqNllSoQCoZdjUQvj0rC4dLd2lniSXiJFlIN2Z2VXgfyIiP00yMP/9k=",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-07.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EACQQAAIBAwMDBQAAAAAAAAAAAAECAwAEIQUREgYTUSIxM2Fy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/EABwRAAICAgMAAAAAAAAAAAAAAAABAjIDIRESQv/aAAwDAQACEQMRAD8ArW9dyAcAexqR+rLiCRo1hRuBK+o+KxJaahBA0pMDhByKgZP1XTQxteagO7bMiytnOwFLHgHVovfVr/W4XtXCcSwIcYCnwaVxXOg3VqofuRLnDZ3pWlplIrR6vYG3bfOKntYowFYRpy88RvSlSjZB8s11b4F/VKUpslhsdT//2Q==",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-08.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJRAAAQQBAwIHAAAAAAAAAAAAAQACAxEEBRIhE1EiIzEzYXKh/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQIAA//EAB0RAAIBBAMAAAAAAAAAAAAAAAABMgIDESESMUL/2gAMAwEAAhEDEQA/ALBmySUDxR4Kpj1WWNgJLSBxZ9F1L8LPhhdKei8MG4tDeT8LDCzZpstscuA0RvNcitqhYNwaK9czZp9Lpzra544RT5+lZvS82WDbfHho/iIeuzpStHogLx3X2WGNFGA12xt96RFFMkPlnGp+w37IiJuyG3E//9k=",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-09.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJBAAAgIBBAEEAwAAAAAAAAAAAQIAAxEEBRIhIhMxM0FxobH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgMB/8QAHREAAgEEAwAAAAAAAAAAAAAAAAExAgMhMhESQf/aAAwDAQACEQMRAD8AsGtdyAegD0ZWm621oCeJA+z7Tq69u1wYFmo4ZGcL9TWuplvYWDTOjYCpnBX9dya4Do16Z77rbr9q8myrOOok2v2nW+li22jjnrxx/Ig8SUpWD0dfxGc1opQNxHLPvjuIi0yjHBNufwr+YiIXdh7ep//Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-10.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAgUG/8QAJhAAAQQCAAQHAQAAAAAAAAAAAQACAxEEBRIxM0ETISMyUnGRkv/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/xAAeEQABAwQDAAAAAAAAAAAAAAAAAQIDESExMhJBYf/aAAwDAQACEQMRAD8AubmPeQD5Aciq2bSSOO3cJA7ldS3WZ9e/H/lajV5hirhhLvlYr8pTTwPCnZx32dLPqacRTnjkikz9TneF6ssAF9m0iy2yO1LHpI+ktGdMIiMeRHEWy6LftERJLsVj1P/Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-11.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQUG/8QAJRAAAQIEBAcAAAAAAAAAAAAAAQACAwQFERIxM3EVIzJBUVKB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDAf/EAB4RAAEDBAMAAAAAAAAAAAAAAAABAgMRITEyEkFR/9oADAMBAAIRAxEAPwC5s695AOTciq2VV8NgLsJA7ldS2mz9uqXtsuOF1QmzTK4fOFTRPA407Na7PRY9Js4iznjL6ijn6VOiFzIkAC/rZELbJRqWPSQ9IrRmmERbHkRxFU9Fu6IiSXYrHqf/2Q==",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-12.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAQIDBv/EACcQAAEDAwMBCQAAAAAAAAAAAAEAAgMEBTEREiEGFBUiMjNBUYGR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAMC/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAExUQIREkH/2gAMAwEAAhEDEQA/AJra17yAcNPBUrvWaOHVrA92APlVTbbX6ean/Fzmt90a0Edn27gNQ3HOVNKhzr0kdR1ssluMbiCDIMfaLFRRumpdlyMRJPhljPOqJElEqLqP0itZ+aNyImBlnn6s5HsiIsF0f//Z",
+        "caption": ""
+      },
+      {
+        "src": "smarterwindowproduct-13.jpg",
+        "w": 2400,
+        "h": 1801,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EACQQAAEDAwMEAwAAAAAAAAAAAAEAAhEDBAUSMTMTITJRcXLh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDAf/EAB0RAAEEAgMAAAAAAAAAAAAAAAABAgMhMTIREkH/2gAMAwEAAhEDEQA/ALW3r3kA7NPYqtmWfSYNekgdpK6luNv48rePhYOOyZdpabaNvH8U0Sw6cenLnb6rcYqHRDnjZFJfYq96Q6tSgGz6hELWSjUo9JT4it2cYRFseRHEeS4W/ZERJLsVj1P/2Q==",
         "caption": ""
       },
       {
@@ -146,11 +146,11 @@
   {
     "slug": "bay-home-consignment-2022",
     "title": "Bay Home Consignment",
-    "year": 2022,
+    "year": null,
     "category": "projects",
     "client": "Bay Home Consignment",
     "role": "",
-    "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Built an Excel tracker that automates eBay fee calculations and consignor payouts.",
+    "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Also shot the building itself, on the ground and from the air, for marketing use.",
     "cover": {
       "src": "wassily.jpg"
     },
@@ -237,21 +237,24 @@
         "w": 1751,
         "h": 2400,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAhABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQIG/8QALhAAAQMCBQEECwAAAAAAAAAAAQACAwQRBRIhMUEiFDJygRU0UVJhc5HB0eHw/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMA/8QAHREAAgICAwEAAAAAAAAAAAAAAAECEQMyEjFR8P/aAAwDAQACEQMRAD8A7mr3+nXzXZdkWVuu4/KhqKmUYQI8/RK55Njvqp46SCtikdERFPbckeYI8t1DU4ZI6ghbTvbKY82YA21OvKgpKRqGJTAUNLAHEluR+X3dEVevkJgpw+46GnUf3sRJdGOMJJe57pjaNhF7Dk7fFac4jo4XySSl7LNzDML3vb6LGDnR0b44yI5JXgDg2+yz4aucueTK+531SUajY8StpHo8Tg7RTvrARdsrW5SOCP2ir09UG0FpXOzPLXAEG2nJPKILkF0nRTxHvw+NqzG9+TxlEVVqPFt94aknqsPywiIiyc9mf//Z",
-        "caption": ""
+        "caption": "",
+        "group": "wornick-prom"
       },
       {
         "src": "wornickprom-37.jpg",
         "w": 1457,
         "h": 2400,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAoABgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMEBQEC/8QAJhAAAgEEAAUEAwAAAAAAAAAAAQIDAAQRIQUSMUFRExQiYTJicf/EABcBAQEBAQAAAAAAAAAAAAAAAAQDAQL/xAAcEQEAAwACAwAAAAAAAAAAAAABAAIRAyEjQWH/2gAMAwEAAhEDEQA/AKLe3gaIxF45mcZJC7XxumIsaL6cZ5VH5ErrPff3TrNYoYCsQBYDGR13SmWS5dBC6FCDzH9fqiUq2WUzqTBeeVfRRmAGC570UplisbrKM8ZBw2wciikVNJNcnDdNAHWAkjHy2RkGs48QaHkhgjCqQcljzHB6j+Ulrr5KijqAAfIxUs7YlQ/RraVxBieM8Fn7NoXEcrl3QHOF32A8UV7gnh9tGCiksBnXWioWUch82Ik4ZLhikG+XQJAOaz5OH3khBFu+vIxRRS/ezutko1ltvwl2iVpJJInxsDtRRRWIMnP/2Q==",
-        "caption": ""
+        "caption": "",
+        "group": "wornick-prom"
       },
       {
         "src": "wornickprom-03.jpg",
         "w": 1494,
         "h": 2400,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAnABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMFAQIGBP/EACkQAAIBAwEHAwUAAAAAAAAAAAECEQADBCEFEhMiMUFRBjJxI2FigfD/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgME/8QAHhEBAQABBAMBAAAAAAAAAAAAAQACAxESEwQhcYH/2gAMAwEAAhEDEQA/APTcxLbgFbu64GinqT81FawWe2xYxHYDU6VZXFnHf6bEAe7zrWMK9asjndWDGNT0FQGZo9l7NHDfig8MxuyJPXxSrcXlVECbslhIBmATSnAi5jMzL+KCci6CrhkCJ3+fArW1lY4xg7e8qFA+0Sf32rPqbA4GJaui01tEaGJYGZ6RVRj27TWVIyBzNzCDKjtp/daNgN6mljzy419hvcTMt2ukGNTMiKVGce9edL+OrRuiG3omNKVN03L3KnF2m39ptmbIdDaIh1O8Y8+K5/EHIx/KlKdyXG2eCHd+XX7Py7a4FhHUiFiSunX5pSlAtDVDsy+t/9k=",
-        "caption": ""
+        "caption": "",
+        "group": "wornick-prom"
       },
       {
         "src": "lily'sbm-55.jpg",
@@ -398,14 +401,6 @@
         "group": "mg-walk"
       },
       {
-        "src": "MG_Walk_2026-41.jpg",
-        "w": 1801,
-        "h": 2400,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAwADAAAAAAAAAAAAAAAAAAUGAQIE/8QAIhAAAgIBBAIDAQAAAAAAAAAAAQIDEQAEEiExBUETYXEi/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERIf/aAAwDAQACEQMRAD8AWeD1Kx6hncNtUXQPf0cea3zwaAxxjYxNAg2cl4V+OIr271t2nN4o5V6Vr988r+/uHWYqNJ5ErGomAkBPDdEDDJ0CVIz80LtXag9ffGGW0suZY/Jq8iqEW1XYfWcumbUI7zBW23/d3yMbrpwwF3x7vGixLJBsZQQwo8UDj2HIWiJzHLBtcRFSQ4HRr37OGM4xPG4sBkHsd1hjtOR//9k=",
-        "caption": "",
-        "group": "mg-walk"
-      },
-      {
         "src": "MG_Walk_2026-51.jpg",
         "w": 2400,
         "h": 1802,
@@ -426,6 +421,14 @@
         "w": 2400,
         "h": 1751,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAARABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQFBv/EACoQAAIBAgMGBgMAAAAAAAAAAAECAAMEBRESEyExQVFxIjIzQmGxcuHw/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQIA/8QAGREBAQEAAwAAAAAAAAAAAAAAAAERAhIx/9oADAMBAAIRAxEAPwDZw/Fad3h5u7lDQVTkWOeR7S63uKVdddJgy55Ag5gzkrsB7R0onSx6uSD8S6wxSgtiweoHuFXSCu/lx6D9Rl1LfN1baWO3p5Lx8Y3ROYCAINuKb1/cxUbz1iT3OIV4H+5SDCfJU7j6MRDiGte+q34j6iIk32s//9k=",
+        "caption": "",
+        "group": "mg-walk"
+      },
+      {
+        "src": "MG_Walk_2026-41.jpg",
+        "w": 1801,
+        "h": 2400,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGQAAAwADAAAAAAAAAAAAAAAAAAUGAQIE/8QAIhAAAgIBBAIDAQAAAAAAAAAAAQIDEQAEEiExBUETYXEi/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERIf/aAAwDAQACEQMRAD8AWeD1Kx6hncNtUXQPf0cea3zwaAxxjYxNAg2cl4V+OIr271t2nN4o5V6Vr988r+/uHWYqNJ5ErGomAkBPDdEDDJ0CVIz80LtXag9ffGGW0suZY/Jq8iqEW1XYfWcumbUI7zBW23/d3yMbrpwwF3x7vGixLJBsZQQwo8UDj2HIWiJzHLBtcRFSQ4HRr37OGM4xPG4sBkHsd1hjtOR//9k=",
         "caption": "",
         "group": "mg-walk"
       },
@@ -503,6 +506,7 @@
       }
     ],
     "groups": {
+      "wornick-prom": "Prom party at Wornick's",
       "lilys-bat-mitzvah": "Lily's Bat Mitzvah",
       "shalom-school-benefit": "Shalom School Benefit",
       "big-bang": "Big Bang Business Competition Awards Ceremony, UC Davis",
@@ -636,7 +640,7 @@
     "category": "commercial",
     "client": "",
     "role": "",
-    "description": "Senior and grad photography sessions, shot in natural light on location or at home.",
+    "description": "Grad photography sessions shot on UC Davis campus.",
     "cover": {
       "src": "libby+company+grads-32.jpg"
     },
@@ -745,17 +749,17 @@
       "testimonials": [
         {
           "quote": "Jonah did a great job with our grad shoot! In the span of an hour we did 4 locations with a mix of solo and group shots. He helped with pose ideas, and was really patient and flexible. The photos came out great, highly recommend!",
-          "attribution": "Daniel Rasas"
+          "attribution": "Libby A."
         },
         {
           "quote": "Jonah took some great photos for my graduation! Some grad photos, professional photos, and he worked with me to recreate an old family portrait. Great experience.",
-          "attribution": "Libby A."
+          "attribution": "Daniel Rasas"
         }
       ],
       "faq": [
         {
           "q": "What if the weather is bad?",
-          "a": "We'll reschedule at no extra cost. Overcast days actually make for great portraits — heavy rain is where we draw the line."
+          "a": "We'll reschedule at no extra cost. Overcast days actually make for great portraits, but heavy rain is where we draw the line."
         },
         {
           "q": "Can I bring friends or family?",
@@ -771,7 +775,7 @@
         },
         {
           "q": "What payment methods do you accept?",
-          "a": "Venmo and Zelle. Group bookings can pay separately — no need to collect cash from friends."
+          "a": "Venmo, Zelle, and cash. Group bookings can pay separately, so there's no need to collect cash from friends."
         }
       ],
       "formHref": "https://docs.google.com/forms/d/e/1FAIpQLSf5SnePz49RVhhm09drvgPVurNS76pQXHOahqna2CNzd3ib9Q/viewform?usp=sharing&ouid=117815390308065805020"
@@ -784,7 +788,7 @@
     "category": "commercial",
     "client": "",
     "role": "",
-    "description": "Portrait and headshot sessions, shot in natural light on location or at home.",
+    "description": "Portrait, headshot, and family sessions, shot in natural light on location or at home.",
     "cover": {
       "src": "libby+company+grads-27.jpg"
     },
@@ -1078,7 +1082,7 @@
     "category": "personal",
     "client": "",
     "role": "",
-    "description": "",
+    "description": "Aerial photography shot on a DJI Air 2S.",
     "cover": {
       "src": "DJI_0835-HDR-Pano-Edit-Edit.jpg"
     },
