@@ -22,7 +22,6 @@ export function Panel({
   function handleFilterClick(filter: Filter) {
     setActiveFilter(filter);
     onFilterChange?.(filter);
-    setIsMenuOpen(false);
   }
 
   // Shared between the desktop sidebar and the mobile menu overlay — same
