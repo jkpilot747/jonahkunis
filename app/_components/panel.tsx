@@ -31,7 +31,7 @@ export function Panel({
   const panelBody = (
     <>
       <p className="font-mono text-metadata tracking-metadata text-muted lg:mt-1">
-        Commercial photography, video, and product work
+        Commercial and personal photography and video
       </p>
 
       <div className="mt-5 flex flex-col gap-1 font-mono text-metadata tracking-metadata">
@@ -117,7 +117,7 @@ export function Panel({
           <Link
             href="/"
             onClick={() => setIsMenuOpen(false)}
-            className="text-[28px] font-bold tracking-wordmark text-inherit no-underline"
+            className="text-[22px] font-bold tracking-wordmark text-inherit no-underline"
           >
             Jonah Kunis
           </Link>
@@ -136,7 +136,7 @@ export function Panel({
       </div>
 
       {/* Desktop: fixed sidebar, unchanged from before the mobile menu. */}
-      <aside className="hidden lg:fixed lg:top-5 lg:bottom-5 lg:left-5 lg:flex lg:w-[640px] lg:flex-col lg:border-r lg:border-hairline lg:p-5">
+      <aside className="hidden lg:fixed lg:top-5 lg:bottom-5 lg:left-5 lg:flex lg:w-[440px] lg:flex-col lg:border-r lg:border-hairline lg:p-5">
         <h1 className="text-wordmark font-bold tracking-wordmark">
           <Link href="/" className="text-inherit no-underline">
             Jonah Kunis

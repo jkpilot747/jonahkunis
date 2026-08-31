@@ -19,21 +19,25 @@
   --font-sans: var(--font-instrument-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Type scale — see docs/design-brief.md. Sizes pair with their line-height. */
-  --text-wordmark: 80px;
+  /* Type scale — see docs/design-brief.md. Sizes pair with their line-height.
+     Shrunk from an earlier, larger pass (wordmark 80/title 32/index 18/
+     body 19/metadata 14/filter 16/huge 72) that read too big on a real
+     monitor once the panel widened and the grid went full-bleed. */
+  --text-wordmark: 48px;
   --text-wordmark--line-height: 1.25;
-  --text-title: 32px;
+  --text-title: 26px;
   --text-title--line-height: 1.25;
-  --text-index: 18px;
+  --text-index: 16px;
   --text-index--line-height: 1.5;
-  --text-body: 19px;
+  --text-body: 17px;
   --text-body--line-height: 1.6;
-  --text-metadata: 14px;
-  --text-filter: 16px;
+  --text-metadata: 13px;
+  --text-filter: 13px;
 
   /* One deliberate oversized flourish, reserved for the Graduation booking
-     CTA — not part of the restrained scale above, on purpose. */
-  --text-huge: 72px;
+     CTA — not part of the restrained scale above, on purpose. Stays the
+     single biggest text on the site now that the wordmark shrank below it. */
+  --text-huge: 56px;
   --text-huge--line-height: 1;
 
   --tracking-wordmark: -0.03em;
@@ -63,4 +67,28 @@ body {
 
 .index-list:hover li:hover {
   opacity: 1;
+}
+
+/* Homepage grid's column count — see "The grid" in docs/design-brief.md.
+   Hand-written instead of Tailwind's `lg:columns-2 wide:columns-3` (or
+   `min-[1400px]:columns-3`): at a viewport matching both breakpoints,
+   Tailwind doesn't guarantee the wider one's rule lands later in the
+   generated stylesheet, so the narrower `lg:columns-2` kept winning the
+   cascade even above 1400px. Writing both `@media` blocks here, in
+   ascending order, guarantees the correct one wins since they're the same
+   selector and CSS falls back to source order on a specificity tie. */
+.masonry-grid {
+  column-count: 1;
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1400px) {
+  .masonry-grid {
+    column-count: 3;
+  }
 }

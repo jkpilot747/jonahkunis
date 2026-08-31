@@ -4,17 +4,22 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Panel } from "@/app/_components/panel";
-import { type Filter, filterProjects, getCoverImage } from "@/lib/projects";
+import {
+  type Filter,
+  filterProjects,
+  getCoverImage,
+  orderForMasonry,
+} from "@/lib/projects";
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState<Filter>("ALL");
-  const visibleProjects = filterProjects(activeFilter);
+  const visibleProjects = orderForMasonry(filterProjects(activeFilter));
 
   return (
     <div className="min-h-screen">
       <Panel onFilterChange={setActiveFilter} />
 
-      <main className="columns-1 gap-4 p-4 lg:ml-[680px] lg:columns-2 lg:p-0 lg:pt-2 lg:pr-2 lg:pb-2 min-[1800px]:columns-3">
+      <main className="masonry-grid gap-4 p-4 lg:ml-[480px] lg:p-0 lg:pt-2 lg:pr-2 lg:pb-2">
         {visibleProjects.map((project) => {
           const cover = getCoverImage(project);
           if (!cover) return null;
@@ -33,7 +38,7 @@ export default function Home() {
                   height={cover.h}
                   placeholder="blur"
                   blurDataURL={cover.blur}
-                  sizes="(min-width: 1800px) 33vw, (min-width: 1024px) 50vw, 100vw"
+                  sizes="(min-width: 1400px) 33vw, (min-width: 1024px) 50vw, 100vw"
                   quality={90}
                   className="h-auto w-full"
                 />

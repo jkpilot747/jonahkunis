@@ -67,3 +67,70 @@ export function filterProjects(filter: Filter) {
     ? withImages
     : withImages.filter((project) => project.category === filter.toLowerCase());
 }
+
+// The panel index and the homepage grid read the same filtered list, but
+// the grid uses its own display order — a hand-picked priority sequence
+// putting the strongest, most visual personal work first (the grid is what
+// actually makes a first impression scrolling down the homepage), followed
+// by whatever's left in filterProjects()'s normal category order. The panel
+// keeps the real Projects → Commercial → Personal order for hiring-manager
+// wayfinding (see "How the index is organized" in docs/content-plan.md) —
+// the two are allowed to disagree because the panel shows numbers and the
+// grid doesn't, so there's no correspondence between them to break.
+//
+// Leaves out Equal Eats and Portraits & Headshots on purpose — anything not
+// in this list falls through to the "whatever's left, in filterProjects()'s
+// order" fallback below, so those two land last (Equal Eats then Portraits
+// & Headshots, matching their relative order in the category list).
+const GRID_PRIORITY_ORDER = [
+  "landscape-travel",
+  "aerial",
+  "graduation",
+  "events-fundraisers",
+  "real-estate-architecture",
+  "smarter-window-2026",
+  "product-brand",
+  "bay-home-consignment-2022",
+];
+
+export function orderForMasonry(projectsList: Project[]): Project[] {
+  const bySlug = new Map(projectsList.map((project) => [project.slug, project]));
+  const priority = GRID_PRIORITY_ORDER.map((slug) => bySlug.get(slug)).filter(
+    (project): project is Project => project !== undefined,
+  );
+  const prioritySlugs = new Set(priority.map((project) => project.slug));
+  const rest = projectsList.filter((project) => !prioritySlugs.has(project.slug));
+  const curated = [...priority, ...rest];
+
+  // Native CSS multi-column masonry fills the first column with roughly
+  // the first chunk of its source array before moving to the next column,
+  // so feeding it the priority order above as-is clumped same-orientation
+  // covers together (Landscape & Travel and Aerial are both portrait, and
+  // sat next to each other at the very top, so column 1 opened with two
+  // tall portrait tiles stacked back to back instead of a mix). Interleave
+  // landscape and portrait covers, preserving each orientation's own
+  // relative order from the curated sequence above — this only untangles
+  // same-orientation clumping, it doesn't re-rank anything — starting with
+  // whichever orientation the curated sequence's first entry actually is,
+  // so that entry (Landscape & Travel today) still leads the grid.
+  if (curated.length === 0) return curated;
+  const landscape: Project[] = [];
+  const portrait: Project[] = [];
+  for (const project of curated) {
+    const cover = getCoverImage(project);
+    (cover && cover.h > cover.w ? portrait : landscape).push(project);
+  }
+  const firstCover = getCoverImage(curated[0]);
+  const firstIsPortrait = !!firstCover && firstCover.h > firstCover.w;
+  const [first, second] = firstIsPortrait
+    ? [portrait, landscape]
+    : [landscape, portrait];
+
+  const ordered: Project[] = [];
+  const max = Math.max(first.length, second.length);
+  for (let i = 0; i < max; i++) {
+    if (first[i]) ordered.push(first[i]);
+    if (second[i]) ordered.push(second[i]);
+  }
+  return ordered;
+}
