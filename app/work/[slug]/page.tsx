@@ -16,7 +16,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
     <div className="min-h-screen">
       <Panel />
 
-      <main className="ml-[680px] flex flex-col gap-4 pt-2 pr-2 pb-2">
+      <main className="flex flex-col gap-4 p-4 lg:ml-[680px] lg:p-0 lg:pt-2 lg:pr-2 lg:pb-2">
         <h1 className="text-title font-bold tracking-title">{project.title}</h1>
 
         {(project.client || project.year) && (

@@ -27,7 +27,7 @@ export default function InfoPage() {
     <div className="min-h-screen">
       <Panel />
 
-      <main className="ml-[680px] flex max-w-[65ch] flex-col gap-8 pt-2 pb-2">
+      <main className="flex max-w-[65ch] flex-col gap-8 p-4 lg:ml-[680px] lg:p-0 lg:pt-2 lg:pb-2">
         <h1 className="text-title font-bold tracking-title">Info</h1>
 
         <div className="flex flex-col gap-4 text-body tracking-body">

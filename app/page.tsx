@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Panel onFilterChange={setActiveFilter} />
 
-      <main className="ml-[680px] columns-2 gap-4 pt-2 pr-2 pb-2 min-[1800px]:columns-3">
+      <main className="columns-1 gap-4 p-4 lg:ml-[680px] lg:columns-2 lg:p-0 lg:pt-2 lg:pr-2 lg:pb-2 min-[1800px]:columns-3">
         {visibleProjects.map((project) => {
           const cover = getCoverImage(project);
           if (!cover) return null;
@@ -33,7 +33,7 @@ export default function Home() {
                   height={cover.h}
                   placeholder="blur"
                   blurDataURL={cover.blur}
-                  sizes="(min-width: 1800px) 33vw, 50vw"
+                  sizes="(min-width: 1800px) 33vw, (min-width: 1024px) 50vw, 100vw"
                   quality={90}
                   className="h-auto w-full"
                 />
