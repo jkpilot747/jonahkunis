@@ -17,38 +17,68 @@ export default function InfoPage() {
         <h1 className="text-title font-bold tracking-title">Info</h1>
 
         <div className="flex flex-col gap-4 text-body tracking-body">
+          <p>Hi, I&rsquo;m Jonah! Thanks for stopping by.</p>
           <p>
-            Hi, I&rsquo;m Jonah. Yes, same first name as Jonah Hill. Thanks
-            for stopping by.
+            I&rsquo;m a photographer and videographer based in the Bay Area.
+            I first picked up a camera at 12 and never really put it down.
+            When I&rsquo;m not taking pictures I&rsquo;m usually making
+            music, climbing, studying, or building something.
           </p>
           <p>
-            I&rsquo;m a photographer, videographer, entrepreneur, musician,
-            athlete, and creative based in the East Bay, currently studying
-            at UC Davis. I picked up a camera for the first time at 12 and
-            never really put it down.
+            On the professional side, my focus is GTM, marketing, and
+            analytics. I&rsquo;m a senior studying managerial economics with
+            a CS minor at UC Davis, and I like work that combines creative
+            instinct with metrics.
           </p>
           <p>
-            I love telling stories through powerful visuals: real light,
-            real moments, and whatever a shot actually calls for.
+            I love telling stories through powerful visuals. I would say
+            that my style leans minimal and warm: I&rsquo;m a fan of natural
+            light, muted pastel color, clean lines, and giving subjects
+            space to breathe.
           </p>
         </div>
+
+        <p className="text-body tracking-body">
+          I also ran a residential pressure-washing business for a few
+          years,{" "}
+          <a
+            href="https://www.instagram.com/propowerwashes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-inherit no-underline ${LINK_HOVER}`}
+          >
+            @propowerwashes
+          </a>
+          .
+        </p>
+
+        <p className="text-body tracking-body">
+          Always looking for the next project. If something sounds like a
+          fit, let&rsquo;s talk.
+        </p>
 
         <div className="flex flex-col gap-2">
           <h2 className="text-title font-bold tracking-title">Contact</h2>
           <a
             href="mailto:jonahkunis@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`text-body tracking-body text-inherit no-underline ${LINK_HOVER}`}
           >
             jonahkunis@gmail.com
           </a>
           <a
             href="https://www.instagram.com/jonahkunis"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`text-body tracking-body text-inherit no-underline ${LINK_HOVER}`}
           >
             @jonahkunis
           </a>
           <a
             href="https://www.linkedin.com/in/jonahkunis"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`text-body tracking-body text-inherit no-underline ${LINK_HOVER}`}
           >
             LinkedIn
@@ -62,7 +92,10 @@ export default function InfoPage() {
           </p>
         </div>
 
-        <p className="text-body tracking-body">FAA Part 107 licensed.</p>
+        <p className="text-body tracking-body">
+          Based in the East Bay, available for work across the Bay Area and
+          open to travel. FAA Part 107 licensed for aerial.
+        </p>
 
         <div className="flex flex-col gap-2">
           <h2 className="text-title font-bold tracking-title">Recognition</h2>

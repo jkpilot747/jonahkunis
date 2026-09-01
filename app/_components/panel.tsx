@@ -31,7 +31,7 @@ export function Panel({
   const panelBody = (
     <>
       <p className="font-mono text-metadata tracking-metadata text-muted lg:mt-1">
-        Commercial and personal photography and video
+        Commercial &amp; personal photography and video
       </p>
 
       <div className="mt-5 flex flex-col gap-1 font-mono text-metadata tracking-metadata">

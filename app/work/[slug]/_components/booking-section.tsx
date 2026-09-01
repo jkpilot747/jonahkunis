@@ -70,6 +70,8 @@ export function BookingSection({ booking }: { booking: ProjectBooking }) {
 
       <a
         href={booking.formHref}
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-4 block text-huge font-bold leading-none tracking-wordmark text-ink transition-opacity duration-150 hover:opacity-60"
       >
         → Book a session ←

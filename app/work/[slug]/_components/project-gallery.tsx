@@ -7,11 +7,13 @@ import type { Project, ProjectImage } from "@/lib/projects";
 export function ProjectGallery({
   images,
   groups,
+  layout,
   projectSlug,
   projectTitle,
 }: {
   images: ProjectImage[];
   groups?: Project["groups"];
+  layout?: Project["layout"];
   projectSlug: string;
   projectTitle: string;
 }) {
@@ -119,7 +121,10 @@ export function ProjectGallery({
                 wide
               />
             ) : (
-              <div key={chunkIndex} className="columns-1 gap-4 lg:columns-2">
+              <div
+                key={chunkIndex}
+                className={`columns-1 gap-4 ${layout === "single-column" ? "" : "lg:columns-2"}`}
+              >
                 {chunk.items.map(({ image, index }) => (
                   <GalleryTile
                     key={image.src}

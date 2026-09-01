@@ -31,6 +31,11 @@ export interface Project {
   // Only needed for entries whose images span multiple distinct shoots
   // (e.g. Events & Fundraisers).
   groups?: Record<string, string | { text: string; href: string }>;
+  // Overrides the default two-column masonry with a single column, so a
+  // strictly-ordered sequence (e.g. numbered install steps) reads
+  // top-to-bottom instead of being split across columns. Only Smarter
+  // Window sets this today.
+  layout?: "single-column";
   // Booking section rendered after the image stack. Only Graduation
   // sets this — see "This page ends with booking" in docs/content-plan.md.
   booking?: ProjectBooking;

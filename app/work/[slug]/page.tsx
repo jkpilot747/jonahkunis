@@ -64,6 +64,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
         <ProjectGallery
           images={project.images}
           groups={project.groups}
+          layout={project.layout}
           projectSlug={project.slug}
           projectTitle={project.title}
         />
