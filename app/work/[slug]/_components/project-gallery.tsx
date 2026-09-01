@@ -18,6 +18,9 @@ export function ProjectGallery({
   projectTitle: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [cursor, setCursor] = useState<{ x: number; y: number; side: "left" | "right" } | null>(
+    null,
+  );
 
   // Split the flat image list into contiguous runs by group so a labeled
   // section break can render between shoots. Images without a group (the
@@ -59,6 +62,14 @@ export function ProjectGallery({
       }
     }
     return chunks;
+  }
+
+  // Suppresses the cursor-following arrow near the close button (top-right
+  // corner) so it doesn't render on top of the X — the two are both just
+  // diagonal strokes and overlap into an illegible mess otherwise.
+  function handleNavMouseMove(e: React.MouseEvent, side: "left" | "right") {
+    const nearCloseButton = e.clientX > window.innerWidth - 72 && e.clientY < 72;
+    setCursor(nearCloseButton ? null : { x: e.clientX, y: e.clientY, side });
   }
 
   useEffect(() => {
@@ -142,16 +153,19 @@ export function ProjectGallery({
       })}
 
       {openIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 transition-opacity duration-150">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ground transition-opacity duration-150"
+          onMouseLeave={() => setCursor(null)}
+        >
           <button
             type="button"
             aria-label="Close"
             onClick={() => setOpenIndex(null)}
-            className="absolute right-5 top-5 z-20 text-white/60 hover:text-white"
+            className="absolute right-6 top-6 z-20 cursor-pointer text-muted hover:text-ink"
           >
             <svg
-              width="20"
-              height="20"
+              width="26"
+              height="26"
               viewBox="0 0 20 20"
               fill="none"
               stroke="currentColor"
@@ -171,7 +185,8 @@ export function ProjectGallery({
                     i === null ? i : (i - 1 + images.length) % images.length,
                   )
                 }
-                className="absolute inset-y-0 left-0 z-10 w-1/2 cursor-w-resize"
+                onMouseMove={(e) => handleNavMouseMove(e, "left")}
+                className="absolute inset-y-0 left-0 z-10 w-1/2 cursor-none"
               />
               <button
                 type="button"
@@ -179,7 +194,20 @@ export function ProjectGallery({
                 onClick={() =>
                   setOpenIndex((i) => (i === null ? i : (i + 1) % images.length))
                 }
-                className="absolute inset-y-0 right-0 z-10 w-1/2 cursor-e-resize"
+                onMouseMove={(e) => handleNavMouseMove(e, "right")}
+                className="absolute inset-y-0 right-0 z-10 w-1/2 cursor-none"
+              />
+              {cursor && <NavArrow x={cursor.x} y={cursor.y} side={cursor.side} />}
+
+              {/* Preload the neighbors so a click swaps instantly instead of
+                  fetching that image's optimized URL for the first time. */}
+              <PreloadNeighbor
+                image={images[(openIndex - 1 + images.length) % images.length]}
+                projectSlug={projectSlug}
+              />
+              <PreloadNeighbor
+                image={images[(openIndex + 1) % images.length]}
+                projectSlug={projectSlug}
               />
             </>
           )}
@@ -194,8 +222,11 @@ export function ProjectGallery({
               style={{ aspectRatio: `${images[openIndex].w} / ${images[openIndex].h}` }}
             />
           ) : (
+            // No `key` here on purpose — keeping the same <img> across a
+            // src change lets the browser hold the previous frame on
+            // screen until the next one is decoded, instead of unmounting
+            // (which briefly exposed the backdrop through as a flash).
             <Image
-              key={images[openIndex].src}
               src={`/work/${projectSlug}/${images[openIndex].src}`}
               alt={images[openIndex].caption || projectTitle}
               width={images[openIndex].w}
@@ -203,6 +234,7 @@ export function ProjectGallery({
               placeholder="blur"
               blurDataURL={images[openIndex].blur}
               quality={90}
+              priority
               className="relative z-0 h-auto max-h-[calc(100vh-40px)] w-auto max-w-[calc(100vw-40px)]"
             />
           )}
@@ -255,6 +287,58 @@ function GalleryTile({
         {image.video && <PlayIcon />}
       </div>
     </button>
+  );
+}
+
+// Follows the cursor inside the lightbox's click zones and points whichever
+// way a click there would navigate, flipping the moment the cursor crosses
+// the left/right halfway line — replaces relying on the browser's native
+// resize cursor as the only affordance.
+function NavArrow({ x, y, side }: { x: number; y: number; side: "left" | "right" }) {
+  return (
+    <div
+      className="pointer-events-none fixed z-20 flex h-16 w-16 items-center justify-center"
+      style={{ left: x, top: y, transform: "translate(-50%, -50%)" }}
+    >
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        stroke="var(--ink)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {side === "left" ? <path d="M20 6L10 16L20 26" /> : <path d="M12 6L22 16L12 26" />}
+      </svg>
+    </div>
+  );
+}
+
+// Rendered invisibly (display: none) while the lightbox is open so the
+// browser fetches this neighbor's optimized image URL ahead of a click.
+// `priority` skips next/image's normal lazy-loading gate, which otherwise
+// wouldn't fire a request for an element that's never actually visible.
+function PreloadNeighbor({
+  image,
+  projectSlug,
+}: {
+  image: ProjectImage;
+  projectSlug: string;
+}) {
+  if (image.video) return null;
+  return (
+    <div className="hidden">
+      <Image
+        src={`/work/${projectSlug}/${image.src}`}
+        alt=""
+        width={image.w}
+        height={image.h}
+        quality={90}
+        priority
+      />
+    </div>
   );
 }
 
