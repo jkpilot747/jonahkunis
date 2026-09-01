@@ -461,6 +461,10 @@ rather than breaking the page. `app/sitemap.ts` and `app/robots.ts`
 generate `/sitemap.xml`/`/robots.txt`; the sitemap only lists projects
 with images (same visibility rule `filterProjects` uses elsewhere) so it
 never points a crawler at an entry that's hidden from the site itself.
+`app/icon.tsx`/`app/apple-icon.tsx` replace Next's unbranded default
+`favicon.ico` (removed) with a generated "JK" monogram — white
+background, `--ink` text, no gradient/shadow/radius, same restraint as
+everywhere else on the site.
 
 ---
 
