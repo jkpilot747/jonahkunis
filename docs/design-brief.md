@@ -315,14 +315,29 @@ close X and the video play icon) follows the cursor and flips to point
 whichever way a click there would navigate, switching the instant the
 cursor crosses the horizontal midpoint. It's suppressed in a small dead
 zone around the close button (top-right corner) so the two icons never
-render on top of each other. The visible `<Image>` for the open item
-renders without a `key`, so switching to the next/previous item updates
-its `src` in place rather than unmounting and remounting — the browser
-keeps the previous frame on screen until the next one has decoded, instead
-of a black flash where the backdrop showed through mid-transition. The
-previous and next images in the sequence are also preloaded (rendered
-`display:none` with `priority`) the moment an item opens, so a click
-doesn't trigger that image's first-ever network request.
+render on top of each other, and suppressed entirely on touch devices
+(gated on `matchMedia("(hover: hover) and (pointer: fine)")`) — a touch
+has no persistent cursor to follow, and some mobile browsers synthesize a
+mousemove on tap, which without this check left a phantom arrow stuck
+wherever the last tap landed. Tapping the left/right half still navigates
+via the same `onClick` either way; only the visual indicator is gated.
+Body scroll is locked while the lightbox is open by pinning `<body>` to
+`position: fixed` at its current scroll offset (restored on close) rather
+than just `overflow: hidden` — the latter doesn't reliably block scroll
+on mobile Safari, which let the page rubber-band/drag underneath the
+fixed lightbox and briefly reveal the grid around a photo (a tall
+portrait image invites that drag gesture far more than a short landscape
+one does, which is why the leak read as orientation-specific rather than
+universal). `overscroll-none` on the lightbox container itself is a
+second layer against the same class of bug. The visible `<Image>` for the
+open item renders without a `key`, so switching to the next/previous item
+updates its `src` in place rather than unmounting and remounting — the
+browser keeps the previous frame on screen until the next one has
+decoded, instead of a black flash where the backdrop showed through
+mid-transition. The previous and next images in the sequence are also
+preloaded (rendered `display:none` with `priority`) the moment an item
+opens, so a click doesn't trigger that image's first-ever network
+request.
 
 **Video.** An `images[]` entry can carry a `video` field (see Content model
 below) — its `src`/`w`/`h`/`blur` still describe a poster frame, exactly
@@ -426,6 +441,26 @@ Three. Resist adding more.
   LinkedIn moved into Contact from a since-removed Selected experience
   section (see `docs/content-plan.md`'s session log for why). See
   `docs/content-plan.md` for the exact copy and structure.
+
+**SEO/metadata.** `app/layout.tsx` sets `metadataBase` (`https://jonahkunis.com`)
+and the site-wide default title/description/Open Graph/Twitter-card fields,
+with a `"%s | Jonah Kunis"` title template every other route inherits
+unless it sets its own `title`. `/info` sets a static `metadata` export.
+`/work/[slug]` uses `generateMetadata` (the only route that needs data at
+request time) — real per-project title, description (its `[text](url)`
+markdown stripped to plain text first), and an Open Graph image pointing
+at that project's actual cover photo, not a generated card. `/` can't
+export its own `metadata` (it's a client component, for the filter
+state — see "The filter row" above) and just inherits the layout
+default, which doubles as the homepage's metadata. `app/opengraph-image.tsx`
+generates the default card (via `next/og`'s `ImageResponse`) used by `/`
+and `/info` — wordmark plus tagline on white, attempting to load
+Instrument Sans Bold at request time with a silent fallback to Satori's
+default sans if that fetch fails, so a network hiccup degrades the image
+rather than breaking the page. `app/sitemap.ts` and `app/robots.ts`
+generate `/sitemap.xml`/`/robots.txt`; the sitemap only lists projects
+with images (same visibility rule `filterProjects` uses elsewhere) so it
+never points a crawler at an entry that's hidden from the site itself.
 
 ---
 

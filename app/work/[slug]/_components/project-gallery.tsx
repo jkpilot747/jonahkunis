@@ -66,8 +66,14 @@ export function ProjectGallery({
 
   // Suppresses the cursor-following arrow near the close button (top-right
   // corner) so it doesn't render on top of the X — the two are both just
-  // diagonal strokes and overlap into an illegible mess otherwise.
+  // diagonal strokes and overlap into an illegible mess otherwise. Also
+  // suppressed entirely on touch devices — a touch has no persistent
+  // cursor to follow, and some mobile browsers synthesize a mousemove on
+  // tap, which without this check left a phantom arrow stuck wherever
+  // the last tap landed. Tapping the left/right half still navigates via
+  // onClick either way; this only gates the visual indicator.
   function handleNavMouseMove(e: React.MouseEvent, side: "left" | "right") {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const nearCloseButton = e.clientX > window.innerWidth - 72 && e.clientY < 72;
     setCursor(nearCloseButton ? null : { x: e.clientX, y: e.clientY, side });
   }
@@ -75,7 +81,18 @@ export function ProjectGallery({
   useEffect(() => {
     if (openIndex === null) return;
 
-    document.body.style.overflow = "hidden";
+    // Plain `overflow: hidden` on the body doesn't reliably block scroll
+    // on mobile Safari — the page can still rubber-band/drag underneath
+    // the fixed lightbox, which is exactly what showed as grid photos
+    // peeking in around a portrait image (tall enough to invite a
+    // vertical drag; short landscape images rarely got dragged, so the
+    // leak wasn't visible there). Pinning the body in place with
+    // `position: fixed` and restoring its scroll position on close is
+    // the standard fix for that class of bug.
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") setOpenIndex(null);
@@ -91,7 +108,10 @@ export function ProjectGallery({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollY);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [openIndex, images.length]);
@@ -154,7 +174,7 @@ export function ProjectGallery({
 
       {openIndex !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ground transition-opacity duration-150"
+          className="fixed inset-0 z-50 flex items-center justify-center overscroll-none bg-ground transition-opacity duration-150"
           onMouseLeave={() => setCursor(null)}
         >
           <button

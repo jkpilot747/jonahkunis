@@ -1,6 +1,7 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Panel } from "@/app/_components/panel";
-import { projects } from "@/lib/projects";
+import { getCoverImage, projects } from "@/lib/projects";
 import { BookingSection } from "./_components/booking-section";
 import { ProjectGallery } from "./_components/project-gallery";
 
@@ -10,6 +11,49 @@ import { ProjectGallery } from "./_components/project-gallery";
 // whole rich-text field to the content model. Anything not matching the
 // pattern renders as plain text, same as before.
 const DESCRIPTION_LINK = /\[([^\]]+)\]\(([^)]+)\)/;
+
+// Same [text](url) pattern DescriptionText renders inline — collapsed to
+// plain text here since a meta description/OG card has no link of its own.
+function plainDescription(text: string) {
+  return text.replace(DESCRIPTION_LINK, "$1");
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/work/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  const description = project.description
+    ? plainDescription(project.description)
+    : undefined;
+  const cover = getCoverImage(project);
+
+  return {
+    title: project.title,
+    description,
+    openGraph: {
+      title: project.title,
+      description,
+      url: `/work/${project.slug}`,
+      images: cover
+        ? [
+            {
+              url: `/work/${project.slug}/${cover.src}`,
+              width: cover.w,
+              height: cover.h,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description,
+    },
+  };
+}
 
 function DescriptionText({ text }: { text: string }) {
   const match = text.match(DESCRIPTION_LINK);

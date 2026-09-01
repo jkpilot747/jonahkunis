@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { Panel } from "@/app/_components/panel";
+
+export const metadata: Metadata = {
+  title: "Info",
+  description:
+    "Bio, contact, gear, and recognition for Jonah Kunis, a Bay Area photographer and videographer.",
+};
 
 const RECOGNITION = [
   { label: "SFGate Photo of the Day", date: "Dec 2019" },
