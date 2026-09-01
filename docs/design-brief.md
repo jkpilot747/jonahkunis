@@ -295,9 +295,25 @@ real aspect ratio for the same reason as the homepage — a portrait shot and
 a landscape shot both show their full frame.
 
 Clicking a thumbnail still opens the lightbox at the image's natural aspect
-ratio, fit to the viewport, never upscaled past its real pixel size. Close
-with Escape or the close control; move between images by clicking the
-left/right half of the lightbox or the arrow keys.
+ratio, fit to the viewport, never upscaled past its real pixel size. The
+lightbox backdrop is `--ground` (white), not black — the only things drawn
+over the photo are the close control and, on hover, the nav arrow described
+below. Close with Escape or the close control (top-right, `--muted` at rest,
+`--ink` on hover); move between images by clicking the left/right half of
+the lightbox or the arrow keys. The click zones don't show a static arrow —
+instead a single hand-drawn chevron (same no-icon-library exception as the
+close X and the video play icon) follows the cursor and flips to point
+whichever way a click there would navigate, switching the instant the
+cursor crosses the horizontal midpoint. It's suppressed in a small dead
+zone around the close button (top-right corner) so the two icons never
+render on top of each other. The visible `<Image>` for the open item
+renders without a `key`, so switching to the next/previous item updates
+its `src` in place rather than unmounting and remounting — the browser
+keeps the previous frame on screen until the next one has decoded, instead
+of a black flash where the backdrop showed through mid-transition. The
+previous and next images in the sequence are also preloaded (rendered
+`display:none` with `priority`) the moment an item opens, so a click
+doesn't trigger that image's first-ever network request.
 
 **Video.** An `images[]` entry can carry a `video` field (see Content model
 below) — its `src`/`w`/`h`/`blur` still describe a poster frame, exactly
@@ -332,10 +348,14 @@ Restraint is the point. Four behaviors, nothing else.
 3. **Filter change.** The index list updates instantly with no animation. The
    grid crossfades at 120ms.
 4. **Text link hover.** Any inline text link — Graduation's booking CTA,
-   `/info`'s Contact/LinkedIn/Selected-experience links — fades to 60%
-   opacity (`transition-opacity duration-150 hover:opacity-60`). Same
-   opacity-only rule as everything else on this site: never a color change,
-   never an underline.
+   `/info`'s Contact links — fades to 60% opacity
+   (`transition-opacity duration-150 hover:opacity-60`). Same opacity-only
+   rule as everything else on this site: never a color change, never an
+   underline. Every link that leaves the site (Contact, the panel's social
+   links, Graduation's "Book a session" CTA, a description's inline
+   `[text](url)` link, a grouped-entry label link) opens in a new tab
+   (`target="_blank" rel="noopener noreferrer"`) — internal `Link`
+   navigation (the panel index, `/info`) never does.
 
 Everything else is a plain click.
 
@@ -479,6 +499,14 @@ feature existed — one continuous grid, no section breaks.
 There is no `feature` field and no `images[].wide` field — see "The grid"
 under Layout above for why (both grids are masonry now, rendering each
 image's real aspect ratio; neither field would have anything to do).
+
+**Layout override.** A top-level `"layout": "single-column"` on a project
+drops that project's `columns-2` masonry to a single column, so a
+strictly-ordered sequence reads top-to-bottom instead of being split
+across two columns and reordered by the browser's column-packing. Only
+Smarter Window sets this today (a step-by-step install sequence, numbered
+in the images themselves). Omit the field entirely for the normal
+two-column behavior — there's no `"two-column"` value to set explicitly.
 
 Images are never referenced by hardcoded path in a component. Every image on the
 site comes from this file.

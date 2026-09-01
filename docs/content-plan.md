@@ -777,73 +777,152 @@ model section is an illustrative schema example only, unrelated to this.
 
 ---
 
+**This session (info page copy, link/lightbox polish, launch prep):**
+- Resolved every item the previous session's "Open" list had flagged:
+  - `/info` bio replaced with the user's own final four-paragraph copy
+    (East Bay/Bay Area photographer-and-videographer intro, the
+    GTM/marketing/analytics professional paragraph naming UC Davis and
+    "senior," the minimal-and-warm style paragraph). Dropped the Jonah
+    Hill line and the flowing hobbies-list sentence from the previous
+    draft entirely — this is a full rewrite, not a copy-edit.
+  - Bay Home Consignment's "on the ground and from the air" line: turned
+    out to be accurate, not a mismatch — `raw/bay-home-consignment-2022/`
+    does have a real aerial shot (`bayhomeshoot08-26-11.jpg`, a drone
+    frame of the building), just not under a `DJI`-prefixed filename,
+    which is what an earlier check had filtered on and missed. No copy
+    change needed.
+  - Aerial's shortened description and the GRID Alternatives / real
+    estate categorization questions: both confirmed "leave as-is" by the
+    user, explicitly. Closed, no code change.
+  - Pro Power Washes restored to the site: a new line on `/info`, right
+    after the bio, "I also ran a residential pressure-washing business
+    for a few years, @propowerwashes" (linked, opens in a new tab).
+  - Smarter Window's gallery switched to single-column. Added a new
+    top-level `"layout": "single-column"` field to the content model
+    (`ProjectImage`/`Project` types in `lib/projects.ts`,
+    `ProjectGallery` in `app/work/[slug]/_components/project-gallery.tsx`)
+    rather than hardcoding the slug in the component — see
+    `docs/design-brief.md`'s Content model section. Only Smarter Window
+    sets it today.
+- New content, beyond closing out that list:
+  - An "availability" line on `/info` (replacing the standalone "FAA Part
+    107 licensed." line): "Based in the East Bay, available for work
+    across the Bay Area and open to travel. FAA Part 107 licensed for
+    aerial."
+  - A "work with me" closer right after the bio: "Always looking for the
+    next project. If something sounds like a fit, let's talk."
+  - The senior-year mention folded into the bio's professional paragraph
+    directly ("I'm a senior studying managerial economics...") instead of
+    adding a separate standalone "currently" line — the user's own call
+    after being offered both options.
+  - Portraits & Headshots: reordered so `arielpadovitz-1.jpg` leads,
+    followed by the two `libby+company+grads` images, then the rest of
+    the array unchanged. Its cover also changed to `arielpadovitz-1.jpg`
+    (from `libby+company+grads-27.jpg`).
+  - Panel tagline fixed from "Commercial and personal photography and
+    video" (an awkward double "and") to "Commercial & personal
+    photography and video," matching the site's existing convention of
+    `&` in category-style pairings (Events & Fundraisers, Product &
+    Brand).
+- **Every external link on the site now opens in a new tab**
+  (`target="_blank" rel="noopener noreferrer"`) — this was already true
+  for most (Contact, the panel's social links, description inline links,
+  grouped-entry labels) but Graduation's "→ Book a session ←" CTA
+  (`booking-section.tsx`) had been missed; fixed. Internal `Link`
+  navigation is deliberately untouched. See design-brief.md's Interaction
+  section, item 4.
+- **Lightbox redesign + two real bug fixes**, prompted by the user
+  flagging a noticeable delay and a flash to black when clicking through
+  photos (`app/work/[slug]/_components/project-gallery.tsx`):
+  - Diagnosed both: the visible `<Image>` had `key={src}`, forcing a full
+    unmount/remount on every navigation (exposing the black backdrop as a
+    flash before the next placeholder painted), and nothing preloaded the
+    next/previous image, so every click was that image's first-ever
+    network request.
+  - Fixed by dropping the `key` (the browser now holds the previous frame
+    on screen until the next one decodes, swapping in place — no flash)
+    and adding a `PreloadNeighbor` component that renders the prev/next
+    image `display:none` with `priority` while the lightbox is open, so
+    the browser has already fetched it by the time a click happens.
+  - Redesigned to match a request to keep arrow-based navigation but make
+    it clearer: backdrop changed from `bg-black/90` to `--ground`
+    (white); a single hand-drawn chevron (`NavArrow`) now follows the
+    cursor inside the lightbox and flips to point whichever way a click
+    there would navigate, switching the instant the cursor crosses the
+    horizontal midpoint — replacing what turned out to be just the
+    browser's native `cursor-w-resize`/`cursor-e-resize` resize cursor as
+    the only affordance (small, generic, easy to miss against black).
+    Close X enlarged and recolored for the white backdrop.
+  - One follow-up bug from that redesign: the cursor arrow could render
+    directly on top of the close X when the mouse was near the top-right
+    corner (both are just diagonal strokes, so they merged into an
+    illegible double-mark). Fixed with `handleNavMouseMove`, a small dead
+    zone near the close button where the arrow is suppressed.
+  - Verified live in the browser: arrow flips correctly at the midpoint,
+    a real click-through shows the next image instantly with no flash,
+    and the corner dead zone eliminated the overlap.
+- **Launch prep, still in progress as of this session:**
+  - Domain: `jonahkunis.com` was on Wix (both nameservers and hosting).
+    Confirmed with the user that the domain is unrelated to their other,
+    separate Wix-hosted site, so switched nameservers at GoDaddy from
+    Wix's (`ns12`/`ns13.wixdns.net`) to GoDaddy's own default
+    (`ns25`/`ns26.domaincontrol.com`) rather than editing records inside
+    Wix — GoDaddy is now meant to be the single DNS authority for this
+    domain going forward. Added an `@` A record pointing at
+    `216.198.79.1` (Vercel's anycast IP, from the domain-configuration
+    screen the user's own Vercel project showed). As of this session's
+    last check, propagation hadn't completed yet — `dig +short NS
+    jonahkunis.com` still returned the Wix nameservers, not GoDaddy's.
+    Nothing more is needed from the user on this; it's just a matter of
+    time.
+  - Hosting: the user already had a Vercel account and imported the
+    `jkpilot747/jonahkunis` GitHub repo there (Vercel auto-deploys on
+    every push to `main` from here on). Two pushes went out this session
+    (`05a7d23` the info/link/gallery-layout batch, `eeaef99` the lightbox
+    redesign) — both should have triggered a Vercel deploy to the
+    project's `*.vercel.app` URL independent of the domain/DNS work
+    above, since that deploy doesn't depend on the custom domain
+    resolving yet.
+  - Once DNS propagates, the remaining step is confirming the domain
+    shows verified in Vercel's dashboard (Settings → Domains) — not yet
+    checked as of this session's end.
+
+---
+
 ## Status as of 2026-09-01
 
-The user wants to keep working before going live and connecting the real
-domain — not ready to deploy yet. Everything below this file's own session
-logs (above) is accomplished and committed on `main`
-(`9c87e3e` design-system/layout, `c39072d` content pass); nothing is
-pushed to `origin` yet.
+Everything in this file's session logs (above, including this session) is
+accomplished and committed on `main` through `eeaef99`, and pushed to
+`origin` — this project is no longer working ahead of its remote the way
+the previous version of this section described. A Vercel project is
+connected to that GitHub repo and deploys automatically on push.
 
-**Accomplished, this and the prior session, not previously summarized in
-one place:**
-- Full mobile layout (sticky header, full-screen menu overlay), video
-  support end to end (pipeline, grid tile, lightbox), and a real copy pass
-  across every project description.
-- Type scale and panel shrunk to a size that reads right on a real
-  monitor; a real Tailwind cascade bug that was silently capping the
-  homepage grid at 2 columns fixed with a hand-written CSS class.
-- Homepage grid has a deliberate, hand-picked display order (independent
-  of the panel's category order) with orientation mixing layered on top.
-- A full content and copy batch: new bio, tagline, several project
-  descriptions rewritten, Selected experience section removed, two real
-  data bugs fixed (swapped testimonial attributions, backwards Smarter
-  Window image order), a masonry layout bug fixed (MG Walk column
-  imbalance), and a new inline-link capability added to project
-  descriptions (used once so far, on Equal Eats).
+**Every previously-open item is now closed.** See "This session" above for
+how each of the six items from the last version of this list was resolved
+(bio finalized, Bay Home's aerial claim confirmed accurate, Aerial and the
+two categorization questions closed as "leave as-is" per the user, Pro
+Power Washes restored, Smarter Window switched to single-column).
 
-**Open — flagged during the last session, not yet resolved:**
-1. **Bio is a first draft.** The user hasn't reacted to the new `/info`
-   bio yet (Jonah Hill line, role list, etc.) — read it live and confirm
-   or keep iterating before this is considered final copy.
-2. **Bay Home's description says "on the ground and from the air"** but
-   `raw/bay-home-consignment-2022/` has no aerial/drone images yet (no
-   `DJI`-prefixed files). Either add aerial building shots to match the
-   copy, or trim the copy back to just "shot the building for marketing
-   use" until they exist.
-3. **Aerial's description dropped its FAA Part 107 / recognition
-   mention** in favor of a one-line "shot on a DJI Air 2S." The user said
-   the shorter version was good, but this was flagged as a real tradeoff
-   (the recognition mention was originally added deliberately as this
-   entry's differentiator) — worth a second look, not just a rubber stamp.
-4. **Pro Power Washes no longer appears anywhere on the site.** Its only
-   appearance was a linked line in Selected experience; removing that
-   section (per the user's request) removed Pro Power Washes along with
-   it. Not restored elsewhere — confirm that's actually fine, or find it
-   a new home.
-5. **Smarter Window's gallery layout wasn't changed.** The user's note
-   ("since it's two columns, it should actually go") was read as
-   explaining why the wrong image order looked especially bad in two
-   columns, not as a request to switch this project to a single column —
-   the order itself was fixed (see the session log above), but confirm
-   whether a single-column, strictly-top-to-bottom layout is actually
-   wanted for this specific step-by-step project.
-6. **Two open questions the user asked, answered with a recommendation
-   but no action taken:** whether GRID Alternatives fits under Product &
-   Brand (recommended: yes, leave it), and what to do about real estate
-   drone imagery inside the Architecture entry (recommended: leave the
-   description as-is). Revisit only if the user wants to actually act on
-   either.
+**Open — launch, in progress:**
+1. **DNS propagation for `jonahkunis.com`.** Nameservers were switched at
+   GoDaddy from Wix to GoDaddy's default, and the `@` A record was
+   pointed at Vercel's IP (`216.198.79.1`). Not yet propagated as of this
+   session's last check — this just needs time, nothing further from the
+   user. Once it resolves, confirm the domain shows verified under that
+   Vercel project's Settings → Domains (not yet checked).
+2. **`www.jonahkunis.com` wasn't addressed.** Only the apex `@` A record
+   was set. If the user wants `www.jonahkunis.com` to also resolve,
+   Vercel's domain settings will show the CNAME value to add at GoDaddy —
+   not yet looked up.
+3. **No end-to-end check yet of the live domain.** Once DNS propagates and
+   Vercel shows the domain verified, do a real pass on `https://
+   jonahkunis.com` itself (not just the `*.vercel.app` preview or
+   `localhost`) — TLS should be automatic via Vercel, but hasn't been
+   confirmed live.
 
-**Not yet started — the actual next milestone:**
-- Going live: choosing a host (Vercel is the default fit for a Next.js
-  App Router project with no backend beyond static content + local image
-  files), and connecting the real domain (jonahkunis.com, presumably —
-  not yet confirmed registered/pointed anywhere from inside this repo).
-  `npm run build` was run against the current `main` at the end of this
-  session as a sanity check — compiles clean, typechecks clean, `/` and
-  `/info` prerender as static, `/work/[slug]` is server-rendered on
-  demand (expected, since it reads from `content/projects.json` per
-  request rather than being statically known at build time). No actual
-  deploy has happened yet; none of this has been scoped beyond the user
-  saying they want to keep iterating first.
+**Not yet started:**
+- Nothing content-wise is blocking launch anymore — the open items above
+  are entirely DNS/hosting mechanics, not site work. Ongoing content
+  additions (new raw/ photos for existing entries, a Portraits & Headshots
+  booking section if that work ever needs one) remain open-ended and
+  aren't tracked as blockers here.
