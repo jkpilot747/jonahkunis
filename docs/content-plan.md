@@ -886,6 +886,46 @@ model section is an illustrative schema example only, unrelated to this.
   - Once DNS propagates, the remaining step is confirming the domain
     shows verified in Vercel's dashboard (Settings → Domains) — not yet
     checked as of this session's end.
+- **Filenames anonymized.** The user pointed out that raw image filenames
+  are visible to any site visitor via View Source/DevTools (Next's
+  `/_next/image?url=...` request just URL-encodes the original path —
+  trivial to decode) and asked to anonymize anything identifying, plus
+  remove every file named "israel" specifically ("in today's climate").
+  Renamed 25 live files (referenced in `content/projects.json`) across
+  four projects — in `raw/<slug>/`, `public/work/<slug>/` (via `git mv`),
+  and updated every `images[].src` and `cover.src` in
+  `content/projects.json` to match, preserving each file's existing `w`/
+  `h`/`blur`/`caption`/order (the photo content didn't change, only the
+  filename, so there was no need to rerun `npm run images`). A few
+  raw-only files that were never actually referenced (not live, so not
+  exposed) got renamed too while in there, for consistency:
+  `danielgradshoot-*.jpg` → `gradshoot-*.jpg`,
+  `arihelena-13.jpg` → `portrait-c-13.jpg`,
+  `israel-39.jpg` → `portrait-d-39.jpg`.
+  - **Graduation**: `Daniel_Rasas_Grad-{3,9,18}.jpg` → `grad-a-{3,9,18}.jpg`;
+    `libby+company+grads-{30,32,34,36,39,48,50,51}.jpg` →
+    `grad-b-{30,32,34,36,39,48,50,51}.jpg` (cover was `...-32.jpg`, now
+    `grad-b-32.jpg`).
+  - **Portraits & Headshots**: `arielpadovitz-1.jpg` → `portrait-a-1.jpg`
+    (this session's cover, see above — now `portrait-a-1.jpg`);
+    `ariel-10.jpg` → `portrait-b-10.jpg`; `arihelena-{11,22}.jpg` →
+    `portrait-c-{11,22}.jpg`; `israel-22.jpg` → `portrait-d-22.jpg`;
+    `libby+company+grads-{24,27}.jpg` → `grad-b-{24,27}.jpg`;
+    `Daniel_Rasas_Grad-{14,15,28}.jpg` → `grad-a-{14,15,28}.jpg`. The
+    `a`/`b`/`c`/`d` letters are per-client, shared across projects where
+    the same client's photos appear in more than one entry (both
+    Graduation and Portraits & Headshots draw from the same two grad
+    clients, hence `grad-a-*`/`grad-b-*` in both).
+  - **Architecture**: `43255montgomeryave-{1,2,3}.jpg` (a real street
+    address) → `architecture-residence-{1,2,3}.jpg`.
+  - **Landscape & Travel**: `israel-71.jpg` → `travel-71.jpg`.
+  - Verified live in the browser afterward (Portraits & Headshots,
+    Architecture) — images load correctly under the new filenames, blur
+    placeholders and ordering all intact.
+  - Note for future sessions: any *new* photo dropped into `raw/<slug>/`
+    should get a non-identifying filename from the start (no real names,
+    no addresses) — `npm run images` just carries whatever filename it
+    finds straight into the public site, it doesn't anonymize anything.
 
 ---
 

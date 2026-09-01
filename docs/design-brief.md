@@ -58,6 +58,15 @@ framework drifts toward generic, and this list is what stops it.
 - No em dashes anywhere in site copy (headings, descriptions, captions, FAQ,
   anywhere a visitor reads text). Applies to future copy too, not just what
   exists today.
+- No identifying filenames. Every image's raw filename is visible to any
+  visitor via View Source/DevTools (`/_next/image?url=...` just
+  URL-encodes the original path — trivial to decode), so a client's real
+  name, a street address, or anything else not already stated in the
+  page's own visible copy must not appear in a filename. Name files
+  descriptively instead (subject/category plus a number). Applies to
+  every new photo added to `raw/`, not just what's been cleaned up so
+  far — see `docs/content-plan.md`'s session log for the anonymization
+  pass this rule came out of.
 
 ---
 
