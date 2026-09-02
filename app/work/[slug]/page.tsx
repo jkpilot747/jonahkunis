@@ -18,6 +18,14 @@ function plainDescription(text: string) {
   return text.replace(DESCRIPTION_LINK, "$1");
 }
 
+// Project data all comes from the static content/projects.json baked in at
+// build time (see lib/projects.ts), so every slug is known up front — this
+// makes each project page a prerendered static route instead of a fresh
+// server render (with its cold-start latency) on every click.
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: PageProps<"/work/[slug]">): Promise<Metadata> {
