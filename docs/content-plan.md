@@ -1037,3 +1037,19 @@ are fixed and verified.
   Portraits & Headshots booking section if that work ever needs one)
   remain open-ended and aren't tracked as blockers here — the site is
   launched and functionally complete.
+
+---
+
+## Status as of 2026-09-02
+
+**Vercel Analytics installed.** `@vercel/analytics` added as a dependency
+and wired into `app/layout.tsx` (`<Analytics />` rendered inside `<body>`,
+after `{children}`, via the `@vercel/analytics/next` entrypoint).
+`npm run build` and `npm run lint` both clean. Committed (`8200659`) and
+pushed to `main`, triggering an auto-deploy.
+
+**Open:** the package only ships the client-side tracking snippet — data
+collection still needs Analytics turned on for the project in the Vercel
+dashboard (project → Analytics tab) if it isn't already. Not yet confirmed
+from this session whether that toggle is on or whether real page views are
+showing up post-deploy.
