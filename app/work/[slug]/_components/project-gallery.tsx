@@ -301,7 +301,7 @@ function GalleryTile({
           placeholder="blur"
           blurDataURL={image.blur}
           sizes={wide ? "100vw" : "(min-width: 1024px) 50vw, 100vw"}
-          quality={90}
+          quality={75}
           className="h-auto w-full"
         />
         {image.video && <PlayIcon />}
