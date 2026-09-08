@@ -14,6 +14,25 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [75, 90],
   },
+  // The old Wix site (jonahkunis.com, before the Sep 2026 migration to this
+  // Next.js site) is still indexed by Google under these paths — confirmed
+  // via a live `site:jonahkunis.com` search, since Wayback Machine's own
+  // archive of the domain is a stale 2021-2022 snapshot with a different
+  // URL structure. Without these, every one of those indexed links (and
+  // Google's own sitelinks under the main result) 404s. Permanent so
+  // search engines eventually update their index to the new URLs directly.
+  async redirects() {
+    return [
+      { source: "/about", destination: "/info", permanent: true },
+      { source: "/contact", destination: "/info", permanent: true },
+      { source: "/clientwork", destination: "/work/events-fundraisers", permanent: true },
+      { source: "/gradphotos", destination: "/work/graduation", permanent: true },
+      { source: "/pricing", destination: "/work/graduation", permanent: true },
+      { source: "/portraits", destination: "/work/portraits-headshots", permanent: true },
+      { source: "/aerial", destination: "/work/aerial", permanent: true },
+      { source: "/abroad", destination: "/work/landscape-travel", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
