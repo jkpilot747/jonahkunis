@@ -1053,3 +1053,61 @@ collection still needs Analytics turned on for the project in the Vercel
 dashboard (project → Analytics tab) if it isn't already. Not yet confirmed
 from this session whether that toggle is on or whether real page views are
 showing up post-deploy.
+
+---
+
+## Status as of 2026-09-07
+
+**Confirmed:** Vercel Analytics is collecting real data (user-confirmed).
+`www.jonahkunis.com` was already live as the production domain with the
+apex 308-redirecting to it — that open item from 2026-09-01 turned out to
+already be resolved (not documented here at the time).
+
+**Old Wix site's indexed URLs fixed.** A live `site:jonahkunis.com` search
+showed Google still indexing the old Wix site's pages — `/about`,
+`/contact`, `/clientwork`, `/gradphotos`, `/pricing`, `/portraits`,
+`/aerial`, `/abroad` — all 404ing on the new site, including the sitelinks
+under the main search result. Added permanent redirects for all eight in
+`next.config.ts` to their nearest new-site equivalent (e.g. `/gradphotos` →
+`/work/graduation`, `/contact` → `/info`); verified live via `curl` before
+and after deploy.
+
+**Google Search Console set up.** Added `https://www.jonahkunis.com` as a
+URL-prefix property — it auto-verified instantly against an existing
+verification record tied to this Google account (no meta tag or DNS change
+needed), and came with historical performance data already attached (23
+clicks, going back to June). The old `/sitemap.xml` submission on this
+property was stale from the Wix era (submitted Jun 2022, 0 pages
+discovered) — resubmitted now that it reflects the real Next.js sitemap.
+
+**Bing Webmaster Tools set up.** `www.jonahkunis.com` was already a
+verified property under this Microsoft account (alongside an unrelated
+`bayhomeconsignment.com` property from the user's day job — left
+untouched). Resubmitted `/sitemap.xml` there too; 24 URLs discovered, 0
+errors/warnings.
+
+**Bay Home Consignment: new drone video added.** Ran `npm run images`
+against a new `bayhomebydrone-2.mov` dropped directly into
+`raw/bay-home-consignment-2022/` — poster frame + capped mp4 now live,
+captioned "Bay Home by Drone" (matching Smarter Window's video caption
+pattern). Along the way, found and worked around a real gap in the
+pipeline script: `raw/bay-home-consignment-2022/` still physically
+contained 3 photos from an earlier session that were deliberately excluded
+from the live site (added, then swapped back out) and 2 files in
+`raw/portraits-headshots/` that were renamed for the anonymization pass but
+never meant to be published — since `scripts/images.mjs` republishes
+everything it finds in `raw/<slug>/` with no memory of "excluded on
+purpose," a routine rerun would have silently republished all 5. Moved
+them into `_excluded/` subfolders (non-recursive `readdir` skips them) —
+first case caught before running the pipeline at all, second case caught
+via `git status` immediately after, reverted, and fixed the same way.
+**Worth a fix in the script itself later** if this keeps coming up: no
+mechanism currently distinguishes "in `raw/` but intentionally not live"
+from "ready to publish."
+
+The user also asked about matching the video caption's spacing to Smarter
+Window's — turned out, after two rounds of guessing wrong (centering the
+caption, then adding extra top margin) and checking the actual rendered
+HTML on both pages, that the component was already byte-for-byte identical
+between the two and always had been. No code change needed; reverted both
+attempts back to the original shared styling.
