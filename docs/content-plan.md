@@ -1111,3 +1111,8 @@ caption, then adding extra top margin) and checking the actual rendered
 HTML on both pages, that the component was already byte-for-byte identical
 between the two and always had been. No code change needed; reverted both
 attempts back to the original shared styling.
+
+**Open, not yet started:** the user wants to add more content and reorder
+photo display order within some project galleries — asked which
+project(s) and what order, session paused before an answer came back.
+Pick this up next time.
