@@ -341,7 +341,11 @@ request.
 
 **Video.** An `images[]` entry can carry a `video` field (see Content model
 below) — its `src`/`w`/`h`/`blur` still describe a poster frame, exactly
-like a still. In the grid, that tile gets a small always-visible play-icon
+like a still. Its caption (if any) is centered, unlike every other caption
+on the site (left-aligned) — a video tile always breaks out to full width
+(see `GalleryTile`'s `wide` prop), and a full-bleed block reads better with
+a centered label than one flush against the left edge. In the grid, that
+tile gets a small always-visible play-icon
 overlay (a hand-drawn inline SVG triangle in a plain `--panel` circle — no
 icon library, no drop shadow). This is the only hand-drawn icon left on the
 site now that the social links moved to plain text — see "The panel" above.

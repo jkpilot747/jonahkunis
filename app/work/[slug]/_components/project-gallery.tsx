@@ -285,7 +285,7 @@ function GalleryTile({
     <button
       type="button"
       onClick={onClick}
-      className={`mb-4 block w-full text-left ${wide ? "" : "break-inside-avoid"}`}
+      className={`mb-4 block w-full ${wide ? "text-center" : "text-left break-inside-avoid"}`}
     >
       {image.caption && (
         <p className="mb-3 text-index font-bold tracking-index text-ink">
