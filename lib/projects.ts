@@ -13,6 +13,11 @@ export interface ProjectImage {
   // to play, and can be a relative /work/<slug>/ path (self-hosted) or an
   // absolute URL (externally hosted) — the player doesn't care which.
   video?: { src: string; duration?: number };
+  // Consecutive video entries sharing a `reel` key render as one swipeable,
+  // auto-advancing carousel tile instead of stacked full-width videos (e.g.
+  // Landscape & Travel's "Postcards from Japan" clips). The first clip in
+  // the run is what shows before anyone swipes, so it acts as the cover.
+  reel?: string;
 }
 
 export interface Project {

@@ -350,9 +350,26 @@ native `<video controls>` element instead of an `<Image>`, and the
 left/right click-to-navigate zones are disabled for that one item — they'd
 otherwise sit on top of and swallow clicks meant for the video's own
 play/pause/scrubber controls. Arrow-key navigation still steps past a video
-like any other item. Click-to-play only: no autoplay, no muted-loop grid
-preview — consistent with this site's zero-motion-until-clicked rule
-elsewhere in this Interaction section.
+like any other item.
+
+Autoplay on scroll (2026-09-13, user request, replacing the original
+click-to-play-only rule): a video tile in a project gallery plays muted and
+looping, inline over its poster, while it crosses the middle 20% of the
+viewport (`AutoplayPreview` in `project-gallery.tsx`, an
+`IntersectionObserver` with `rootMargin: -40% 0px -40% 0px`), and pauses once
+scrolled out of that band. The play icon shows only while it's paused.
+Clicking still opens the lightbox's `<video controls>` with sound. This is the
+one deliberate exception to the zero-motion-until-clicked rule; visitors with
+`prefers-reduced-motion: reduce` get the old static poster + play icon. No
+fade: the video simply appears once frames are playing.
+
+**Reels.** Consecutive video entries sharing an `images[].reel` key render
+as one full-width carousel (`VideoReel` in `project-gallery.tsx`) instead of
+stacked videos: native horizontal scroll-snap (touch/trackpad swipe), round
+`--panel` prev/next chevron buttons, and dot indicators below. The first clip
+is the cover. In the center band the active clip plays and advances to the
+next on end, wrapping to the first. Clicking a clip opens it in the lightbox.
+Keep a reel's clips contiguous in `images[]` or it splits into two reels.
 
 Images load with their blur placeholder from the manifest. No spinners, no
 skeleton loaders, no fade-in animation.

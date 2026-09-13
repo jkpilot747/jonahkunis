@@ -128,7 +128,8 @@ async function exists(targetPath) {
   }
 }
 
-// Photos are ordered oldest-to-newest by EXIF capture date. Files with no
+// New photos are ordered oldest-to-newest by EXIF capture date (photos
+// already in projects.json keep their existing order — see main()). Files with no
 // readable capture date (screenshots, heavily re-exported files, scans)
 // fall back to filename order at the end of the list — see the warning
 // logged for them below, in keeping with this script's habit of surfacing
@@ -225,10 +226,35 @@ async function main() {
       continue;
     }
 
-    const { files, undated } = await sortByCaptureDate(
-      projectRawDir,
-      candidateFiles,
+    // A hand-set order (set by editing content/projects.json directly) is
+    // preserved across reruns, the same way a hand-picked cover is below:
+    // images already in projects.json keep their current relative order, and
+    // only files new to raw/ get capture-date sorting, appended at the end.
+    // Before this, every run re-sorted every project by capture date and
+    // silently undid hand-set orders (commit 3b37eb9 did exactly that to
+    // Smarter Window, Events & Fundraisers, and Portraits & Headshots).
+    const existingImages = project.images ?? [];
+    const outNameOf = (file) => `${path.parse(file).name}.jpg`;
+    const existingPosition = new Map(
+      existingImages.map((image, index) => [image.src, index]),
     );
+    const keptFiles = candidateFiles
+      .filter((file) => existingPosition.has(outNameOf(file)))
+      .sort(
+        (a, b) =>
+          existingPosition.get(outNameOf(a)) - existingPosition.get(outNameOf(b)),
+      );
+    const { files: addedFiles, undated } = await sortByCaptureDate(
+      projectRawDir,
+      candidateFiles.filter((file) => !existingPosition.has(outNameOf(file))),
+    );
+    const files = [...keptFiles, ...addedFiles];
+
+    if (addedFiles.length > 0 && keptFiles.length > 0) {
+      console.log(
+        `  ${project.slug}: appending ${addedFiles.length} new image(s) at the end by capture date — reorder in content/projects.json if needed`,
+      );
+    }
 
     if (undated.length > 0) {
       console.warn(
@@ -243,7 +269,6 @@ async function main() {
     // project's sake is easy to lose track of when it's really a side effect
     // showing up under a different project you weren't paying attention to.
     // Log it loudly instead of letting it pass silently.
-    const existingImages = project.images ?? [];
     const previousCoverSrc = project.cover?.src;
     const newOutNames = new Set(
       files.map((file) => `${path.parse(file).name}.jpg`),
@@ -305,6 +330,7 @@ async function main() {
           blur: blurDataURL,
           caption: existing?.caption ?? "",
           ...(existing?.group ? { group: existing.group } : {}),
+          ...(existing?.reel ? { reel: existing.reel } : {}),
           ...(video ? { video } : {}),
         });
 

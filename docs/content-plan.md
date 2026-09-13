@@ -1116,3 +1116,53 @@ attempts back to the original shared styling.
 photo display order within some project galleries — asked which
 project(s) and what order, session paused before an answer came back.
 Pick this up next time.
+
+---
+
+## Status as of 2026-09-13
+
+**Gallery order is now durable and hand-controlled.**
+- **Real bug found and fixed:** `scripts/images.mjs` re-sorted every
+  project by EXIF capture date on every run, silently undoing hand-set
+  orders. Commit `3b37eb9` (2026-09-02) had already reverted three of them
+  on the live site: Smarter Window's install steps (back to 13→4),
+  Portraits & Headshots' lead image (`portrait-a-1`), and the MG Walk
+  portrait-to-end masonry fix. All three restored from `e42cd4c`. The script
+  now keeps the existing `projects.json` order for images already there and
+  only appends brand-new files (by capture date) at the end, the same way it
+  already preserved hand-picked covers. Verified by rerunning the full
+  pipeline on a scratch copy: every existing order and cover unchanged.
+- **New `npm run order`** (`scripts/order.mjs`): a local-only drag-and-drop
+  tool at `http://localhost:3001`. Pick a project, drag thumbnails, ★ sets
+  the cover, Save writes `content/projects.json`. Flags a group split into
+  two runs. Never ships with the site.
+- The user reordered Landscape & Travel, Aerial, Architecture, Graduation,
+  Bay Home, and Equal Eats (new cover `equaleatsfinals-099.jpg`) with it.
+  Product & Brand and Portraits & Headshots left as-is (user: new Tokyo
+  portraits are fine at the end).
+- Bay Home: the drone video had 3 photos above it, leaving an ~800px column
+  gap; moved `bayhomeshoot08-26-7` below the video (2 above, columns even).
+  Rule of thumb: an even count of similar-orientation photos above a video.
+- Events & Fundraisers: `wornickprom-30/26/16` (added 09-02 with no group)
+  now carry `wornick-prom`, so all 5 sit under one label.
+
+**New content:** 9 Tokyo portraits (`tokyo26-*`) in Portraits & Headshots,
+1 Tokyo photo and 6 short Tokyo clips in Landscape & Travel.
+
+**Video autoplay + reels** (see "Video" in `docs/design-brief.md`):
+- Gallery videos now autoplay muted/looping while in the middle 20% of the
+  viewport, pause when scrolled away (user request, replacing the
+  click-to-play-only rule). Reduced-motion visitors get the static poster.
+- New `images[].reel` key: consecutive videos sharing it render as one
+  swipeable, auto-advancing carousel tile. Used for the 6 Tokyo clips
+  (`postcards-from-japan`); the first clip, which has "Postcards from Japan"
+  text baked in from the Instagram post, acts as the cover. The pipeline
+  preserves `reel` across reruns. User confirmed autoplay and the reel look
+  right on localhost.
+
+**Open / ideas not started:**
+- SEO: 184 of ~220 images have no caption, so alt text is just the project
+  title. Draft descriptive alt text for review.
+- Possible: a reel as a moving cover on the homepage.
+- Fun extras floated: keyboard shortcuts in the lightbox, a "shot on" EXIF
+  line, a small easter egg.

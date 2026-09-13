@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Project, ProjectImage } from "@/lib/projects";
 
@@ -46,11 +46,20 @@ export function ProjectGallery({
   type Item = { image: ProjectImage; index: number };
   type Chunk =
     | { type: "columns"; items: Item[] }
-    | { type: "video"; item: Item };
+    | { type: "video"; item: Item }
+    | { type: "reel"; reel: string; items: Item[] };
   function chunkByVideo(items: Item[]): Chunk[] {
     const chunks: Chunk[] = [];
     for (const item of items) {
-      if (item.image.video) {
+      const reel = item.image.video ? item.image.reel : undefined;
+      if (reel) {
+        const last = chunks[chunks.length - 1];
+        if (last?.type === "reel" && last.reel === reel) {
+          last.items.push(item);
+        } else {
+          chunks.push({ type: "reel", reel, items: [item] });
+        }
+      } else if (item.image.video) {
         chunks.push({ type: "video", item });
       } else {
         const last = chunks[chunks.length - 1];
@@ -142,7 +151,15 @@ export function ProjectGallery({
               </p>
             ))}
           {chunkByVideo(run.items).map((chunk, chunkIndex) =>
-            chunk.type === "video" ? (
+            chunk.type === "reel" ? (
+              <VideoReel
+                key={chunk.reel}
+                items={chunk.items}
+                onOpen={setOpenIndex}
+                projectSlug={projectSlug}
+                projectTitle={projectTitle}
+              />
+            ) : chunk.type === "video" ? (
               <GalleryTile
                 key={chunk.item.image.src}
                 image={chunk.item.image}
@@ -304,8 +321,212 @@ function GalleryTile({
           quality={75}
           className="h-auto w-full"
         />
-        {image.video && <PlayIcon />}
+        {image.video && <AutoplayPreview src={image.video.src} />}
       </div>
+    </button>
+  );
+}
+
+// Muted, looping in-grid preview of a video tile that plays only while the
+// tile crosses the middle band of the viewport and pauses once scrolled away
+// (so a stack of clips plays roughly one at a time as you scroll). Clicking
+// the tile still opens the lightbox's full `<video controls>` with sound.
+// The poster `<Image>` underneath stays in place for sizing and the blur
+// placeholder; the video appears over it only once frames are actually
+// playing, so there's never a black flash. Visitors with reduced motion
+// set get the old static poster + play icon instead.
+function AutoplayPreview({ src }: { src: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inCenter = useInCenterBand(ref);
+  return (
+    <div ref={ref} className="absolute inset-0">
+      <ClipVideo src={src} shouldPlay={inCenter} loop />
+    </div>
+  );
+}
+
+// True while the element crosses the middle 20% of the viewport — the
+// "center frame" band that autoplaying videos key off. Always false for
+// visitors with prefers-reduced-motion set, so nothing ever autoplays.
+function useInCenterBand(ref: React.RefObject<HTMLElement | null>) {
+  const [inCenter, setInCenter] = useState(false);
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInCenter(entry.isIntersecting),
+      { rootMargin: "-40% 0px -40% 0px" },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [ref]);
+  return inCenter;
+}
+
+// A muted inline clip laid over its poster `<Image>`, played or paused from
+// outside via `shouldPlay`. Hidden until frames are actually playing so the
+// poster (and its blur placeholder) shows instead of a black box; the play
+// icon shows whenever it isn't.
+function ClipVideo({
+  src,
+  shouldPlay,
+  loop = false,
+  onEnded,
+}: {
+  src: string;
+  shouldPlay: boolean;
+  loop?: boolean;
+  onEnded?: () => void;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (shouldPlay) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [shouldPlay]);
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src={src}
+        muted
+        loop={loop}
+        playsInline
+        preload="none"
+        aria-hidden
+        onPlaying={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => {
+          setPlaying(false);
+          onEnded?.();
+        }}
+        className={`pointer-events-none absolute inset-0 h-full w-full object-cover ${playing ? "opacity-100" : "opacity-0"}`}
+      />
+      {!playing && <PlayIcon />}
+    </>
+  );
+}
+
+// A run of clips sharing a `reel` key, shown as one full-width swipeable
+// carousel (native horizontal scroll-snap, so touch swipe and trackpad
+// swipe both just work). The first clip is the cover. While the reel sits
+// in the center band, the current clip plays and advances to the next when
+// it ends, wrapping back to the first after the last. Clicking a clip opens
+// it in the lightbox like any other item, where arrow keys keep stepping
+// through the rest.
+function VideoReel({
+  items,
+  onOpen,
+  projectSlug,
+  projectTitle,
+}: {
+  items: { image: ProjectImage; index: number }[];
+  onOpen: (index: number) => void;
+  projectSlug: string;
+  projectTitle: string;
+}) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const inCenter = useInCenterBand(wrapperRef);
+  const [active, setActive] = useState(0);
+  const first = items[0].image;
+
+  function goTo(slide: number) {
+    const track = trackRef.current;
+    if (!track) return;
+    const next = (slide + items.length) % items.length;
+    track.scrollTo({ left: next * track.clientWidth, behavior: "smooth" });
+  }
+
+  function handleScroll() {
+    const track = trackRef.current;
+    if (!track) return;
+    setActive(Math.round(track.scrollLeft / track.clientWidth));
+  }
+
+  return (
+    <div ref={wrapperRef} className="mb-4">
+      {first.caption && (
+        <p className="mb-3 text-index font-bold tracking-index text-ink">{first.caption}</p>
+      )}
+      <div className="relative">
+        <div
+          ref={trackRef}
+          onScroll={handleScroll}
+          className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={{ aspectRatio: `${first.w} / ${first.h}` }}
+        >
+          {items.map(({ image, index }, slide) => (
+            <button
+              key={image.src}
+              type="button"
+              onClick={() => onOpen(index)}
+              className="relative h-full w-full shrink-0 snap-center overflow-hidden"
+              aria-label={`${projectTitle}, clip ${slide + 1} of ${items.length}`}
+            >
+              <Image
+                src={`/work/${projectSlug}/${image.src}`}
+                alt={image.caption || projectTitle}
+                fill
+                placeholder="blur"
+                blurDataURL={image.blur}
+                sizes="100vw"
+                quality={75}
+                className="object-cover"
+              />
+              {image.video && (
+                <ClipVideo
+                  src={image.video.src}
+                  shouldPlay={inCenter && slide === active}
+                  onEnded={() => goTo(slide + 1)}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+        <ReelArrow side="left" onClick={() => goTo(active - 1)} />
+        <ReelArrow side="right" onClick={() => goTo(active + 1)} />
+      </div>
+      <div className="mt-3 flex justify-center gap-2">
+        {items.map(({ image }, slide) => (
+          <button
+            key={image.src}
+            type="button"
+            onClick={() => goTo(slide)}
+            aria-label={`Go to clip ${slide + 1}`}
+            className={`h-1.5 w-1.5 rounded-full ${slide === active ? "bg-ink" : "bg-hairline"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Prev/next buttons over the reel. Same hand-drawn chevron stroke as the
+// lightbox's NavArrow, on a plain --panel circle like PlayIcon.
+function ReelArrow({ side, onClick }: { side: "left" | "right"; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={side === "left" ? "Previous clip" : "Next clip"}
+      className={`absolute top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-panel ${side === "left" ? "left-3" : "right-3"}`}
+    >
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+        <path
+          d={side === "left" ? "M8.5 1.5L2 8L8.5 14.5" : "M1.5 1.5L8 8L1.5 14.5"}
+          stroke="var(--ink)"
+          strokeWidth="1.75"
+        />
+      </svg>
     </button>
   );
 }
