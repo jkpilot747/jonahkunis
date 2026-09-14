@@ -1171,14 +1171,20 @@ Pick this up next time.
 
 ## Status as of 2026-09-14
 
-**Headshots on `/info`.** A 2x2 grid of four vineyard portraits of Jonah
-sits at the very bottom of the page, after Recognition, capped at 520px wide. Tried first between
-the title and the bio (hid that there was more below), then as a sticky
-right-hand column beside the text on wide screens (user didn't love it).
-Sources live in
-`raw/jonahheadshots/` (not a project slug, so `npm run images` skips it with
-a warning, which is expected). Web copies were made by hand with sharp
-(1200x1600, q90, EXIF/GPS stripped) into `public/info/jonah-kunis-1..4.jpg`
-and statically imported in `app/info/page.tsx`, so Next generates the blur
-placeholders. To swap a photo, overwrite the matching file in
-`public/info/` at 3:4.
+**Headshots on `/info`, live** (commit `8766d5b`, pushed to `main`).
+- A 2x2 grid of four vineyard portraits of Jonah sits at the very bottom of
+  the page, after Recognition, capped at `max-w-[520px]` (phones still get
+  full width). No caption.
+- Placements tried and rejected, so they don't get re-proposed: full-width
+  between the title and the bio (hid that there was more info below), and a
+  sticky right-hand column beside the text at `xl` with a mono caption (user
+  didn't love it). Full-width at the bottom was also tried and felt too
+  tall; 520px was the user's "better."
+- Sources: `raw/jonahheadshots/` (not a project slug, so `npm run images`
+  skips it with a warning, which is expected). Web copies were made by hand
+  with sharp (1200x1600, q90, EXIF/GPS stripped) into
+  `public/info/jonah-kunis-1..4.jpg` and statically imported in
+  `app/info/page.tsx`, so Next generates width/height and blur placeholders.
+  To swap a photo, overwrite the matching file in `public/info/` at 3:4.
+
+**Open:** not yet checked on a real phone after deploy.

@@ -449,7 +449,8 @@ Three. Resist adding more.
   `client`/`year` — the terminal metadata block from Flourishes above, then a
   short description block, Body/bio scale, then a single-column stack of
   that project's images.
-- `/info` — bio, contact, gear, license, recognition. Same panel. Right side
+- `/info` — bio, contact, gear, license, recognition, then a 2x2 headshot
+  grid (max 520px wide) closing the page. Same panel. Right side
   is a single text column, max 65 characters wide, left-aligned against the
   grid's left edge, leading with a page title ("Info", Page title scale) for
   the same anchor `/work/[slug]` gets. Recognition uses the numbered
