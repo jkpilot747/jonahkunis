@@ -1166,3 +1166,19 @@ Pick this up next time.
 - Possible: a reel as a moving cover on the homepage.
 - Fun extras floated: keyboard shortcuts in the lightbox, a "shot on" EXIF
   line, a small easter egg.
+
+---
+
+## Status as of 2026-09-14
+
+**Headshots on `/info`.** A 2x2 grid of four vineyard portraits of Jonah
+sits at the very bottom of the page, after Recognition, capped at 520px wide. Tried first between
+the title and the bio (hid that there was more below), then as a sticky
+right-hand column beside the text on wide screens (user didn't love it).
+Sources live in
+`raw/jonahheadshots/` (not a project slug, so `npm run images` skips it with
+a warning, which is expected). Web copies were made by hand with sharp
+(1200x1600, q90, EXIF/GPS stripped) into `public/info/jonah-kunis-1..4.jpg`
+and statically imported in `app/info/page.tsx`, so Next generates the blur
+placeholders. To swap a photo, overwrite the matching file in
+`public/info/` at 3:4.
