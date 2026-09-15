@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Panel } from "@/app/_components/panel";
+import { getRecentlyPlayed, getTopTracks } from "@/lib/spotify";
+import { SpotifyTicker } from "./_components/spotify-ticker";
 import headshot1 from "@/public/info/jonah-kunis-1.jpg";
 import headshot2 from "@/public/info/jonah-kunis-2.jpg";
 import headshot3 from "@/public/info/jonah-kunis-3.jpg";
@@ -23,13 +25,25 @@ const HEADSHOTS = [headshot1, headshot2, headshot3, headshot4];
 
 const LINK_HOVER = "transition-opacity duration-150 hover:opacity-60";
 
-export default function InfoPage() {
+// Rebuild the page at most every 10 minutes so the Spotify ticker stays
+// fresh while the page is still served static from the CDN in between.
+export const revalidate = 600;
+
+export default async function InfoPage() {
+  const [recent, top] = await Promise.all([
+    getRecentlyPlayed(),
+    getTopTracks(),
+  ]);
+
   return (
     <div className="min-h-screen">
       <Panel />
 
       <main className="flex max-w-[65ch] flex-col gap-8 p-4 lg:ml-[480px] lg:p-0 lg:pt-2 lg:pb-2">
-        <h1 className="text-title font-bold tracking-title">Info</h1>
+        <div className="flex flex-col gap-2">
+          <SpotifyTicker recent={recent} top={top} />
+          <h1 className="text-title font-bold tracking-title">Info</h1>
+        </div>
 
         <div className="flex flex-col gap-4 text-body tracking-body">
           <p>Hi, I&rsquo;m Jonah! Thanks for stopping by.</p>

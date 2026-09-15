@@ -1188,3 +1188,43 @@ Pick this up next time.
   To swap a photo, overwrite the matching file in `public/info/` at 3:4.
 
 **Open:** not yet checked on a real phone after deploy.
+
+---
+
+## Status as of 2026-09-14 (later)
+
+**Spotify ticker on `/info`.** A small mono line above the "Info" title.
+- Spotify logo in `--ink`, a **Recently played / Top this month** toggle in
+  the filter-row style, then a slow looping ticker of tracks with a soft
+  edge fade. Recent tracks show "2h ago" (computed client-side, ticks each
+  minute); top tracks (Spotify `short_term`, ~4 weeks) are numbered `01`...
+  Hover pauses; reduced-motion gets a static swipeable row.
+- A pulsing dot by the logo, and the track leading the list with "now",
+  while something is playing. `app/api/now-playing/route.ts` is
+  `force-static` with `revalidate = 30`; the client polls it every 30s
+  while the tab is visible.
+- `/info` is ISR with `revalidate = 600`, so recent/top are at most ~10 min
+  stale. Any Spotify failure or missing env var hides the ticker.
+- Code: `lib/spotify.ts`, `app/info/_components/spotify-ticker.tsx`,
+  `.ticker` rules in `app/globals.css`.
+- Setup: Spotify dev-mode app (owner needs Premium), redirect URI
+  `http://127.0.0.1:8888/callback`. `scripts/spotify-token.mjs` gets a
+  refresh token (scopes: recently-played, top-read, currently-playing).
+  `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET` / `SPOTIFY_REFRESH_TOKEN`
+  live in `.env.local` and Vercel. Changing scopes means rerunning the
+  script and replacing the token in both places.
+- Tried and rejected: album cover on hover (user: "interesting but let's
+  not do it"). Gray logo was replaced by black (Spotify's guidelines allow
+  green/black/white only).
+
+**Vercel plan:** Hobby is fine for current traffic (checked 2026-09-14:
+100 GB transfer, 5,000 image transformations/mo, 1M function calls).
+Watch Image Transformations in Usage after big photo batches. Caveat:
+Hobby is non-commercial only; paid photography booking on the site is a
+gray area. Pro ($20/mo) if it grows into a real storefront.
+
+**Open:**
+- Rotate the Spotify client secret (it was pasted in a chat), update
+  `.env.local` and Vercel, redeploy.
+- Ticker's scrolling area is only ~360px beside the label on desktop.
+  Suggested moving the label to its own line; not yet decided.

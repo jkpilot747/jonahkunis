@@ -92,3 +92,43 @@ body {
     column-count: 3;
   }
 }
+
+/* /info Recently Played ticker — see app/info/_components/recently-played.tsx.
+   Pauses on hover so a title can be read or clicked. */
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker {
+  /* Soft fade at both ends so titles drift in and out instead of being
+     cut off at a hard edge. */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 32px,
+    #000 calc(100% - 32px),
+    transparent
+  );
+}
+
+.ticker-track {
+  animation: ticker linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    overflow-x: auto;
+  }
+  .ticker-track {
+    animation: none;
+  }
+  .ticker-track > ul[aria-hidden] {
+    display: none;
+  }
+}
