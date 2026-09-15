@@ -1228,3 +1228,10 @@ gray area. Pro ($20/mo) if it grows into a real storefront.
   `.env.local` and Vercel, redeploy.
 - Ticker's scrolling area is only ~360px beside the label on desktop.
   Suggested moving the label to its own line; not yet decided.
+
+**Update 2026-09-15:** ticker is live in production. It stayed empty at
+first because a value pasted into Vercel didn't match `.env.local`
+exactly; fixed by re-adding all three `SPOTIFY_*` vars as **Config** type
+(viewable, so they can be checked) and redeploying. The ticker now
+defaults to **Top this month**, with that option listed first. Account is
+on Vercel Pro with a $20 spend cap.

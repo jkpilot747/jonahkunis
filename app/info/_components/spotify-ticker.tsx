@@ -4,8 +4,8 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import type { Track } from "@/lib/spotify";
 
 // A slow horizontal ticker of Spotify listening, above the /info title.
-// - Two views, switched from the label in the filter-row style: recent plays
-//   (with "2h ago" times) and top tracks of the last ~4 weeks (numbered).
+// - Two views, switched from the label in the filter-row style: top tracks of
+//   the last ~4 weeks (numbered, the default) and recent plays ("2h ago").
 // - Polls /api/now-playing; while something is playing, a pulsing dot sits
 //   by the logo and that track leads the recent list.
 // - Hovering pauses the ticker so a title can be read or clicked.
@@ -24,7 +24,7 @@ export function SpotifyTicker({
   recent: Track[];
   top: Track[];
 }) {
-  const [mode, setMode] = useState<Mode>(recent.length ? "recent" : "top");
+  const [mode, setMode] = useState<Mode>(top.length ? "top" : "recent");
   const [nowPlaying, setNowPlaying] = useState<Track | null>(null);
   const now = useNow();
 
@@ -106,16 +106,16 @@ export function SpotifyTicker({
         )}
         {recent.length > 0 && top.length > 0 ? (
           <>
-            <ModeButton active={mode === "recent"} onClick={() => setMode("recent")}>
-              Recently played
-            </ModeButton>
-            <span className="text-muted">/</span>
             <ModeButton active={mode === "top"} onClick={() => setMode("top")}>
               Top this month
             </ModeButton>
+            <span className="text-muted">/</span>
+            <ModeButton active={mode === "recent"} onClick={() => setMode("recent")}>
+              Recently played
+            </ModeButton>
           </>
         ) : (
-          <span>{recent.length ? "Recently played" : "Top this month"}</span>
+          <span>{top.length ? "Top this month" : "Recently played"}</span>
         )}
       </div>
 
