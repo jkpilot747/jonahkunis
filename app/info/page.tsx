@@ -46,30 +46,31 @@ export default async function InfoPage() {
         </div>
 
         <div className="flex flex-col gap-4 text-body tracking-body">
-          <p>Hi, I&rsquo;m Jonah! Thanks for stopping by.</p>
           <p>
-            I&rsquo;m a photographer and videographer based in the Bay Area.
-            I first picked up a camera at 12 and never really put it down.
-            When I&rsquo;m not taking pictures I&rsquo;m usually making
-            music, climbing, studying, or building something.
+            Hi, I&rsquo;m Jonah! I&rsquo;m a photographer and videographer
+            based in the Bay Area. I first picked up a camera at 12 years
+            old, when I got my hands on a gently used Nikon D5000. When
+            I&rsquo;m not taking photos or filming, I&rsquo;m usually making
+            music, climbing, studying, or building a business.
           </p>
           <p>
-            On the professional side, my focus is GTM, marketing, and
-            analytics. I&rsquo;m a senior studying managerial economics with
-            a CS minor at UC Davis, and I like work that combines creative
-            instinct with metrics.
+            On the professional side, my interests center around
+            go-to-market strategy, product marketing, and analytics.
+            I&rsquo;m a senior studying Managerial Economics with a minor in
+            Computer Science at UC Davis, and I&rsquo;m drawn to work that
+            combines creative thinking with data and measurable results.
           </p>
           <p>
-            I love telling stories through powerful visuals. I would say
-            that my style leans minimal and warm: I&rsquo;m a fan of natural
-            light, muted pastel color, clean lines, and giving subjects
-            space to breathe.
+            I love telling interesting stories through powerful visuals. I
+            would describe my style as minimal and warm: natural light, muted
+            pastel colors, clean lines, and plenty of space for subjects to
+            breathe.
           </p>
         </div>
 
         <p className="text-body tracking-body">
-          I also ran a residential pressure-washing business for a few
-          years,{" "}
+          Outside of photography, I also ran a residential pressure-washing
+          business for a few years,{" "}
           <a
             href="https://www.instagram.com/propowerwashes"
             target="_blank"
@@ -78,12 +79,23 @@ export default async function InfoPage() {
           >
             @propowerwashes
           </a>
+          , which taught me a lot about entrepreneurship, sales, and building
+          something from the ground up. You can also check out my music
+          Instagram,{" "}
+          <a
+            href="https://www.instagram.com/jonahkmusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-inherit no-underline ${LINK_HOVER}`}
+          >
+            @jonahkmusic
+          </a>
           .
         </p>
 
         <p className="text-body tracking-body">
-          Always looking for the next project. If something sounds like a
-          fit, let&rsquo;s talk.
+          I&rsquo;m always looking for the next interesting project. If
+          something sounds like a good fit, let&rsquo;s talk!
         </p>
 
         <div className="flex flex-col gap-2">
