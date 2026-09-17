@@ -69,6 +69,41 @@ body {
   opacity: 1;
 }
 
+/* Panel density — see "The panel" in docs/design-brief.md.
+
+   The desktop index is supposed to show every project at once; scrolling
+   inside it is the documented last resort, not the normal state. At the
+   full 20px rhythm the ten rows plus the wordmark, socials, filters and
+   Info footer need a window about 820px tall, which is taller than most
+   laptop browser windows — so the common case was the fallback. These two
+   custom properties drive the panel's vertical rhythm and its index row
+   padding, and tighten in two steps as the window gets shorter, which buys
+   back enough height to fit all ten rows down to a ~680px window. Kept as
+   variables rather than responsive utilities so the rhythm lives in one
+   place; `panel.tsx` reads both through `mt-(--panel-gap)` / `py-(--panel-row-pad)`.
+
+   Viewport height, not width, is deliberately the query here: the panel is
+   full-height and fixed, so its budget is set by how tall the window is and
+   nothing else. */
+:root {
+  --panel-gap: 20px;
+  --panel-row-pad: 8px;
+}
+
+@media (max-height: 900px) {
+  :root {
+    --panel-gap: 14px;
+    --panel-row-pad: 6px;
+  }
+}
+
+@media (max-height: 760px) {
+  :root {
+    --panel-gap: 11px;
+    --panel-row-pad: 4px;
+  }
+}
+
 /* Homepage grid's column count — see "The grid" in docs/design-brief.md.
    Hand-written instead of Tailwind's `lg:columns-2 wide:columns-3` (or
    `min-[1400px]:columns-3`): at a viewport matching both breakpoints,

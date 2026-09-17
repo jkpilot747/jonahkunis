@@ -34,7 +34,7 @@ export function Panel({
         Commercial &amp; personal photography and video
       </p>
 
-      <div className="mt-5 flex flex-col gap-1 font-mono text-metadata tracking-metadata">
+      <div className="mt-(--panel-gap) flex flex-col gap-1 font-mono text-metadata tracking-metadata">
         {SOCIAL_LINKS.map((link) => (
           <a
             key={link.label}
@@ -48,9 +48,9 @@ export function Panel({
         ))}
       </div>
 
-      <div className="mt-5 border-t border-hairline" />
+      <div className="mt-(--panel-gap) border-t border-hairline" />
 
-      <div className="mt-5 flex flex-wrap gap-3">
+      <div className="mt-(--panel-gap) flex flex-wrap gap-3">
         {FILTERS.map((filter) => (
           <button
             key={filter}
@@ -65,13 +65,13 @@ export function Panel({
         ))}
       </div>
 
-      <div className="mt-5 border-t border-hairline" />
+      <div className="mt-(--panel-gap) border-t border-hairline" />
 
-      <ul className="index-list mt-5 flex flex-col lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
+      <ul className="index-list mt-(--panel-gap) flex flex-col lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
         {visibleProjects.map((project, i) => (
           <li
             key={project.slug}
-            className="flex items-baseline gap-3 border-t border-hairline py-2 text-index tracking-index first:border-t-0 first:pt-0"
+            className="flex items-baseline gap-3 border-t border-hairline py-(--panel-row-pad) text-index tracking-index first:border-t-0 first:pt-0"
           >
             <span className="font-mono text-metadata tracking-metadata text-muted">
               {String(i + 1).padStart(2, "0")}
@@ -87,9 +87,9 @@ export function Panel({
         ))}
       </ul>
 
-      <div className="mt-5 border-t border-hairline" />
+      <div className="mt-(--panel-gap) border-t border-hairline" />
 
-      <div className="mt-5 flex gap-3 font-mono text-[16px] tracking-metadata text-ink">
+      <div className="mt-(--panel-gap) flex gap-3 font-mono text-[16px] tracking-metadata text-ink">
         <Link href="/info" onClick={() => setIsMenuOpen(false)} className="text-inherit no-underline">
           Info
         </Link>

@@ -211,9 +211,30 @@ with the grid.
   8. Hairline divider, pinned to the bottom of the panel
   9. `Info` link, sitting on the panel's bottom edge
 - The project index (step 7) is the only flexible region — it grows to fill
-  whatever space is left between the filter row and the footer, and scrolls
-  internally if the list is too long for that space. Everything else in the
-  panel keeps its natural height.
+  whatever space is left between the filter row and the footer. Everything
+  else in the panel keeps its natural height.
+- **Every project must be visible at once on desktop.** The index scrolling
+  internally is a last resort for a very short window, not the normal
+  state — if a visitor has to scroll the panel to see a category, that's a
+  bug. At the full 20px rhythm the ten rows need a window ~818px tall,
+  which is taller than most laptop browser windows, so the fallback *was*
+  the common case. Fixed with two custom properties in `app/globals.css`,
+  `--panel-gap` (the vertical rhythm between panel sections) and
+  `--panel-row-pad` (index row padding), which step down at two
+  `max-height` breakpoints:
+
+  | window height | gap / row pad | fits ten rows from |
+  | --- | --- | --- |
+  | above 900px | 20px / 8px | 818px |
+  | 760–900px | 14px / 6px | 738px |
+  | 760px and under | 11px / 4px | 679px |
+
+  Each tier's floor sits below its own breakpoint, so there's no height
+  where the list overflows until the window is under ~679px. The query is
+  on viewport *height*, deliberately — the panel is fixed and full-height,
+  so its budget is set by how tall the window is and nothing else. Adding
+  an eleventh project costs ~33–41px depending on tier; re-check these
+  numbers if the index grows.
 
 ### The filter row
 
@@ -555,11 +576,16 @@ map from that key to a short label. A plain string renders as text; an
 
 The project page renders the label above the run of images that share a
 group — no divider, just a short bold line before that section's grid
-starts. So images sharing a group must be **contiguous** in the array —
-`npm run images` sorts by filename, so name files so each shoot's photos
-cluster together alphabetically (e.g. a per-shoot filename prefix). `group`
-is entirely optional and preserved across `npm run images` reruns the same
-way `caption` is; entries that don't set it render exactly as before this
+starts. So images sharing a group must be **contiguous** in the array.
+
+Note that `npm run images` does *not* sort by filename (this doc said it
+did, and was wrong). It preserves the existing `projects.json` order for
+every image already there, and appends only files new to `raw/`, ordered
+by EXIF capture date, at the end — so a filename prefix does not cluster a
+new shoot on its own. Adding photos to a grouped entry means either
+reordering afterwards with `npm run order` or hand-editing the array so the
+run stays contiguous. `group` is entirely optional and preserved across
+`npm run images` reruns the same way `caption` is; entries that don't set it render exactly as before this
 feature existed — one continuous grid, no section breaks.
 
 There is no `feature` field and no `images[].wide` field — see "The grid"

@@ -1235,3 +1235,95 @@ exactly; fixed by re-adding all three `SPOTIFY_*` vars as **Config** type
 (viewable, so they can be checked) and redeploying. The ticker now
 defaults to **Top this month**, with that option listed first. Account is
 on Vercel Pro with a $20 spend cap.
+
+---
+
+## Status as of 2026-09-17
+
+**Content sync.** Ran `npm run images` after a full scan of every `raw/`
+folder against `content/projects.json` — three folders had drifted, the
+other eight were clean.
+- Portraits & Headshots: +4 (`wornick-4/5/8/12`), now 33 images. They
+  append at the *end* in capture-date order, which is the pipeline's
+  documented behavior for new files — not filename order (see the
+  correction below).
+- Events & Fundraisers: `wornickprom-30` removed from `raw/`, so the
+  pipeline dropped its `projects.json` entry; now 35.
+- **Gotcha worth knowing:** the pipeline drops a removed image's entry but
+  leaves the already-resized file behind in `public/work/`, which is a
+  committed directory. Deleted `public/work/events-fundraisers/wornickprom-30.jpg`
+  by hand. Any future removal needs the same cleanup or the repo slowly
+  accumulates orphans that nothing references.
+- `raw/jonahheadshots/` is intentionally not a project slug — it feeds the
+  `/info` headshot grid and `npm run images` skips it with a warning.
+
+**Smarter Window regridded** (boss feedback: "photos are too large and
+zoomed in, artifacts visible; reduce to one image or a smaller collage,
+3x3 or 2x5").
+- The cause was `layout: "single-column"` (set 2026-09-07): ten
+  near-identical frames of one windowsill, each stretched to the full
+  ~1030px content column. At that size the q75 compression in the
+  blown-out window backgrounds is visible, and the set reads as ten
+  mediocre photos rather than one install sequence.
+- New `layout: "grid"` value renders the stills as a small uniform contact
+  sheet. Went with 2x5 over 3x3 because it keeps all ten frames instead of
+  forcing a cut to nine. The demo video still breaks out full-width below.
+- It has to be a real CSS grid, not the site's `columns` masonry: column
+  packing reorders a sequence top-to-bottom per column, which is the exact
+  problem `single-column` was working around. A grid preserves source
+  order left-to-right.
+- **Order reversed** at the user's request: now 13→4, opening on the bare
+  window handle and ending on the planted box, so it reads
+  install-then-result. Note this is also the EXIF capture-date order, so
+  unlike the old 04→13 hand-set order (see 2026-09-02 above, which warned
+  a rerun would undo it) this one is stable against the pipeline anyway.
+
+**Bug shipped and fixed the same session — read this before laying
+anything out inside `main`.** The first version of that grid used viewport
+breakpoints (`lg:grid-cols-5`). That is the wrong measure inside `main`:
+the content column is the viewport minus the panel's fixed 480px, and the
+panel appears at exactly `lg` — the same breakpoint the fifth column was
+on. So at 1024px the column dropped to ~536px at the precise moment a
+fifth column appeared, crushing tiles to ~100px; going from a 768px window
+to a 1024px one made the photos *smaller*. It only looked right at the one
+width it was checked at (1512px).
+- Fixed with a container query, which measures the column the grid is
+  actually in. Two counts for ten frames — 5 (2x5) and 2 (5x2); three or
+  four leave a ragged last row — switching at a 780px container, which is
+  what a 1280px laptop leaves, so the 2x5 survives on a laptop and not
+  only on a large monitor. Both states are max-width-capped, so tiles stay
+  between ~150px and ~276px from 390px up, with no horizontal overflow.
+- **Rule: anything laid out inside `main` sizes off a container query, not
+  a viewport breakpoint.** Viewport breakpoints lie about available width
+  on this site, and they lie worst at exactly `lg`.
+- Lesson for checking work: one screenshot at the developer's own window
+  size is not a responsive check. Measure across widths.
+
+**Panel fits every category without scrolling** (user: "I shouldn't need
+to scroll in the menu on desktop, it can fit every category"). The index
+was overflowing by as little as 9px on an 808px-tall window. Fixed with
+two height-tiered custom properties rather than by cutting anything — full
+table and the reasoning in `docs/design-brief.md`, "The panel". All ten
+rows now fit down to a ~679px window.
+
+**Doc correction.** `docs/design-brief.md` claimed `npm run images` sorts
+by filename, and advised naming files with a per-shoot prefix so grouped
+entries stay contiguous. That is wrong and has been for a while: since the
+2026-09-13 ordering fix the script preserves existing order and appends
+new files by capture date. A filename prefix does not cluster a new shoot
+on its own — use `npm run order` or hand-edit after adding to a grouped
+entry. Corrected in the Content model section.
+
+**Known stale, not touched:** `README.md` and the Architecture section of
+`CLAUDE.md` are both still the `create-next-app` boilerplate describing
+this as "just the stripped-down starter." Neither has been true for a long
+time. Worth a rewrite, but it is its own task.
+
+**Open:**
+- Between ~1024px and ~1280px wide, Smarter Window shows 5 rows of 2
+  rather than the 2x5 contact sheet. Tiles are larger there (~276px) but
+  still far from the full-column size the boss flagged. Drop the 780px
+  threshold if the 2x5 should hold down into that range too; the cost is
+  ~120px tiles on a narrow window.
+- Boss hasn't seen the regridded page yet — worth confirming 2x5 at ~200px
+  is what he meant before treating it as settled.
