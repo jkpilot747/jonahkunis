@@ -573,9 +573,26 @@ project's `columns-2` masonry. Two values:
   sequence reads top-to-bottom instead of being split across two columns
   and reordered by the browser's column-packing. Nothing sets this today.
 - `"grid"` lays the stills out as a real CSS grid of small uniform tiles —
-  5 across on desktop, 3 on tablet, 2 on phone. Source order reads
+  5 across when there is room, otherwise 2. Source order reads
   left-to-right, which a `columns` masonry can't do. Only Smarter Window
   sets this.
+
+  **This grid sizes off a container query, not a viewport breakpoint, and
+  it has to.** `main` is the viewport minus the panel's fixed 480px, and
+  the panel appears at exactly `lg` — so a viewport breakpoint measures
+  the wrong box. A first pass used `lg:grid-cols-5` and broke: at 1024px
+  the content column drops to ~536px at the same moment the fifth column
+  appears, crushing tiles to ~100px, so widening the window made the
+  photos *smaller*. `@container` measures the column the grid actually
+  sits in. Anything else laid out inside `main` should do the same.
+
+  Two counts only, since there are ten frames: 5 (2x5) and 2 (5x2) —
+  three or four leave a ragged final row. The switch is at a 780px
+  container, which is what a 1280px laptop leaves, so the intended 2x5
+  survives on a laptop instead of only on a large monitor. Both states
+  are max-width-capped (1100px / 560px), so tiles stay between ~150px
+  and ~276px and the grid stops growing rather than filling a wide
+  monitor — small frames are the entire point of this layout.
 
 Omit the field entirely for the normal two-column behavior — there's no
 `"two-column"` value to set explicitly.

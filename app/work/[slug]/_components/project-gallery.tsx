@@ -174,10 +174,27 @@ export function ProjectGallery({
               // these tiles are a left-to-right sequence. Uniform small
               // tiles also mean no single frame is scaled up past the point
               // where its compression artifacts show.
-              <div
-                key={chunkIndex}
-                className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5"
-              >
+              //
+              // Container queries, not viewport breakpoints. This grid lives
+              // inside `main`, which is the viewport minus the panel's fixed
+              // 480px — and the panel appears at exactly `lg`, so a viewport
+              // breakpoint measures the wrong box and the two fight: at
+              // 1024px the content column *drops* to ~536px at the same
+              // moment a `lg:grid-cols-5` would kick in, crushing tiles to
+              // ~100px and making the photos smaller as the window gets
+              // wider. `@container` measures the column the grid is actually
+              // in, so the count only goes up when there is real room.
+              //
+              // Only two counts, because there are ten frames: 5 (2x5) and
+              // 2 (5x2). Three or four would leave a ragged final row. The
+              // 780px threshold is what a 1280px laptop leaves for the
+              // content column, so the intended 2x5 survives there rather
+              // than only on a large monitor. The max-widths cap tile size
+              // in each state — the whole point of this layout is frames
+              // small enough not to show artifacts, so the grid stops
+              // growing rather than filling a wide monitor.
+              <div key={chunkIndex} className="@container mb-4">
+                <div className="grid max-w-[560px] grid-cols-2 gap-2 @min-[780px]:max-w-[1100px] @min-[780px]:grid-cols-5">
                 {chunk.items.map(({ image, index }) => (
                   <GalleryTile
                     key={image.src}
@@ -188,6 +205,7 @@ export function ProjectGallery({
                     grid
                   />
                 ))}
+                </div>
               </div>
             ) : (
               <div
@@ -349,7 +367,9 @@ function GalleryTile({
           blurDataURL={image.blur}
           sizes={
             grid
-              ? "(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+              ? // Both grid states are max-width-capped, so these are the
+                // real rendered widths rather than a viewport fraction.
+                "(min-width: 1024px) 220px, 50vw"
               : wide
                 ? "100vw"
                 : "(min-width: 1024px) 50vw, 100vw"
