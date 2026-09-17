@@ -168,6 +168,27 @@ export function ProjectGallery({
                 projectTitle={projectTitle}
                 wide
               />
+            ) : layout === "grid" ? (
+              // A real CSS grid rather than the `columns` masonry: column
+              // packing reorders a sequence top-to-bottom per column, and
+              // these tiles are a left-to-right sequence. Uniform small
+              // tiles also mean no single frame is scaled up past the point
+              // where its compression artifacts show.
+              <div
+                key={chunkIndex}
+                className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5"
+              >
+                {chunk.items.map(({ image, index }) => (
+                  <GalleryTile
+                    key={image.src}
+                    image={image}
+                    onClick={() => setOpenIndex(index)}
+                    projectSlug={projectSlug}
+                    projectTitle={projectTitle}
+                    grid
+                  />
+                ))}
+              </div>
             ) : (
               <div
                 key={chunkIndex}
@@ -284,25 +305,34 @@ export function ProjectGallery({
 // A single grid tile — a still or a video's poster frame, with its optional
 // caption printed above it. `wide` renders it as its own full-width block
 // instead of inside the two-column masonry (used for a video breaking out
-// of `chunkByVideo` above) — same tile markup either way.
+// of `chunkByVideo` above) — same tile markup either way. `grid` is the
+// `layout: "grid"` tile: it sits in a CSS grid cell, so it drops the
+// masonry's bottom margin and break-inside guard (the grid's own `gap`
+// handles spacing) and asks for a much smaller source width.
 function GalleryTile({
   image,
   onClick,
   projectSlug,
   projectTitle,
   wide = false,
+  grid = false,
 }: {
   image: ProjectImage;
   onClick: () => void;
   projectSlug: string;
   projectTitle: string;
   wide?: boolean;
+  grid?: boolean;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`mb-4 block w-full text-left ${wide ? "" : "break-inside-avoid"}`}
+      className={
+        grid
+          ? "block w-full text-left"
+          : `mb-4 block w-full text-left ${wide ? "" : "break-inside-avoid"}`
+      }
     >
       {image.caption && (
         <p className="mb-3 text-index font-bold tracking-index text-ink">
@@ -317,7 +347,13 @@ function GalleryTile({
           height={image.h}
           placeholder="blur"
           blurDataURL={image.blur}
-          sizes={wide ? "100vw" : "(min-width: 1024px) 50vw, 100vw"}
+          sizes={
+            grid
+              ? "(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+              : wide
+                ? "100vw"
+                : "(min-width: 1024px) 50vw, 100vw"
+          }
           quality={75}
           className="h-auto w-full"
         />

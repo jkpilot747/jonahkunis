@@ -566,13 +566,30 @@ There is no `feature` field and no `images[].wide` field — see "The grid"
 under Layout above for why (both grids are masonry now, rendering each
 image's real aspect ratio; neither field would have anything to do).
 
-**Layout override.** A top-level `"layout": "single-column"` on a project
-drops that project's `columns-2` masonry to a single column, so a
-strictly-ordered sequence reads top-to-bottom instead of being split
-across two columns and reordered by the browser's column-packing. Only
-Smarter Window sets this today (a step-by-step install sequence, numbered
-in the images themselves). Omit the field entirely for the normal
-two-column behavior — there's no `"two-column"` value to set explicitly.
+**Layout override.** A top-level `"layout"` on a project replaces that
+project's `columns-2` masonry. Two values:
+
+- `"single-column"` stacks every image full-width, so a strictly-ordered
+  sequence reads top-to-bottom instead of being split across two columns
+  and reordered by the browser's column-packing. Nothing sets this today.
+- `"grid"` lays the stills out as a real CSS grid of small uniform tiles —
+  5 across on desktop, 3 on tablet, 2 on phone. Source order reads
+  left-to-right, which a `columns` masonry can't do. Only Smarter Window
+  sets this.
+
+Omit the field entirely for the normal two-column behavior — there's no
+`"two-column"` value to set explicitly.
+
+Smarter Window used to be `single-column`. Ten near-identical frames of one
+windowsill, each blown up to the full ~1030px content column, read as ten
+mediocre photos rather than one install sequence, and at that scale the JPEG
+artifacts in the blown-out window backgrounds were visible. Switched to
+`grid`, which renders the same ten frames as a 2x5 contact sheet: small
+enough that no artifact shows, and the sequence stays legible because a CSS
+grid preserves source order left-to-right. The sequence also runs in reverse
+now — it opens on the bare window handle and ends with the planted box, so
+it reads as install-then-result. The demo video still breaks out full-width
+below the grid.
 
 Images are never referenced by hardcoded path in a component. Every image on the
 site comes from this file.

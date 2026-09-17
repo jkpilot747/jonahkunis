@@ -36,11 +36,15 @@ export interface Project {
   // Only needed for entries whose images span multiple distinct shoots
   // (e.g. Events & Fundraisers).
   groups?: Record<string, string | { text: string; href: string }>;
-  // Overrides the default two-column masonry with a single column, so a
-  // strictly-ordered sequence (e.g. numbered install steps) reads
-  // top-to-bottom instead of being split across columns. Only Smarter
-  // Window sets this today.
-  layout?: "single-column";
+  // Overrides the default two-column masonry. `single-column` stacks every
+  // image full-width, so a strictly-ordered sequence reads top-to-bottom
+  // instead of being split across columns. `grid` lays the stills out as a
+  // real CSS grid of small, uniform tiles — up to five across — which keeps
+  // source order reading left-to-right while rendering each frame small
+  // enough that a soft or artifact-y frame isn't blown up across the whole
+  // content column. Smarter Window (a ten-frame install sequence of one
+  // windowsill, shot at one focal length) is the only entry using `grid`.
+  layout?: "single-column" | "grid";
   // Booking section rendered after the image stack. Only Graduation
   // sets this — see "This page ends with booking" in docs/content-plan.md.
   booking?: ProjectBooking;
