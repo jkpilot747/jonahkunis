@@ -76,7 +76,7 @@ function DescriptionText({ text }: { text: string }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-inherit transition-opacity duration-150 hover:opacity-60"
+        className="text-inherit underline decoration-1 underline-offset-4 transition-opacity duration-150 hover:opacity-60"
       >
         {linkText}
       </a>

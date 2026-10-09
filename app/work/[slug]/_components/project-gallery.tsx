@@ -357,7 +357,18 @@ function GalleryTile({
           {image.caption}
         </p>
       )}
-      <div className="relative overflow-hidden">
+      <div
+        className="relative overflow-hidden"
+        // A full-width clip taller than 16:9 (a 4:3 or vertical video) can
+        // run past the bottom of the screen, so cap a wide tile at 85% of
+        // the viewport height by narrowing it to the matching width. A 16:9
+        // clip on a normal window never hits the cap.
+        style={
+          wide
+            ? { width: `min(100%, calc(85vh * ${image.w} / ${image.h}))` }
+            : undefined
+        }
+      >
         <Image
           src={`/work/${projectSlug}/${image.src}`}
           alt={image.caption || projectTitle}

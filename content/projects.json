@@ -6,7 +6,7 @@
     "category": "projects",
     "client": "Equal Eats",
     "role": "",
-    "description": "Produced a 46-product photography project for [Equal Eats](https://equaleats.com/) alongside their product marketing team, end to end. Scoped the shoot, built the schedule, planned locations, and executed both product and lifestyle setups. Delivered assets for e-commerce, marketing, and social.",
+    "description": "Produced a 46-product photography project for [Equal Eats](https://equaleats.com/) alongside their product marketing team, end to end. Scoped the shoot, built the schedule, planned locations, and executed both product and lifestyle setups across 3 consecutive shoots. Delivered 100+ finished assets for e-commerce, marketing, and social.",
     "cover": {
       "src": "equaleatsfinals-099.jpg"
     },
@@ -55,11 +55,22 @@
     "category": "projects",
     "client": "Smarter Window",
     "role": "",
-    "description": "Working directly with the founder of an early-stage startup building smart-home hardware for casement windows. Content planning, photo and video production, and go-to-market strategy, from scoping through execution.",
+    "description": "Worked directly with the founder of an early-stage startup building smart-home hardware for casement windows. Content planning, photo and video production, and go-to-market strategy, from scoping through execution. Two founder Reddit posts built on my launch strategy and product photography drove 60% of the company's pre-launch reservations. Also shot and edited a 9-minute founder documentary and 3 launch videos delivered in 48 hours. [Watch the maker journey on YouTube](https://www.youtube.com/watch?v=rcxrjxHFmbk).",
     "cover": {
       "src": "smarterwindowproduct-09.jpg"
     },
     "images": [
+      {
+        "src": "democlip(notext1)_25mbps_1080_265.jpg",
+        "w": 1920,
+        "h": 1080,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAB/8QAJhAAAgEDAgQHAAAAAAAAAAAAAQIDAAQREhMhMWGBBSJCUXGRwf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQASIf/aAAwDAQACEQMRAD8AYJ7WQKw8RWT3HEEjvRpZbZJGEzq7qcny6h2NECREYaCJuunB+xWPZLISYW2gfTzA/agYyByXFHa3YOyraRzwCMdDVQIbW4hMm3dtGxBJCjgeHzVVakC//9k=",
+        "caption": "Product demo",
+        "video": {
+          "src": "/work/smarter-window-2026/democlip(notext1)_25mbps_1080_265.mp4",
+          "duration": 8
+        }
+      },
       {
         "src": "smarterwindowproduct-13.jpg",
         "w": 2400,
@@ -129,17 +140,6 @@
         "h": 1801,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUGBP/EACYQAAICAAQEBwAAAAAAAAAAAAECAAMEBREhEjE0cRMUFiIzkrH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAwL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIxERJR/9oADAMBAAIRAxEAPwCj55tCXPCF34jHqCuhAXurI5cpMx+X40YN2c1uo0JVBud5G8C3T4LPrMJL6Hlpmiz7GW25V7m1V3XaJwW5XjXwNRssqVCAVBXcbRB8TKwnw0l/RW9pFsiJGtKRhTxnRU9h+RETd6EYf//Z",
         "caption": ""
-      },
-      {
-        "src": "democlip(notext1)_25mbps_1080_265.jpg",
-        "w": 1920,
-        "h": 1080,
-        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAB/8QAJhAAAgEDAgQHAAAAAAAAAAAAAQIDAAQREhMhMWGBBSJCUXGRwf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQASIf/aAAwDAQACEQMRAD8AYJ7WQKw8RWT3HEEjvRpZbZJGEzq7qcny6h2NECREYaCJuunB+xWPZLISYW2gfTzA/agYyByXFHa3YOyraRzwCMdDVQIbW4hMm3dtGxBJCjgeHzVVakC//9k=",
-        "caption": "Product demo",
-        "video": {
-          "src": "/work/smarter-window-2026/democlip(notext1)_25mbps_1080_265.mp4",
-          "duration": 8
-        }
       }
     ],
     "layout": "grid"
@@ -151,7 +151,7 @@
     "category": "projects",
     "client": "Bay Home Consignment",
     "role": "",
-    "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Also shot the building itself, on the ground and from the air, for marketing use.",
+    "description": "Manage product photography, online inventory, and e-commerce sales for a furniture and high-end audio consignment business. Sold $45K+ across 50+ listings, including a $28K high-end audio consignment cleared in three months, with 96% of orders from organic listings. Grew Google Business Profile views 46% year over year to 52K. Also shot the building itself, on the ground and from the air, for marketing use.",
     "cover": {
       "src": "wassily.jpg"
     },
@@ -1638,16 +1638,31 @@
         "h": 2400,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAgABgDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAIDBAUGB//EACUQAAIABQQCAgMAAAAAAAAAAAECAAMEERIFEzFBIVEGIhWBsf/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAgP/xAAZEQEAAwEBAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/ANLUalS09PvmarKfC4m9z6ivX5NSYEujhgL4iMrXTziglECWB17iNJnEuNw8+xGO+jXQNO1Sn1ENs5B1F2VuoIw9HXz9OrNyQesWt5vBDq08NMqB9VEuZLPTciFrohBLpP28jw6A2hP5K4JZpn6gNWwe2TE8nEdRz2wOzdKlH7PUozDm62/kERHnTA15jBkv4FoIomwf/9k=",
         "caption": ""
-      },
+      }
+    ]
+  },
+  {
+    "slug": "video",
+    "title": "Video",
+    "year": null,
+    "category": "personal",
+    "client": "",
+    "role": "",
+    "description": "",
+    "cover": {
+      "src": "tokyoclips_igopt00000000.jpg"
+    },
+    "images": [
       {
         "src": "tokyoclips_igopt00000000.jpg",
         "w": 1920,
         "h": 1080,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EACIQAAICAgEDBQAAAAAAAAAAAAECAxEABBITIVExM1KRsf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGREAAwADAAAAAAAAAAAAAAAAAAERITFh/9oADAMBAAIRAxEAPwBSPSRgphWLv8xjr6EupMkY6BMq8+SrQHn1yPHuyySCNKRbrtld953EZoDgvEADsBhtwlVZEVmVtimhjY3ZKmq/cM1nljm96CNz5K0fsYZc4Fp//9k=",
         "caption": "",
+        "group": "postcards-from-japan",
         "reel": "postcards-from-japan",
         "video": {
-          "src": "/work/landscape-travel/tokyoclips_igopt00000000.mp4",
+          "src": "/work/video/tokyoclips_igopt00000000.mp4",
           "duration": 8
         }
       },
@@ -1657,9 +1672,10 @@
         "h": 1080,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAB/8QAIBAAAgICAgIDAAAAAAAAAAAAAQIDEQAEBSESMUFhwf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAA//EABYRAQEBAAAAAAAAAAAAAAAAAAABIv/aAAwDAQACEQMRAD8AF45GikDxlg4IIsWMT5Tfm3FUSoFAHwD+4Xo7JTxHdE9d4tJtRLruBDZr23eZ6EBObsX6yzNl1ayFq/vLFE//2Q==",
         "caption": "",
+        "group": "postcards-from-japan",
         "reel": "postcards-from-japan",
         "video": {
-          "src": "/work/landscape-travel/tokyoclips_igopt00142296.mp4",
+          "src": "/work/video/tokyoclips_igopt00142296.mp4",
           "duration": 5
         }
       },
@@ -1669,9 +1685,10 @@
         "h": 1080,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMGBf/EACIQAAICAgEDBQAAAAAAAAAAAAECAAMEETESEyEiMkFxkf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCcoWqwaXHvsbn0xtlDkBUw8hCfllPmUWPYE9o19R75ZUct+wyjmVu6UAIO9HxxCbeV2nYuax1E73CSQf/Z",
         "caption": "",
+        "group": "postcards-from-japan",
         "reel": "postcards-from-japan",
         "video": {
-          "src": "/work/landscape-travel/tokyoclips_igopt00142800.mp4",
+          "src": "/work/video/tokyoclips_igopt00142800.mp4",
           "duration": 5
         }
       },
@@ -1681,9 +1698,10 @@
         "h": 1080,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAC/8QAIBAAAgIBAwUAAAAAAAAAAAAAAQIAAxETIcExQUJhYv/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAECEv/aAAwDAQACEQMRAD8AHosAe3fz4E2bVF2fjmDoSqWbnPqY1GJ6mU2ngxbapVgD2MoQ1jFBkyhNjFX/2Q==",
         "caption": "",
+        "group": "postcards-from-japan",
         "reel": "postcards-from-japan",
         "video": {
-          "src": "/work/landscape-travel/tokyoclips_igopt00147906.mp4",
+          "src": "/work/video/tokyoclips_igopt00147906.mp4",
           "duration": 6
         }
       },
@@ -1693,9 +1711,10 @@
         "h": 1080,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EACIQAAIBAwQCAwAAAAAAAAAAAAECAwAEERITITIxQVFhgf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//EABgRAAMBAQAAAAAAAAAAAAAAAAABERIh/9oADAMBAAIRAxEAPwDJRWiOl0RfeCKugilkUhNC5Gfyk26ggtONTcdeKbcywQwkhJcM/XcPxQwmZ8hDfjbk0sc89l8D6oqS5uhKuMMCPAzkUVcwSSP/2Q==",
         "caption": "",
+        "group": "postcards-from-japan",
         "reel": "postcards-from-japan",
         "video": {
-          "src": "/work/landscape-travel/tokyoclips_igopt00150304.mp4",
+          "src": "/work/video/tokyoclips_igopt00150304.mp4",
           "duration": 7
         }
       },
@@ -1705,12 +1724,29 @@
         "h": 1080,
         "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAiEAACAgIBAwUAAAAAAAAAAAABAgARAxIEBTFBExQhUYH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABoRAQEAAgMAAAAAAAAAAAAAAAEAAhEyQbH/2gAMAwEAAhEDEQA/AGcTCWVh2sSxFVcbEMGUE2QbAnF9yUUOpIKIa+prhcg5enZkK1uS1jv+xaQo2x6MWOyVY+a8wi8mLcepjADedjdwlBicjcq9eX//2Q==",
         "caption": "",
+        "group": "postcards-from-japan",
         "reel": "postcards-from-japan",
         "video": {
-          "src": "/work/landscape-travel/tokyoclips_igopt00152364.mp4",
+          "src": "/work/video/tokyoclips_igopt00152364.mp4",
           "duration": 7
         }
+      },
+      {
+        "src": "eastern-sierra-pt1.jpg",
+        "w": 1080,
+        "h": 808,
+        "blur": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQADAAAAAAAAAAAAAAAAAAQCAwX/xAAlEAACAgEBBwUAAAAAAAAAAAABAgADIQQREhMxMkFRInGBwdH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREh/9oADAMBAAIRAxEAPwDmtpTtKV27oRN+xyOhf09pCNO1jF0rx4Jz8nzKG1rtXZRgJdbxGxkgch7TbW6qvOZ43tqCzTk9dRESx7l8xCJLQBqFAGz0/cz7RECe4kJgnnERKlf/2Q==",
+        "caption": "",
+        "video": {
+          "src": "/work/video/eastern-sierra-pt1.mp4",
+          "duration": 31
+        },
+        "group": "eastern-sierra"
       }
-    ]
+    ],
+    "groups": {
+      "postcards-from-japan": "Postcards from Japan",
+      "eastern-sierra": "Eastern Sierra, Pt. 1"
+    }
   }
 ]

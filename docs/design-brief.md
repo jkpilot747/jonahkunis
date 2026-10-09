@@ -413,7 +413,10 @@ Restraint is the point. Four behaviors, nothing else.
    `/info`'s Contact links — fades to 60% opacity
    (`transition-opacity duration-150 hover:opacity-60`). Same opacity-only
    rule as everything else on this site: never a color change, never an
-   underline. Every link that leaves the site (Contact, the panel's social
+   underline on hover. One exception (2026-10-09): a description's inline
+   `[text](url)` link carries a static thin underline, because it sits in
+   body prose in the same color and was otherwise invisible as a link
+   (user flagged the Smarter Window maker-journey link). Every link that leaves the site (Contact, the panel's social
    links, Graduation's "Book a session" CTA, a description's inline
    `[text](url)` link, a grouped-entry label link) opens in a new tab
    (`target="_blank" rel="noopener noreferrer"`) — internal `Link`

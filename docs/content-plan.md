@@ -47,7 +47,7 @@ next to a lifestyle frame). If you kept any planning artifacts (a shot list, a
 schedule), one screenshot of that is worth more to a recruiter than a 13th photo.
 
 ### 2. Smarter Window
-`category: projects` · Jun 2026–present · Contract
+`category: projects` · Jun–Sep 2026 · Contract (ended)
 
 Most current work and the most senior-sounding. Content strategy plus production
 plus GTM for an early-stage hardware startup.
@@ -1327,3 +1327,45 @@ time. Worth a rewrite, but it is its own task.
   ~120px tiles on a narrow window.
 - Boss hasn't seen the regridded page yet — worth confirming 2x5 at ~200px
   is what he meant before treating it as settled.
+
+---
+
+## Status as of 2026-10-09
+
+**Results added to the three Projects entries** from Jonah's resume
+(`~/Desktop/Resumes/01_Templates/JonahKunis_Resume_2026.pdf` is the source;
+its notes file had a stale "15-minute" documentary length, the PDF's
+9-minute is right). Equal Eats: 3 consecutive shoots, 100+ assets. Smarter
+Window: 60% of pre-launch reservations, 9-minute founder documentary, 3
+launch videos in 48 hours, plus a link to the maker journey on YouTube, and
+now past tense (the engagement ended Sep 2026). Bay Home: $45K+ sold, $28K
+consignment, 96% organic, GBP views +46% to 52K. The Bay Home tracker line
+stays out (removed by request on 2026-09-07).
+
+**Smarter Window demo clip moved to the top** of its images, above the
+2x5 grid, so it autoplays on load instead of sitting at the bottom of the
+page where most visitors never scrolled.
+
+**New Personal entry "Video"** (`slug: video`), last in the index. A
+grouped entry: `postcards-from-japan` (the 6-clip reel, moved out of
+Landscape & Travel, which is photo-only again) and `eastern-sierra`
+("Eastern Sierra, Pt. 1", a 30s clip). Tried and rejected along the way, so
+they don't get re-proposed: a VIDEO filter tab (both as "any entry with a
+clip" and as its own category) and Postcards as its own standalone entry.
+
+**Eastern Sierra crop.** The export was a 1080x1920 frame with a 4:3 image
+letterboxed inside. Cropped to 1080x808 with ffmpeg (`crop=1080:808:0:556`,
+crf 12) into `raw/video/eastern-sierra-pt1.mov`; the untouched export is in
+`raw/video/_excluded/`. **Gotcha:** re-encoding a clip under the same
+filename served the old poster from Next's image cache (and Vercel caches
+by URL too), so the page sized it as the old tall frame. Renaming the file
+is the fix. Any re-export of an existing clip or photo should get a new
+filename.
+
+**Full-width video tiles cap at 85vh** (`GalleryTile` in
+`project-gallery.tsx`): a 4:3 or vertical clip narrows to fit the screen
+instead of running past it. 16:9 clips on normal windows never hit the cap.
+
+**Description links are underlined** (see Interaction, item 4, in
+`docs/design-brief.md`).
+
