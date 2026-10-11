@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Panel } from "@/app/_components/panel";
 import { getRecentlyPlayed, getTopTracks } from "@/lib/spotify";
 import { SpotifyTicker } from "./_components/spotify-ticker";
@@ -46,57 +47,76 @@ export default async function InfoPage() {
         </div>
 
         <div className="flex flex-col gap-4 text-body tracking-body">
+          <p>Hi, I&rsquo;m Jonah.</p>
           <p>
-            Hi, I&rsquo;m Jonah! I&rsquo;m a photographer and videographer
-            based in the Bay Area. I first picked up a camera at 12 years
-            old, when I got my hands on a gently used Nikon D5000. When
-            I&rsquo;m not taking photos or filming, I&rsquo;m usually making
-            music, climbing, studying, or building a business.
+            I&rsquo;m a photographer and videographer based in the Bay Area, and
+            a senior camera operator for the UC Davis Department of Engineering.
+            My commercial work spans real estate, solar, nonprofits, and brands,
+            along with portraits and travel.
           </p>
           <p>
-            On the professional side, my interests center around
-            go-to-market strategy, product marketing, and analytics.
-            I&rsquo;m a senior studying Managerial Economics with a minor in
-            Computer Science at UC Davis, and I&rsquo;m drawn to work that
-            combines creative thinking with data and measurable results.
+            Photography started for me at 12, after &ldquo;borrowing&rdquo; my
+            mom&rsquo;s old Nikon D5000. My style is minimal and warm, with
+            natural light, muted pastels, and room for subjects to breathe.
+            Landscapes and people are what I enjoy shooting most.
           </p>
           <p>
-            I love telling interesting stories through powerful visuals. I
-            would describe my style as minimal and warm: natural light, muted
-            pastel colors, clean lines, and plenty of space for subjects to
-            breathe.
+            In summer 2026, I worked on go-to-market and content for{" "}
+            <Link
+              href="/work/smarter-window-2026"
+              className={`text-inherit no-underline ${LINK_HOVER}`}
+            >
+              Smarter Window
+            </Link>
+            , a smart-home tech startup. Two founder Reddit posts built on my
+            strategy drove 60% of their pre-launch reservations. On the video
+            side of things, I shot and edited their founder documentary and
+            launch demos.
+          </p>
+          <p>
+            I&rsquo;m graduating from UC Davis in 2027 with a degree in
+            Managerial Economics and a minor in CS, and I want to work in
+            go-to-market strategy. My pressure-washing business,{" "}
+            <a
+              href="https://www.instagram.com/propowerwashes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-inherit no-underline ${LINK_HOVER}`}
+            >
+              @propowerwashes
+            </a>
+            , did 60 jobs and $20,000 over two summers, with about 95% of
+            clients coming from Nextdoor with zero ad spend.
+          </p>
+          <p>
+            Outside of work, drums have been a part of my life since I was 14
+            (after some years of classical piano), along with climbing, skiing,
+            working out, and a lot of espresso. My music Instagram is{" "}
+            <a
+              href="https://www.instagram.com/jonahkmusic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-inherit no-underline ${LINK_HOVER}`}
+            >
+              @jonahkmusic
+            </a>
+            .
+          </p>
+          <p>
+            I&rsquo;m always open to freelance shoots (happy to travel) and
+            looking for full-time marketing roles in the Bay Area. Send me an
+            email at{" "}
+            <a
+              href="mailto:jonahkunis@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-inherit no-underline ${LINK_HOVER}`}
+            >
+              jonahkunis@gmail.com
+            </a>
+            .
           </p>
         </div>
-
-        <p className="text-body tracking-body">
-          Outside of photography, I also ran a residential pressure-washing
-          business for a few years,{" "}
-          <a
-            href="https://www.instagram.com/propowerwashes"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-inherit no-underline ${LINK_HOVER}`}
-          >
-            @propowerwashes
-          </a>
-          , which taught me a lot about entrepreneurship, sales, and building
-          something from the ground up. You can also check out my music
-          Instagram,{" "}
-          <a
-            href="https://www.instagram.com/jonahkmusic"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-inherit no-underline ${LINK_HOVER}`}
-          >
-            @jonahkmusic
-          </a>
-          .
-        </p>
-
-        <p className="text-body tracking-body">
-          I&rsquo;m always looking for the next interesting project. If
-          something sounds like a good fit, let&rsquo;s talk!
-        </p>
 
         <div className="flex flex-col gap-2">
           <h2 className="text-title font-bold tracking-title">Contact</h2>
@@ -129,14 +149,10 @@ export default async function InfoPage() {
         <div className="flex flex-col gap-2">
           <h2 className="text-title font-bold tracking-title">Gear</h2>
           <p className="text-body tracking-body">
-            Sony A7V, FE 28-70mm f/2 GM, DJI Air 2S.
+            Sony A7V, FE 28-70mm f/2 GM, DJI Air 2S. FAA Part 107 licensed for
+            aerial.
           </p>
         </div>
-
-        <p className="text-body tracking-body">
-          Based in the East Bay, available for work across the Bay Area and
-          open to travel. FAA Part 107 licensed for aerial.
-        </p>
 
         <div className="flex flex-col gap-2">
           <h2 className="text-title font-bold tracking-title">Recognition</h2>
