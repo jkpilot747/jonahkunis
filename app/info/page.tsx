@@ -47,51 +47,86 @@ export default async function InfoPage() {
         </div>
 
         <div className="flex flex-col gap-4 text-body tracking-body">
-          <p>Hi, I&rsquo;m Jonah.</p>
           <p>
-            I&rsquo;m a photographer and videographer based in the Bay Area, and
-            a senior camera operator for the UC Davis Department of Engineering.
-            My commercial work spans real estate, solar, nonprofits, and brands,
-            along with portraits and travel.
+            I&rsquo;m Jonah Kunis, a photographer and videographer based in the
+            Bay Area. I&rsquo;m also a Managerial Economics student at UC Davis
+            with a minor in Computer Science, graduating in June 2027. My work
+            covers making the content, deciding how it reaches customers, and
+            measuring what worked.
           </p>
           <p>
-            Photography started for me at 12, after &ldquo;borrowing&rdquo; my
-            mom&rsquo;s old Nikon D5000. My style is minimal and warm, with
-            natural light, muted pastels, and room for subjects to breathe.
-            Landscapes and people are what I enjoy shooting most.
+            On the creative side, I shoot commercial work for real estate,
+            solar, nonprofits, and brands, along with portraits and travel. My
+            style is minimal and warm, with natural light, muted pastels, and
+            room for subjects to breathe. I got into photography at 12 by
+            borrowing my mom&rsquo;s Nikon D5000. She didn&rsquo;t get it back
+            for a long time.
           </p>
           <p>
-            In summer 2026, I worked on go-to-market and content for{" "}
+            I&rsquo;m also the Senior Camera Operator for the UC Davis College
+            of Engineering&rsquo;s distance-learning program. I film graduate
+            sessions across UC Davis and Lawrence Livermore and have trained
+            four new operators since starting in 2023.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4 text-body tracking-body">
+          <h2 className="text-title font-bold tracking-title">Selected work</h2>
+          <p>
             <Link
               href="/work/smarter-window-2026"
-              className={`text-inherit no-underline ${LINK_HOVER}`}
+              className={`font-bold text-inherit no-underline ${LINK_HOVER}`}
             >
-              Smarter Window
-            </Link>
-            , a smart-home tech startup. Two founder Reddit posts built on my
-            strategy drove 60% of their pre-launch reservations. On the video
-            side of things, I shot and edited their founder documentary and
-            launch demos.
+              Smarter Window, Summer 2026.
+            </Link>{" "}
+            I led go-to-market strategy and content for this smart-home startup
+            before launch. Two founder Reddit posts built on my strategy drove
+            60% of pre-launch reservations. I also shot and edited the founder
+            documentary and multiple launch demos.
           </p>
           <p>
-            I&rsquo;m graduating from UC Davis in 2027 with a degree in
-            Managerial Economics and a minor in CS, and I want to work in
-            go-to-market strategy. My pressure-washing business,{" "}
+            <a
+              href="https://github.com/jkpilot747/consignment-pricing-analysis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-bold text-inherit no-underline ${LINK_HOVER}`}
+            >
+              Consignment pricing analysis, September 2026.
+            </a>{" "}
+            I analyzed 17 years of point-of-sale data from my family&rsquo;s
+            10,000-square-foot furniture consignment store, where I work on
+            e-commerce and operations. The first month decides most outcomes. A
+            new item has about a 50% chance of selling in its first month, but
+            once it&rsquo;s been on the floor for six months, that chance drops
+            to about 4%. Mainstream brands also outsold high-end ones: about 84%
+            of West Elm and Crate &amp; Barrel pieces sold within 90 days,
+            compared with roughly 50% for Knoll and Restoration Hardware. My dad
+            now sources even more of the fast-selling categories, and I&rsquo;ve
+            set a baseline to measure whether sell-through improves by February.
+          </p>
+          <p>
             <a
               href="https://www.instagram.com/propowerwashes"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-inherit no-underline ${LINK_HOVER}`}
+              className={`font-bold text-inherit no-underline ${LINK_HOVER}`}
             >
-              @propowerwashes
-            </a>
-            , did 60 jobs and $20,000 over two summers, with about 95% of
-            clients coming from Nextdoor with zero ad spend.
+              @propowerwashes.
+            </a>{" "}
+            I started and ran a pressure-washing business that completed 60 jobs
+            and brought in $20,000 over two summers. About 95% of clients came
+            from Nextdoor with zero ad spend.
           </p>
+        </div>
+
+        <div className="flex flex-col gap-4 text-body tracking-body">
+          <h2 className="text-title font-bold tracking-title">
+            Outside of work
+          </h2>
           <p>
-            Outside of work, drums have been a part of my life since I was 14
-            (after some years of classical piano), along with climbing, skiing,
-            working out, and a lot of espresso. My music Instagram is{" "}
+            I&rsquo;ve played drums since 14, after 5 years of classical piano
+            training. I also climb, ski, lift, and drink a lot of espresso. My
+            music is on Instagram at{" "}
             <a
               href="https://www.instagram.com/jonahkmusic"
               target="_blank"
@@ -103,9 +138,9 @@ export default async function InfoPage() {
             .
           </p>
           <p>
-            I&rsquo;m always open to freelance shoots (happy to travel) and
-            looking for full-time marketing roles in the Bay Area. Send me an
-            email at{" "}
+            I&rsquo;m always open to freelance shoots and happy to travel.
+            I&rsquo;m also looking for marketing and marketing analytics roles
+            in the Bay Area after I graduate. Email me at{" "}
             <a
               href="mailto:jonahkunis@gmail.com"
               target="_blank"
