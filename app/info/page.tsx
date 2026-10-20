@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Panel } from "@/app/_components/panel";
 import { getRecentlyPlayed, getTopTracks } from "@/lib/spotify";
 import { SpotifyTicker } from "./_components/spotify-ticker";
@@ -73,12 +72,14 @@ export default async function InfoPage() {
         <div className="flex flex-col gap-4 text-body tracking-body">
           <h2 className="text-title font-bold tracking-title">Selected work</h2>
           <p>
-            <Link
-              href="/work/smarter-window-2026"
+            <a
+              href="https://smarter-window.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`font-bold text-inherit no-underline ${LINK_HOVER}`}
             >
               Smarter Window, Summer 2026.
-            </Link>{" "}
+            </a>{" "}
             I led go-to-market strategy and content for this smart-home startup
             before launch. Two founder Reddit posts built on my strategy drove
             60% of pre-launch reservations. I also shot and edited the founder
