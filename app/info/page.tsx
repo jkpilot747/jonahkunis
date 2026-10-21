@@ -3,10 +3,7 @@ import Image from "next/image";
 import { Panel } from "@/app/_components/panel";
 import { getRecentlyPlayed, getTopTracks } from "@/lib/spotify";
 import { SpotifyTicker } from "./_components/spotify-ticker";
-import headshot1 from "@/public/info/jonah-kunis-1.jpg";
-import headshot2 from "@/public/info/jonah-kunis-2.jpg";
-import headshot3 from "@/public/info/jonah-kunis-3.jpg";
-import headshot4 from "@/public/info/jonah-kunis-4.jpg";
+import headshot from "@/public/info/jonah-kunis-headshot.jpg";
 
 export const metadata: Metadata = {
   title: "Info",
@@ -19,9 +16,6 @@ const RECOGNITION = [
   { label: "Visit Montana", date: "Mar 2022" },
   { label: "Canon USA", date: "Jun 2022" },
 ];
-
-// Static imports so Next generates width/height and the blur placeholder.
-const HEADSHOTS = [headshot1, headshot2, headshot3, headshot4];
 
 const LINK_HOVER = "transition-opacity duration-150 hover:opacity-60";
 
@@ -216,18 +210,16 @@ export default async function InfoPage() {
           </div>
         </div>
 
-        <div className="grid max-w-[520px] grid-cols-2 gap-4">
-          {HEADSHOTS.map((src, i) => (
-            <Image
-              key={src.src}
-              src={src}
-              alt={`Jonah Kunis in a vineyard, portrait ${i + 1} of 4`}
-              placeholder="blur"
-              sizes="(min-width: 1024px) 260px, 50vw"
-              quality={90}
-              className="h-auto w-full"
-            />
-          ))}
+        <div className="max-w-[520px]">
+          {/* Static import so Next generates width/height and the blur placeholder. */}
+          <Image
+            src={headshot}
+            alt="Portrait of Jonah Kunis"
+            placeholder="blur"
+            sizes="(min-width: 1024px) 520px, 100vw"
+            quality={90}
+            className="h-auto w-full"
+          />
         </div>
       </main>
     </div>
