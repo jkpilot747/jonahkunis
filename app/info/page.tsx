@@ -39,6 +39,19 @@ export default async function InfoPage() {
           <h1 className="text-title font-bold tracking-title">Info</h1>
         </div>
 
+        <div className="max-w-[520px]">
+          {/* Static import so Next generates width/height and the blur placeholder. */}
+          <Image
+            src={headshot}
+            alt="Portrait of Jonah Kunis"
+            placeholder="blur"
+            priority
+            sizes="(min-width: 1024px) 520px, 100vw"
+            quality={90}
+            className="h-auto w-full"
+          />
+        </div>
+
         <div className="flex flex-col gap-4 text-body tracking-body">
           <p>
             I&rsquo;m Jonah Kunis, a photographer and videographer based in the
@@ -208,18 +221,6 @@ export default async function InfoPage() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="max-w-[520px]">
-          {/* Static import so Next generates width/height and the blur placeholder. */}
-          <Image
-            src={headshot}
-            alt="Portrait of Jonah Kunis"
-            placeholder="blur"
-            sizes="(min-width: 1024px) 520px, 100vw"
-            quality={90}
-            className="h-auto w-full"
-          />
         </div>
       </main>
     </div>
