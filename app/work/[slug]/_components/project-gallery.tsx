@@ -207,6 +207,30 @@ export function ProjectGallery({
                 ))}
                 </div>
               </div>
+            ) : chunk.items.length === 2 && layout !== "single-column" ? (
+              // Exactly two stills (typically the stub left between a video
+              // and the start of a run) can't balance in the masonry: the
+              // columns end at different heights, and the taller tile's
+              // bottom margin is truncated at the column break, so it sits
+              // flush against whatever follows. Lay the pair out as one
+              // justified row instead — each tile's flex-grow is its aspect
+              // ratio, which makes both render at the same height.
+              <div key={chunkIndex} className="flex flex-col lg:flex-row lg:gap-4">
+                {chunk.items.map(({ image, index }) => (
+                  <div
+                    key={image.src}
+                    className="min-w-0 lg:basis-0"
+                    style={{ flexGrow: image.w / image.h }}
+                  >
+                    <GalleryTile
+                      image={image}
+                      onClick={() => setOpenIndex(index)}
+                      projectSlug={projectSlug}
+                      projectTitle={projectTitle}
+                    />
+                  </div>
+                ))}
+              </div>
             ) : (
               <div
                 key={chunkIndex}

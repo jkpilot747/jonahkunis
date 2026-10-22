@@ -1369,3 +1369,20 @@ instead of running past it. 16:9 clips on normal windows never hit the cap.
 **Description links are underlined** (see Interaction, item 4, in
 `docs/design-brief.md`).
 
+
+---
+
+## Status as of 2026-10-22
+
+**Bay Home video swapped.** `bayhomevideo_2` replaced the "Bay Home by
+Drone" clip in the same slot, uncaptioned. The drone source is in
+`raw/bay-home-consignment-2022/_excluded/`.
+
+**Two-still pairs render as a justified row** (`ProjectGallery`). A
+masonry chunk of exactly two stills (the stub between a video and the
+start of a run) can't balance in `columns-2`: the columns end at different
+heights, and the taller tile's bottom margin is truncated at the column
+break, so it sat flush against the video below. The pair now lays out as
+one flex row with each tile's `flex-grow` set to its aspect ratio, so both
+render at the same height. This supersedes the 2026-09-13 rule of thumb
+about photo counts above a video for the two-photo case.
